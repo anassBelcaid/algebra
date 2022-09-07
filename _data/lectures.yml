@@ -4,7 +4,7 @@
     <strong> Sets and Applications</strong>
   slides: 
   # notes: https://anassbelcaid.github.io/CS311/overview/
-  notes : https://anassbelcaid.github.io/algebra/slides/01_ensembles/01_ensembles.pdf/
+  notes : https://anassbelcaid.github.io/algebra/slides/01_ensembles/01_ensembles.pdf
   readings:
   topics:
     - Sets 
@@ -14,32 +14,23 @@
     <a href="https://anassbelcaid.github.io/algebra/homeworks/01_ensembles/01_ensembles.pdf"> HW 1  </a>
 -
 
-# - date: M 10/11
-#   lecturer:
-#   title: >
-#     <strong>C++ Inheritance </strong>
-#   slides: 
-#   video: 
-#   # notes : http://127.0.0.1:4000/inheritance/
-#   notes : https://anassbelcaid.github.io/CS311/inheritance/
-#   readings:
-#     - G Chapter 10.
-#     - <a href="https://en.wikipedia.org/wiki/C%2B%2B11#Object_construction_improvement"> C++ Inheritance Spec</a>
-#     - <a href="https://www.tutorialspoint.com/uml/uml_class_diagram.htm"> Class Diagram Tutorial</a>
-#     - <a href="https://www.learncpp.com/cpp-tutorial/constructors-and-initialization-of-derived-classes"> More on Constructors </a>
-#     - <a href="https://data-flair.training/blogs/inheritance-in-cpp"> Types of Inheritance </a>
+- date: M 10/11
+  lecturer:
+  title: >
+    <strong>Groups and Rings </strong>
+  slides: 
+  video: 
+  # notes : http://127.0.0.1:4000/inheritance/
+  notes : https://anassbelcaid.github.io/algebra/slides/02_groupes/02_groupes.pdf
+  readings:
+  topics:
+    - Groups
+    - Internal  law.
+    - Isomorphism.
+  homework:
+    <a href="https://anassbelcaid.github.io/algebra/homeworks/02_groupes/02_groupes.pdf"> HW 2  </a>
 
-#     # - Bagnell. <a href="http://www.ri.cmu.edu/publication_view.html?pub_id=7891" target="_blank">An Invitation to Imitation</a>
-#     # - Bojarski et al. <a href="https://arxiv.org/abs/1604.07316" target="_blank">End to End Learning for Self-Driving Cars</a>
-#     # - Bansal et al. <a href="https://arxiv.org/abs/1812.03079" target="_blank">ChauffeurNet&#58; Learning to Drive by Imitating the Best and Synthesizing the Worst</a>
-#     # - De Haan et al. <a href="https://arxiv.org/abs/1905.11979" target="_blank">Causal Confusion in Imitation Learning</a>
-#   topics:
-#     - Inheritance
-#     - Special keys
-#     - Drawbacks
-#   homework:
-#     <a href="https://anassbelcaid.github.io/CS311/hslaimages/"> HSLA Images </a>
-
+-
 
 # - date: M 10/18
 #   lecturer:
