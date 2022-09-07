@@ -57,7 +57,7 @@
     <strong> Vectorials Spaces/strong>
   slides: 
   video: 
-  notes : https://anassbelcaid.github.io/algebra/slides/04_espaces_vectoriels/04_espaces_vectoriels.pdf
+  notes : https://anassbelcaid.github.io/algebra/slides/04_espaces_vectoriels/04_vectorial_space.pdf
   readings:
     # - <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html" target=  "_blank">Amazon EC2 Basics</a>
     # - <a href="http://gym.openai.com/docs/" target=  "_blank">OpenAI Gym Documentation</a>
@@ -74,8 +74,9 @@
     - Indepenence
     - Span of set of vector.
     - Basis construction
+
   homework:
-    <a href="https://anassbelcaid.github.io/algebra/homeworks/04_epsaces_vectoriels/04_espaces_vectoriels.pdf"> HW 4  </a>
+    <a href="https://anassbelcaid.github.io/algebra/homeworks/04_epsaces_vectoriels/04_vectorial_space.pdf"> HW 4  </a>
 -
 
 # - date: M 11/01
