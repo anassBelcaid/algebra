@@ -87,37 +87,29 @@
 
   topics:
     - Vectorial Space
-    - Linear Applications
     - Indepenence
     - Span of set of vector.
     - Basis construction
 
   homework:
     <a href="https://anassbelcaid.github.io/algebra/homeworks/04_epsaces_vectoriels/04_vectorial_space.pdf"> HW 4  </a>
+
+- date: M 11/01
+  lecturer:
+  title: >
+    <strong> Exam</strong>
+  slides: 
+  video: 
+  notes : https://anassbelcaid.github.io/algebra/2020-2021/exam/exam.pdf
+  readings:
+    # - Goodfellow et al. <a href="https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf" target="_blank">Generative Adversarial Networks</a>
+    # - Ho et al. <a href="https://arxiv.org/abs/1606.03476" target="_blank">Generative Adversarial Imitation Learning</a>
+  topics: 
+    - Exam
+  homework:
+    # - <a href="https://anassbelcaid.github.io/CS311/calculator/"> Calculator </a>
+
 -
-
-# - date: M 11/01
-#   lecturer:
-#   title: >
-#     <strong> Signals and Slots</strong>
-#   slides: 
-#   video: 
-#   notes: https://anassbelcaid.github.io/CS311/signals/
-#   readings:
-#     - <b>(BS) Chapter 2-2</b>
-#     - <a href="https://doc.qt.io/qt-5/signalsandslots.html"> Official documentation </a>
-#     - <a href="https://zetcode.com/gui/qt5/eventsandsignals/"> ZetCode Tutorial </a>
-#     - <a href="http://guillaume.belz.free.fr/doku.php?id=les_signaux_et_slots_dans_qt5"> French Tutorial </a>
-#     # - Goodfellow et al. <a href="https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf" target="_blank">Generative Adversarial Networks</a>
-#     # - Ho et al. <a href="https://arxiv.org/abs/1606.03476" target="_blank">Generative Adversarial Imitation Learning</a>
-#   topics: 
-#     - Signals
-#     - Click events.
-#     - Mouse Events.
-#     - Timer events.
-#   homework:
-#     - <a href="https://anassbelcaid.github.io/CS311/calculator/"> Calculator </a>
-
 # - date: W 10/11
 #   lecturer:
 #   title: >
