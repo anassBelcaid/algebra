@@ -1,0 +1,145 @@
+%{{{ Header
+\documentclass[exam]{cs188}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage{mynotations}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{amsmath,mathrsfs}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{mathcomp}
+\usepackage{tabularx}
+\usepackage{wasysym}
+\usepackage{pbox}
+\usepackage{pgfplots}
+% \usepackage{algorithmic,algorithm}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes}
+\usepackage[normalem]{ulem}
+\usepackage{multirow}
+% \usepackage[inline]{enumitem}
+%}}}
+
+\title{Examen}
+\begin{document}
+\newpage
+
+% {{{ Questions de cours %
+\begin{problem}[4]{(*) Questions de cours}
+    \begin{enumerate}
+        \item  Soit $E$ un $\Rr$-espace vectoriel et soit $\mathcal{A}=\left\{v_1,v_2,\ldots,v_p\right\}$ une famille
+            de $E$.
+            \begin{itemize}
+                \item Donner la définition que la famille $\mathcal{A}$ est
+                    \textbf{génératrice}.
+                \item On suppose que $\mathcal{A}$ est génératrice, donner la
+                    relation entre $\Card{\mathcal{A}}=k$ et $\dim E=n$.
+            \end{itemize}
+        \item Soit $F$ un autre $\Rr$-espace vectoriel et $f:E\longrightarrow F$
+            une application.
+
+            \begin{itemize}
+                \item Donner la définition de $f$ est une \textbf{application
+                    linéaire}. 
+                \item On suppose que $f$ est linéaire, Définir $\ker f$.
+                \item Donner une condition sur $\ker f$ pour que $f$ soit injective.
+            \end{itemize}
+        \item Soient $E$ et $F$ deux ensembles tel que $\Card E=3$ et $\Card
+            F=5$. 
+            \begin{itemize}
+                \item Quel est le nombre d'\textbf{injections} de $E$ vers $F$?
+                \item Quel sera le cardinal des sous ensembles de $F$ contenant
+                    juste \textbf{deux} éléments.
+            \end{itemize}
+    \end{enumerate}
+\end{problem}
+% }}} 
+% Groupe {{{ %
+\begin{problem}[6]{(*) Groupes}
+   \begin{enumerate}
+       \item Sur $E = \Rr\backslash\{1\}$, on définit sur $E$ la loi interne $*$
+           par:
+           \begin{equation}
+           \forall x,y\in E^2\;\quad     x\;*\;y  = x\;+\;y\;-\;xy
+           \end{equation}
+        \begin{itemize}
+            \item Montrer que $\left(E\;,\;*\right)$ est un groupe.
+        \end{itemize}
+    \item Montrer que la loi interne $*$ définie sur $\Rr$ par 
+        $$
+        \forall a,b\in \Rr^2\;\quad\;a\;*\; b = \ln\left(e^a + e^b\right)
+        $$
+        n'admet pas un élément neutre.
+    \item Soit $\left(G,\;.\right)$ un groupe dont l'élément neutre est noté
+        $e$. On suppose qu'on possède la propriété suivante:
+
+        \begin{equation*}
+           \forall x\in G\;\quad\; x^2 = x\;.\;x = e 
+        \end{equation*}
+        Montrer que $(G,\;.)$ est abélien.
+    \item On considère $\left(G,\;.\right)$ un groupe abélien. Montrer que
+        l'application:
+        $$
+        \begin{array}{llll}
+            \Phi: &G&\longrightarrow &G\\
+                  &x &\longrightarrow& x^{-1}
+    \end{array}
+        $$
+
+
+        est un morphisme de groupe ( $x^{-1}$ est le symétrique de $x$).
+   \end{enumerate} 
+   
+\end{problem}
+% }}} Groupe %
+\newpage
+% Polynomes {{{ %
+\begin{problem}[6]{(**) Polynômes}
+On considère le polynôme $P=x^3-5x^2 + 8x-4$.
+
+\begin{enumerate}
+    \item Montrer que $\alpha=2$ est une racine de $P$.
+    \item Quel est le degré de multiplicité de $\alpha$.
+    \item Donner une décomposition en $\Rr[X]$ de $P$.  
+    \item On considère la fraction rationnelle $$F=\dfrac{x+1}{P}.$$ Donner la
+        décomposition \textbf{en éléments simples}  de $F$.
+\end{enumerate}
+\end{problem}
+% }}} Polynomes %
+% Espaces vectoriels {{{ %
+\begin{problem}[6]{(**) Espaces vectoriels}
+  \begin{enumerate}
+      \item On considère l'ensemble:
+          \begin{equation}
+              E = \left\{ (x,y,z,t)\in\Rr^4\;|\; x+y=z=t=0\right\}
+          \end{equation}
+          \begin{itemize}
+              \item Prouvez que $E$ est un sous espace vectoriel de $\Rr^4$.
+              \item Trouver un vecteur $u_1\in \Rr^4$ tel que $E =
+                  \text{Vect}(u_1)$.
+              \item Donner une base et la dimension de $E$.
+          \end{itemize}
+      \item On considère l'espace vectoriel $F\subset \Rr^4$ défini par:
+          \begin{equation}
+              F = \left\{(a,\; a+b,\;-a+c,\;c)\;|\;(a,b,c)\in \Rr^3\right\}
+          \end{equation}
+          \begin{itemize}
+              \item Trouver trois vecteurs $u_2, u_3$ et $u_4$ tel que
+                  $F=\text{Vect}(u_2,u_3,u_4)$.
+              \item Donner une base et la dimension de $F$.
+          \end{itemize}
+      \item Démontrer que $E$ et $F$ sont \textbf{supplémentaires} dans $\Rr^4$.
+  \end{enumerate}  
+\end{problem}
+% }}} Espaces vectoriels %
+
+\end{document}

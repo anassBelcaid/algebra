@@ -54,7 +54,24 @@
 - date: M 10/25
   lecturer:
   title: >
-    <strong> Vectorials Spaces/strong>
+    <strong>Mid_term</strong>
+  slides: 
+  video: 
+  notes : https://anassbelcaid.github.io/algebra/2020-2021/mid_term/05_01_2021_midterm.pdf
+  readings:
+    # - G Chapter 10.
+    # - <a href="https://www.cplusplus.com/doc/oldtutorial/typecasting/"> Type Casting </a>
+    # - <a href="https://en.wikibooks.org/wiki/C%2B%2B_Programming/Classes/Abstract_Classes"> Abstract classes </a>
+    # - <a href="https://www.udacity.com/blog/2021/07/understanding-polymorphism-in-cpp.html"> Polymorphism tutorial </a>
+  topics:
+    - Test
+  homework:
+    <a href="https://anassbelcaid.github.io/algebra/2020-2021/mid_term/correction/correction.pdf"> Correction  </a>
+
+- date: M 10/25
+  lecturer:
+  title: >
+    <strong> Vectorials Spaces</strong>
   slides: 
   video: 
   notes : https://anassbelcaid.github.io/algebra/slides/04_espaces_vectoriels/04_vectorial_space.pdf

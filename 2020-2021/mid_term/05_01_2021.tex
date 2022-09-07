@@ -1,0 +1,187 @@
+%{{{ Header
+\documentclass[exam]{cs188}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage{polynom}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{amsmath,mathrsfs}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{mathcomp}
+\usepackage{tabularx}
+\usepackage{wasysym}
+\usepackage{pbox}
+\usepackage{pgfplots}
+% \usepackage{algorithmic,algorithm}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes}
+\usepackage[normalem]{ulem}
+\usepackage{multirow}
+% \usepackage[inline]{enumitem}
+%}}}
+
+% Linkes {{{ %
+%http://vekemans.free.fr/L1_algebre/TD1.pdf
+% }}} Linkes %
+\title{Contrôle continue}
+\begin{document}
+\newpage
+% Ensemble - Applications - Relations {{{ %
+% Proof by double inclusion {{{ %
+\begin{problem}[2]{* Egalité Ensemble}
+    \label{q1}
+    Soit $E$ un ensemble. Soient $A$, $B$ et $C$ trois parties de $E$. Montrer
+    (en utilisant une double inclusion) que:
+
+    \begin{equation}
+      \label{eq:delta_distribution}
+      \left(A\Delta B\right)\cap C = \left(A\cap C \right) \Delta \left( B\cap
+      C\right).
+    \end{equation}
+  \end{problem}
+% }}} Proof by double inclusion %
+% Same proof using  {{{ %
+  \begin{problem}[2]{* Fonction caractéristique}
+    On cherche maintenant à prouver l'égalité de l'équation \eqref{eq:delta_distribution}
+    en utilisant les fonctions caractéristiques:
+    $$\pi_A(x) =\left\{\begin{array}{ll} 1 & x\in A\\ 0 & x\notin A
+    \end{array}\right.$$ On accepte que si $\pi_A = \pi_B$, alors $A = B$.
+    \begin{enumerate}
+      \item Calculer, en fonction de $\pi_A, \pi_B$ et $\pi_C$, la fonction
+        caractéristique de $(A\Delta B)\cap C$.
+      \item Même question pour l'ensemble $(A\cap C)\Delta (B \cap C)$.
+      \item Endéduire le résultat de la question (Q1).
+    \end{enumerate}
+\end{problem}
+% }}} Same proof using  %
+% Injection Surjection {{{ %
+\begin{problem}[2]{** Injection / Surjection}
+ Soit $E$ un ensemble et $f: E\longrightarrow E$ une application tel que 
+ \begin{equation}
+   \label{eq:equality}
+    f\circ f\circ f = f
+ \end{equation}
+ \begin{itemize}
+   \item Montrer que si $f$ est injective, alors aussi $f$ est
+     \textbf{surjective}.
+   \item Inversement, si $f$ est surjective, alors $f$ est
+     \textbf{injective}.
+ \end{itemize} 
+\end{problem}
+% }}} Injection Surjection %
+% Relation  {{{ %
+\begin{problem}[2]{* Relation d'équivalence}
+  On définit sur $\mathbb{R}^2$ la relation $\mathcal{R}$ par:
+  \begin{equation}
+    \label{eq:relation1}
+    (x_1,y_1)\;\mathcal{R}\;(x_2, y_2) \iff x_1-5y_2 = x_2 - 5y_1
+  \end{equation}
+  \begin{enumerate}
+    \item Montrer que $\mathcal{R}$ est une relation
+    d'\textbf{équivalence}.
+  \item Pour un point $(a,b)$ dans le plan, Déterminer l'ensemble
+    $\text{Cl}\left(\left(a,b\right)\right)$.
+  \end{enumerate}
+\end{problem}
+% }}} Relation  %
+\newpage
+% relation d'ordre total {{{ %
+\begin{problem}[2]{* Relation d'ordre}
+  Pour deux points $(x_1, y_1)$, $(x_2, y_2)$ dans le plan $\mathbb{R}^2$, on
+  définit la relation $\mathcal{R}$ par:
+
+  \begin{equation}
+    \label{eq:order}
+    \forall (x_1,y_1)\;\;\mathcal{R}\;\;(x_2,y_2)\;\;\iff\;\;x_1\leq
+    x_2\;\;\text{et}\;\; y_1\leq y_2
+  \end{equation}
+  \begin{enumerate}
+    \item Démontrer que $\mathcal{R}$ est une relation d'ordre.
+    \item Pour un point $(a,b)\in \mathbb{R}^2$, représenter graphiquement l'ensemble des
+      éléments supérieurs à $(a,b)$ et ceux  qui sont inférieurs.
+    \item Cette relation est elle totale?
+  \end{enumerate}
+\end{problem}
+% }}} relation d'ordre total %
+% }}} Ensemble Application Relation %
+% Questions groupes {{{ %
+% Vérification groupes {{{ %
+\begin{problem}[2]{** Vérification groupe}
+  Soit $G = \mathbb{R}\times\mathbb{R}^{*}$ et $*$ la loi définie comme suit:
+
+  \begin{equation}
+    \label{eq:loi_interne}
+    (x_1, y_1)*(x_2,y_2)= \left( x_2 y_1 + \dfrac{x_1}{y_2},\;y_1y_2\right)
+  \end{equation}
+
+  \begin{enumerate}
+    \item Vérifier que $*$ est un loi interne dans $G$.
+    \item La loi $*$ est-elle associative? Elle est commutative?
+    \item A-t-on un élément neutre dans $\left(G,*\right)$?
+    \item $\left(G, *\right)$ est-il un groupe?
+  \end{enumerate}
+\end{problem}
+% }}}  Vérification groupes %
+% Automorphisme antérieur {{{ %
+\begin{problem}[4]{*** Automorphisme antérieur}
+  Soit $(G, .) $ un groupe. Pour chaque élément $a \in G$ on note la fonction
+  $\tau_a$ définie comme suit:
+
+  \begin{equation}
+    \label{eq:tau}
+    \tau_a: \begin{array}{lll}
+      G&\longrightarrow  & G\\
+      x&\longrightarrow & a^{-1}.x.a
+    \end{array}
+  \end{equation}
+
+  \begin{enumerate}
+    \item Démontrer que $\forall a \in G, \quad \tau_a$ est un morphisme de
+      groupe.
+    \item Vérifier que $\forall a, b \in G,\quad \tau_a\circ\tau_b=\tau_{a.b}$.
+
+    \item Montrer que $\forall a\in G \quad \tau_a$ est bijective. Déterminer sa
+      fonction réciproque.
+    \item En déduire que l'ensemble de ces morphismes $\Theta=\left\{\tau_a\;,\;
+      a\in G\right\}$ muni de la \textbf{composition}  est un groupe.
+  \end{enumerate}
+
+\end{problem}
+% }}} Automorphisme antérieur %
+% }}} Questions groupes %
+% Polynomes {{{ %
+% PGCD {{{ %
+\begin{problem}[]{** PGCD}
+  \begin{question}[2]
+  Soit $2x^4+2x^3-2x-2$ et $Q=-x^4+1$ deux polynômes dans $\mathbb{R}[X]$.
+
+  \begin{enumerate}
+    \item Soit $D= \text{PGCD}(P,Q)$,  déterminer $D$ en spécifiant les étapes de calcul.
+  \end{enumerate}
+\end{question}
+  % \polylonggcd{2x^4+2x^3-2x-2}{-x^4+1} 
+
+\begin{question}[2]
+  On cherche deux polynômes $U$ et $V$ tel que 
+  \begin{equation}
+    U(2x^4+2x^3-2x-2) + V(-x^4+1) = \underbrace{x^3-x}_{C} 
+  \end{equation}
+  \begin{enumerate}
+    \item Démontrer que $C$ est un \textbf{multiple} de $D$.
+
+    \item Calculer $U$ et $V$.
+  \end{enumerate}
+ \end{question} 
+\end{problem}
+% }}} PGCD %
+% }}} Polynomes %
+\end{document}
