@@ -12,7 +12,6 @@
     - Relations
   homework:
     <a href="https://anassbelcaid.github.io/algebra/homeworks/01_ensembles/01_ensembles.pdf"> HW 1  </a>
--
 
 - date: M 10/11
   lecturer:
@@ -30,26 +29,27 @@
   homework:
     <a href="https://anassbelcaid.github.io/algebra/homeworks/02_groupes/02_groupes.pdf"> HW 2  </a>
 
--
 
-# - date: M 10/18
-#   lecturer:
-#   title: >
-#     <strong>Polymorphism and Abstraction</strong>
-#   slides: 
-#   video: 
-#   notes: https://anassbelcaid.github.io/CS311/polymorphism/
-#   readings:
-#     - G Chapter 10.
-#     - <a href="https://www.cplusplus.com/doc/oldtutorial/typecasting/"> Type Casting </a>
-#     - <a href="https://en.wikibooks.org/wiki/C%2B%2B_Programming/Classes/Abstract_Classes"> Abstract classes </a>
-#     - <a href="https://www.udacity.com/blog/2021/07/understanding-polymorphism-in-cpp.html"> Polymorphism tutorial </a>
-#   topics:
-#     - Pointers
-#     - virtual methods
-#     - Abstraction
-#   homework:
-#     - <a href="https://anassbelcaid.github.io/CS311/shapes/"> Drawing shapes </a>
+- date: M 10/18
+  lecturer:
+  title: >
+    <strong>Polynomials</strong>
+  slides: 
+  video: 
+  notes : https://anassbelcaid.github.io/algebra/slides/03_polynomes/03_polynomes.pdf
+  readings:
+    # - G Chapter 10.
+    # - <a href="https://www.cplusplus.com/doc/oldtutorial/typecasting/"> Type Casting </a>
+    # - <a href="https://en.wikibooks.org/wiki/C%2B%2B_Programming/Classes/Abstract_Classes"> Abstract classes </a>
+    # - <a href="https://www.udacity.com/blog/2021/07/understanding-polymorphism-in-cpp.html"> Polymorphism tutorial </a>
+  topics:
+    - Polynomials
+    - Roots
+    - Factorization
+    - Fractions
+  homework:
+    <a href="https://anassbelcaid.github.io/algebra/homeworks/03_polynomes/03_polynomes.pdf"> HW 3  </a>
+-
 
 # - date: M 10/25
 #   lecturer:
