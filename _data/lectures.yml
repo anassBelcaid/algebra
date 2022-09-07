@@ -49,32 +49,34 @@
     - Fractions
   homework:
     <a href="https://anassbelcaid.github.io/algebra/homeworks/03_polynomes/03_polynomes.pdf"> HW 3  </a>
+
+
+- date: M 10/25
+  lecturer:
+  title: >
+    <strong> Vectorials Spaces/strong>
+  slides: 
+  video: 
+  notes : https://anassbelcaid.github.io/algebra/slides/04_espaces_vectoriels/04_espaces_vectoriels.pdf
+  readings:
+    # - <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html" target=  "_blank">Amazon EC2 Basics</a>
+    # - <a href="http://gym.openai.com/docs/" target=  "_blank">OpenAI Gym Documentation</a>
+    # - <a href="https://www.tensorflow.org/guide/low_level_intro" target=  "_blank">The TensorFlow Low Level API</a>
+    # - <a href="https://www.tensorflow.org/guide/keras" target=  "_blank">The TensorFlow High Level (Keras) API</a>
+    # - <b>(BS)  chapter 1</b>
+    # - <a href="https://wiki.qt.io/Qt_for_Beginners"> Qt for beginner </a>
+    # - <a href="https://openclassrooms.com/fr/courses/1894236-programmez-avec-le-langage-c/1900446-positionnez-vos-widgets-avec-les-layouts"> Open Classroom, layout </a>
+    # - <a href="https://zetcode.com/gui/qt5/layoutmanagement/"> ZetCode layouts </a>
+
+  topics:
+    - Vectorial Space
+    - Linear Applications
+    - Indepenence
+    - Span of set of vector.
+    - Basis construction
+  homework:
+    <a href="https://anassbelcaid.github.io/algebra/homeworks/04_epsaces_vectoriels/04_espaces_vectoriels.pdf"> HW 4  </a>
 -
-
-# - date: M 10/25
-#   lecturer:
-#   title: >
-#     <strong> Widgets and  Layouts</strong>
-#   slides: 
-#   video: 
-#   notes : https://anassbelcaid.github.io/CS311/layouts/
-#   readings:
-#     # - <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html" target=  "_blank">Amazon EC2 Basics</a>
-#     # - <a href="http://gym.openai.com/docs/" target=  "_blank">OpenAI Gym Documentation</a>
-#     # - <a href="https://www.tensorflow.org/guide/low_level_intro" target=  "_blank">The TensorFlow Low Level API</a>
-#     # - <a href="https://www.tensorflow.org/guide/keras" target=  "_blank">The TensorFlow High Level (Keras) API</a>
-#     - <b>(BS)  chapter 1</b>
-#     - <a href="https://wiki.qt.io/Qt_for_Beginners"> Qt for beginner </a>
-#     - <a href="https://openclassrooms.com/fr/courses/1894236-programmez-avec-le-langage-c/1900446-positionnez-vos-widgets-avec-les-layouts"> Open Classroom, layout </a>
-#     - <a href="https://zetcode.com/gui/qt5/layoutmanagement/"> ZetCode layouts </a>
-
-#   topics:
-#     - Qmake project
-#     - Basic Widgets
-#     - Layouts
-#   homework:
-#     - <a href="https://anassbelcaid.github.io/CS311/forms/"> Fun with Layouts </a>
-
 
 # - date: M 11/01
 #   lecturer:
