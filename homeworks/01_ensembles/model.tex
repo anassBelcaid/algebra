@@ -1,0 +1,1121 @@
+
+%%%%%%%%%%%%%%%%%% PREAMBULE %%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+%----- Ensembles : entiers, reels, complexes -----
+\newcommand{\Nn}{\mathbb{N}} \newcommand{\N}{\mathbb{N}}
+\newcommand{\Zz}{\mathbb{Z}} \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Qq}{\mathbb{Q}} \newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Rr}{\mathbb{R}} \newcommand{\R}{\mathbb{R}}
+\newcommand{\Cc}{\mathbb{C}} \newcommand{\C}{\mathbb{C}}
+\newcommand{\Kk}{\mathbb{K}} \newcommand{\K}{\mathbb{K}}
+
+%----- Modifications de symboles -----
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
+\newcommand{\llbracket}{\left[\kern-0.15em\left[}
+\newcommand{\rrbracket}{\right]\kern-0.15em\right]}
+\renewcommand{\ge}{\geqslant} \renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant} \renewcommand{\leq}{\leqslant}
+
+%----- Fonctions usuelles -----
+\newcommand{\ch}{\mathop{\mathrm{ch}}\nolimits}
+\newcommand{\sh}{\mathop{\mathrm{sh}}\nolimits}
+\renewcommand{\tanh}{\mathop{\mathrm{th}}\nolimits}
+\newcommand{\cotan}{\mathop{\mathrm{cotan}}\nolimits}
+\newcommand{\Arcsin}{\mathop{\mathrm{arcsin}}\nolimits}
+\newcommand{\Arccos}{\mathop{\mathrm{arccos}}\nolimits}
+\newcommand{\Arctan}{\mathop{\mathrm{arctan}}\nolimits}
+\newcommand{\Argsh}{\mathop{\mathrm{argsh}}\nolimits}
+\newcommand{\Argch}{\mathop{\mathrm{argch}}\nolimits}
+\newcommand{\Argth}{\mathop{\mathrm{argth}}\nolimits}
+\newcommand{\pgcd}{\mathop{\mathrm{pgcd}}\nolimits} 
+
+%----- Structure des exercices ------
+\theoremstyle{definition}
+\newtheorem{exo}{Exercice}
+\newtheorem{ind}{Indications}
+\newtheorem{cor}{Correction}
+
+\newcommand{\exercice}[1]{} \newcommand{\finexercice}{}
+%\newcommand{\exercice}[1]{{\tiny\texttt{#1}}\vspace{-2ex}} % pour afficher le numero absolu, l'auteur...
+\newcommand{\enonce}{\begin{exo}} \newcommand{\finenonce}{\end{exo}}
+\newcommand{\indication}{\begin{ind}} \newcommand{\finindication}{\end{ind}}
+\newcommand{\correction}{\begin{cor}} \newcommand{\fincorrection}{\end{cor}}
+
+\newcommand{\noindication}{\stepcounter{ind}}
+\newcommand{\nocorrection}{\stepcounter{cor}}
+
+\newcommand{\fiche}[1]{} \newcommand{\finfiche}{}
+\newcommand{\titre}[1]{\centerline{\large \bf #1}}
+\newcommand{\addcommand}[1]{}
+\newcommand{\video}[1]{}
+
+%----- Presentation ------
+\setlength{\parindent}{0cm}
+
+\newcommand{\ExoSept}{\textbf{\textsf{Exo7}}}
+\newcommand{\LogoExoSept}{\setlength{\unitlength}{0.6em}
+\begin{picture}(0,0)  \thicklines     \put(0,4){\line(0,1){3}}   \put(0,7){\line(1,0){3}}
+  \put(3,7){\line(0,-1){7}}  \put(0,4){\line(1,0){7}}   \put(3,0){\line(1,0){4}}
+  \put(7,0){\line(0,1){4}}   \put(3,7){\line(4,-3){4}}  \put(7,4){\line(3,4){3}}  
+  \put(10,8){\line(-4,3){4}} \put(3,7){\line(3,4){3}}   \put(4.6,6.8){\mbox{\ExoSept}}
+\end{picture}}
+
+%----- Commandes supplementaires ------
+
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%% ENTETE %%%%%%%%%%%%%%%%%%
+
+\LogoExoSept
+
+%\kern-2em
+\hfill\textsf{Ann\'ee 2018}
+
+\vspace*{0.5ex}
+\hrule\vspace*{1.5ex} 
+\hfil\textsf{\textbf{\Large Exercices de math\'ematiques}}
+\vspace*{1ex} \hrule 
+\vspace*{5ex} 
+
+
+%%%%%%%%%%%%%%%%%% EXERCICES %%%%%%%%%%%%%%%%%%
+% Cette fiche contient les exercices : 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 207 208 209 210 211 212 213 214 215 216 217 218 3030 3031 3032 3033 3034 3035 3036 3037 3038 3039 3040 3041 3042 3043 3044 3045 3046 3047 3048 3049 3050 5103 5104 5105 5112 5113 5117 7011 7012 7013 7014 7015 7016 7017 7018 7019 7020 7021 7022 7023 7024 7025 7035 7036 7037 7038 7039 7040 7041 7042 7043 7044 7045 7046 7186 7187 7188 7189 7190 7191 7192 7193 7194 7195 7196 7197 7198 7199 7200 7201 7202 7203 7204 7205 7206 7207 7208 
+
+
+
+
+\exercice{5112, rouget, 2010/06/30}
+\enonce[**T]
+$A$ et $B$ sont des parties d'un ensemble $E$. Montrer que :
+
+\begin{enumerate}
+\item  $(A\Delta B=A\cap B)\Leftrightarrow(A=B=\varnothing)$.
+\item  $(A\cup B)\cap(B\cup C)\cap(C\cup A)=(A\cap B)\cup(B\cap C)\cup(C\cap A)$.
+\item  $A\Delta B=B\Delta A$.
+\item  $(A\Delta B)\Delta C=A\Delta(B\Delta C)$.
+\item  $A\Delta B=\varnothing\Leftrightarrow A=B$.
+\item  $A\Delta C=B\Delta C\Leftrightarrow A=B$.
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\correction
+\begin{enumerate}
+ \item  Si $A=B=\varnothing$ alors $A\Delta B=\varnothing=A\cap B$.
+Si $A\Delta B=A\cap B$, supposons par exemple $A\neq\varnothing$.
+Soit $x\in A$. Si $x\in B$, $x\in A\cap B=A\Delta B$ ce qui est absurde et si $x\notin B$, $x\in A\Delta B=A\cap B$ ce
+qui est absurde. Donc $A=B=\varnothing$. Finalement, $A\Delta B=A\cap B\Leftrightarrow A=B=\varnothing$.
+
+ \item  Par distributivité de $\cap$ sur $\cup$,
+
+\begin{align*}
+(A\cup B)\cap(B\cup C)\cap(C\cup A)&=((A\cap B)\cup(A\cap C)\cup(B\cap B)\cup(B\cap C))\cap(C\cup A)\\
+ &=((A\cap C)\cup B)\cap(C\cup A)\;(\mbox{car}\;B\cap B=B\;\mbox{et}\;A\cap B\subset B\;\mbox{et}\;B\cap C\subset B)\\
+ &=\left((A\cap C)\cap C\right)\cup\left((A\cap C)\cap A\right)\cup\left(B\cap C\right)\cup\left(B\cap A\right)\\
+ &=(A\cap C)\cup(A\cap C)\cup(B\cap C)\cup(B\cap A)\\
+ &=(A\cap B)\cup(B\cap C)\cup(C\cap A)
+\end{align*}
+
+ \item  $A\Delta B=(A\setminus B)\cup(B\setminus A)=(B\setminus A)\cup(A\setminus B)=B\Delta A$.
+
+ \item 
+\begin{align*}
+x\in(A\Delta B)\Delta C&\Leftrightarrow x\;\mbox{est dans}\;A\Delta B\;\mbox{ou dans}\;C\;\mbox{mais pas dans les deux}\\
+ &\Leftrightarrow((x\in A\;\mbox{et}\;x\notin B\;\mbox{et}\;x\notin C)\;\mbox{ou}\;(x\in B\;\mbox{et}\;x\notin
+A\;\mbox{et}\;x\notin C)\;\mbox{ou}\;(x\in C\;\mbox{et}\;x\notin A\Delta B)\\
+ &\Leftrightarrow x\;\mbox{est dans une et une seule des trois parties ou dans les trois}.
+\end{align*}
+Par symétrie des rôles de $A$, $B$ et $C$, $A\Delta(B\Delta C)$ est également l'ensemble des éléments qui sont dans une
+et une seule des trois parties $A$, $B$ ou $C$ ou dans les trois. Donc $(A\Delta B)\Delta C=A\Delta(B\Delta C)$. Ces
+deux ensembles peuvent donc se noter une bonne fois pour toutes $A\Delta B\Delta C$.
+
+ \item  $A=B\Rightarrow A\setminus B=\varnothing$ et $B\setminus A=\varnothing\Rightarrow A\Delta B =\varnothing$.
+
+$A\neq B\Rightarrow\exists x\in E/\;((x\in A\;\mbox{et}\;x\notin B)\;\mbox{ou}\;(x\notin A\;\mbox{et}\;
+x\in B))\Rightarrow\exists x\in E/\;x\in(A\setminus B)\cup(B\setminus A)=A\Delta B\Rightarrow A\Delta B\neq\varnothing$.
+
+ \item 
+\begin{itemize}
+\item[$\Leftarrow$] Immédiat.
+\item[$\Rightarrow$] Soit $x$ un élément de $A$.
+
+Si $x\notin C$ alors $x\in A\Delta C=B\Delta C$ et donc $x\in B$ car $x\notin C$.
+
+Si $x\in C$ alors $x\notin A\Delta C=B\Delta C$. Puis $x\notin B\Delta C$ et $x\in C$ et donc $x\in B$. Dans tous les
+cas, $x$ est dans $B$. Tout élément de $A$ est dans $B$ et donc $A\subset B$.
+En échangeant les rôles de $A$ et $B$, on a aussi $B\subset A$ et finalement $A=B$.
+\end{itemize}
+\end{enumerate}
+\fincorrection
+\finexercice
+\exercice{5113, rouget, 2010/06/30}
+\enonce[***IT]
+Soient $(A_i)_{i\in I}$ une famille de parties d'un ensemble $E$ indéxée par un ensemble $I$ et $(B_i)_{i\in I}$ une
+famille de parties d'un ensemble $F$ indéxée par un ensemble $I$. Soit $f$ une
+application de $E$ vers $F$. Comparer du point de vue de l'inclusion les parties suivantes~:
+
+\begin{enumerate}
+\item  $f(\bigcup_{i\in I}A_i)$ et $\bigcup_{i\in I}f(A_i)$ (recommencer par $f(A\cup B)$ si on n'a pas les 
+idées claires).
+\item  $f(\bigcap_{i\in I}A_i)$ et $\bigcap_{i\in I}f(A_i)$.
+\item  $f(E\setminus A_i)$ et $F\setminus f(A_i)$.
+\item  $f^{-1}(\bigcap_{i\in I}B_i)$ et $\bigcap_{i\in I}f^{-1}(B_i)$.
+\item  $f^{-1}(\bigcup_{i\in I}B_i)$ et $\bigcup_{i\in I}f^{-1}(B_i)$.
+\item  $f^{-1}(F\setminus B_i)$ et $E\setminus f^{-1}(Bi)$.
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\correction
+\begin{enumerate}
+ \item  Soit $x\in E$.
+
+\begin{align*}
+x\in f\left(\bigcup_{i\in I}A_i\right)&\Leftrightarrow\exists y\in\bigcup_{i\in I}A_i/\;x=f(y)\Leftrightarrow\exists i\in I,\;\exists y\in
+A_i/\;x=f(y)\\
+ &\Leftrightarrow\exists i\in I/\;x\in f(A_i)\Leftrightarrow x\in\bigcup_{i\in I}f(A_i)
+\end{align*}
+Donc
+
+\begin{center}
+\shadowbox{
+$f\left(\displaystyle\bigcup_{i\in I}A_i\right)=\displaystyle\bigcup_{i\in I}f(A_i)$.
+}
+\end{center}
+
+ \item  Soit $x\in E$.
+
+\begin{align*}
+x\in f\left(\bigcap_{i\in I}A_i\right)&\Leftrightarrow\exists y\in\bigcap_{i\in I}A_i/\;x=f(y)\Leftrightarrow\exists y\in E/\;\forall i\in I,\;
+y\in A_i\;\mbox{et}\;x=f(y)\\
+ &\Rightarrow\forall i\in I/\;\exists y\in A_i/\;x=f(y)\Leftrightarrow\forall i\in I/\;x\in f(A_i)\\
+ &\Leftrightarrow x\in\bigcap_{i\in I}f(A_i)
+\end{align*}
+Donc
+
+\begin{center}
+\shadowbox{
+$f\left(\displaystyle\bigcap_{i\in I}A_i\right)\subset\displaystyle\bigcap_{i\in I}f(A_i)$.
+}
+\end{center}
+L'inclusion contraire n'est pas toujours vraie. Par exemple, pour $x$ réel on pose $f(x)=x^2$ puis $A=\{-1\}$ et
+$B=\{1\}$. $A\cap B=\varnothing$ et donc $f(A\cap B)=\varnothing$ puis $f(A)=f(B)=\{1\}$ et donc $f(A)\cap f(B)=\{1\}$.
+
+ \item  Il n'y a aucune inclusion vraie entre $f(E\setminus A)$ et $F\setminus f(A)$. Par exemple, soit
+$\begin{array}[t]{cccc}
+f~:&\Rr&\rightarrow&\Rr\\
+ &x&\mapsto&x^2
+\end{array}$ et $A=[-1,2]$.
+$f(A)=[0,4]$ et donc $C_{\Rr}(f(A))=]-\infty,0[\cup]4,+\infty[$ mais $f(C_{\Rr}A)=f(]-\infty,-1[\cup]2,+\infty[)
+=]1,+\infty[$ et aucune inclusion entre les deux parties n'est vraie.
+ \item  Soit $x\in E$.
+
+$$x\in f^{-1}\left(\bigcap_{i\in I}B_i\right)\Leftrightarrow f(x)\in\bigcap_{i\in I}B_i\Leftrightarrow\forall i\in I,\;f(x)\in B_i\Leftrightarrow\forall i\in
+I,\;x\in f^{-1}(B_i)\Leftrightarrow x\in\bigcap_{i\in I}f^{-1}(B_i).$$
+Donc,
+
+\begin{center}
+\shadowbox{
+$f^{-1}(\displaystyle\bigcap_{i\in I}B_i)=\displaystyle\bigcap_{i\in I}f^{-1}(B_i)$.
+}
+\end{center}
+
+ \item  Soit $x\in E$.
+
+$$x\in f^{-1}(\bigcup_{i\in I}B_i)\Leftrightarrow f(x)\in\bigcup_{i\in I}B_i\Leftrightarrow\exists i\in I,\;f(x)\in B_i\Leftrightarrow\exists i\in
+I,\;x\in f^{-1}(B_i)\Leftrightarrow x\in\bigcup_{i\in I}f^{-1}(B_i).$$
+Donc,
+
+\begin{center}
+\shadowbox{
+$f^{-1}(\displaystyle\bigcup_{i\in I}B_i)=\displaystyle\bigcup_{i\in I}f^{-1}(B_i)$.
+}
+\end{center}
+ \item  Soit $x\in E$.
+
+$$x\in f^{-1}(F\setminus B_i)\Leftrightarrow f(x)\in F\setminus B_i\Leftrightarrow f(x)\notin B_i\Leftrightarrow x\notin f^{-1}(B_i)\Leftrightarrow x\in
+E\setminus f^{-1}(B_i).$$
+Donc,
+
+\begin{center}
+\shadowbox{
+$f^{-1}(F\setminus B_i)=E\setminus f^{-1}(B_i)$.
+}
+\end{center}
+\end{enumerate}
+\fincorrection
+\finexercice
+\exercice{5117, rouget, 2010/06/30}
+\enonce[***I Théorème de \textsc{Cantor}]
+\begin{enumerate}
+\item   Montrer qu'il existe une injection de $E$ dans $\mathcal{P}(E)$.
+\item  En considérant la partie $A=\{x\in E/\;x\notin f(x)\}$, montrer qu'il n'existe pas de bijection $f$ de $E$
+sur $\mathcal{P}(E)$.
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\correction
+\begin{enumerate}
+ \item  Il y a l'injection triviale $\begin{array}[t]{cccc}
+f~:&E&\rightarrow&\mathcal{P}(E)\\
+ &x&\mapsto&\{x\}
+\end{array}$.
+ \item  Soit $f$ une application quelconque de $E$ dans $\mathcal{P}(E)$. Montrons que $f$ ne peut être
+surjective.
+Soit $A=\{x\in E/\;x\notin f(x)\}$. Montrons que $A$ n'a pas d'antécédent par $f$. Supposons par
+l'absurde que $A$ a un antécédent $a$. Dans ce cas, où est $a$~?~
+
+$$a\in A\Rightarrow a\notin f(a)=A,$$
+ce qui est absurde et
+
+$$a\notin A\Rightarrow a\in f(a)=A,$$
+ce qui est absurde. Finalement, $A$ n'a pas d'antécédent et $f$ n'est pas surjective. On a montré le théorème de
+\textsc{Cantor}~:~pour tout ensemble $E$ (vide, fini ou infini), il n'existe pas de bijection de $E$ sur
+$\mathcal{P}(E)$.
+\end{enumerate}
+\fincorrection
+\finexercice
+\exercice{7011, megy, 2016/08/25}
+
+\enonce 
+Montrer $\forall n \in \N,\: \sum_{k=0}^n k^3=\frac{n^2(n+1)^2}{4}$.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7012, megy, 2016/08/25}
+
+\enonce
+Montrer que pour tout entier $n$ positif, l'entier $10^n - (-1)^n$ est divisible par $11$.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7013, megy, 2016/08/25}
+
+\enonce
+Soit $(u_n)_{n\in\N}$ la suite de nombres réels définie par  $u_0=0$ et pour tout $n$ positif, $u_{n+1} = \sqrt{3u_n+4}$. Montrer que la suite est majorée par $4$.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7014, megy, 2016/08/25}
+
+\enonce
+Soit $(u_n)_{n\in\N}$ la suite de nombres réels définie par  $u_0=0$ et pour tout $n$ positif, $u_{n+1} = 2u_n+1$. Calculer  $u_n$ en fonction de $n$.
+\finenonce
+
+\indication
+Calculer les premiers termes de la suite.
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7015, megy, 2016/08/25}
+
+\enonce
+Soit $(u_n)_{n\in\N}$ la suite de nombres réels définie par $u_0=1$, $u_1=2$ et pour tout $n$ positif, $u_{n+2} = 5u_{n+1}-6u_n$. Calculer  $u_n$ en fonction de $n$.
+\finenonce
+
+\indication
+Calculer les premiers termes de la suite.
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7016, megy, 2016/08/25}
+
+\enonce
+Soit $(u_n)_{n\in\N}$ la suite de nombres réels définie par $u_0=1$, $u_1=1$ et pour tout $n$ positif, $u_{n+2} = u_{n+1}+\frac{2}{n+2}u_n$. Montrer : $\forall n\in \N^*, \: 1\leq u_n \leq n^2$.
+\finenonce
+
+\indication
+Récurrence double.
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7017, megy, 2016/08/25}
+
+\enonce 
+Montrer que pour tout $n\in \N$, la somme des $n$ premiers entiers positifs impairs est toujours le carré d'un entier.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7018, megy, 2016/08/25}
+
+\enonce 
+Montrer : $\forall u\in \R, \forall n\in \N, |\sin(nu)|\leq n|\sin(u)|$.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7019, megy, 2016/08/25}
+
+\enonce
+% Bernoulli amélioré
+\begin{enumerate}
+\item Soit $a \in \R_+$. Montrer $ \forall n\in\N^*,\:
+(1+a)^n \geq 1+na + \frac{n(n-1)}{2}a^2$.
+
+\item Soit $(u_n)_{n\in\N}$ la suite définie par $u_n = \frac{3n}{3^n}$. Montrer que pour tout $n\in\N^*$, on a $0\leq u_n \leq\frac{3n}{2n^2+1}$. 
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7020, megy, 2016/08/25}
+
+\enonce
+Soit $a\in]0,\pi/2[$, et définissons une suite réelle par $u_0=2\cos(a)$ et pour tout $n\in\N$, $u_{n+1}=\sqrt{2+u_n}$. Montrer que pour tout $n\in\N$, on a $u_n=2\cos\left(\frac{a}{2^n}\right)$.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7021, megy, 2016/08/25}
+\enonce 
+%(Bac Antilles-Guyane 2005)
+Définissons une suite par $u_0=1$ et pour tout $n \in\N$, $u_{n+1} = \frac12 u_n+n-1$. 
+\begin{enumerate}
+\item Démontrer que pour tout $n\geq 3$, $u_n$ est positif. En déduire que pour tout $n\geq 4$, on a $u_n\geq n-2$. En déduire la limite de la suite.
+\item Définissons maintenant la suite $v_n=4u_n-8n+24$. Montrer que la suite $(v_n)$ est une suite géométrique, donner son premier terme et sa raison. Montrer que pour tout $n\in \N, u_n = 7\left(\frac{1}{2}\right)^n+2n-6$. Remarquer que $u_n$ est la somme d'une suite géométrique et d'une suite arithmétique dont on précisera les raisons et les premiers termes. En déduire une formule pour la quantité $u_0+u_1+...+u_n$ en fonction de l'entier $n$.
+\end{enumerate}
+\finenonce
+\noindication
+\nocorrection
+\finexercice
+\exercice{7022, megy, 2016/08/25}
+
+\enonce  
+On considère la suite réelle $(u_n)_{n\in\N}$ définie par $u_0=2$ et pour tout $n\in\N,\: u_{n+1}=\sqrt{u_n}$.
+\begin{enumerate}
+\item Montrer que pour tout $n\in\N$, $u_n>1$.
+\item Montrer que pour tout réel $a\in]1;+\infty[$, on a $\frac{1}{\sqrt a+1} \leq \frac12$.
+\item En déduire que pour tout $n\in\N$, on a $u_{n+1}-1\leq \frac12\left(u_n-1\right)$.
+\item Montrer que pour tout $n\in\N$, $u_n-1 \leq \left(\frac12\right)^n$. En déduire la limite de la suite $(u_n)$.
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+
+\exercice{7023, megy, 2016/08/25}
+
+\enonce[Récurrence de Cauchy et application]
+% https://www.artofproblemsolving.com/wiki/index.php?title=Cauchy_Induction
+Soit $A$ une partie de $\N^*$ contenant $1$ et telle que
+\begin{enumerate}
+\item $\forall n\in \N^*,\: n\in A \Rightarrow 2n \in A$;
+\item $\forall n\in \N^*,\: n+1\in A \Rightarrow n \in A$.
+\end{enumerate}
+Montrer que $A = \N^*$.\\
+En déduire l'inégalité arithmético-géométrique : si $a_1, ..., a_n$ sont des réels positifs, alors on a 
+\[ \frac{a_1+...+a_n}{n} \leq \sqrt[n]{a_1 a_2  ...   a_n}.\]
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+
+\exercice{7024, megy, 2016/08/25}
+
+\enonce
+Démontrer que tout entier $n\geq 1$ peut s'écrire comme somme de puissances de deux distinctes.
+\finenonce
+
+\indication
+Procéder par récurrence forte.
+\finindication
+
+\nocorrection
+
+\finexercice
+
+\exercice{7025, megy, 2016/08/25}
+
+\enonce
+Démontrer que tout entier $n\geq 1$ peut s'écrire de façon unique sous la forme $2^p(2q+1)$, avec $p$ et $q$ entiers.
+\finenonce
+
+\indication
+Procéder par récurrence forte.
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7035, megy, 2016/11/20}
+
+\enonce 
+Montrer que pour tout $n>0$  on a l'inégalité 
+\[\frac 1{\sqrt 1} + \frac 1{\sqrt 2} + \cdots + \frac 1{\sqrt n} > \sqrt n.\]
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7036, megy, 2016/11/20}
+
+\enonce[Une récurrence descendante]
+Montrer que pour tout entier $N\geq 2$,
+\[ \sqrt{2\sqrt{3\sqrt{4\sqrt{...\sqrt{(N-1)\sqrt{N}}}}}} <  3.\]
+\finenonce
+
+\indication
+Montrer par récurrence sur $m$ que pour tout $N\geq 2$ et tout $m \in \llbracket 2, N\rrbracket$, 
+\[ \sqrt{m\sqrt{(m+1)\sqrt{...\sqrt{(N-1)\sqrt{N}}}}} < m+1.\]
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7037, megy, 2016/11/20}
+
+\enonce[Inégalité du binôme]
+Montrer que pour tous $a,b > 0$ distincts et tout $n >1$, on a l'inégalité
+\[ 2^{n-1} (a^n + b^n) > (a+b)^n.\]
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7038, megy, 2016/11/20}
+
+\enonce[Variantes du raisonnement par récurrence]
+Parmi les énoncés suivants, lesquels permettent d'en déduire que $P_n$ est vraie pour tout $n \in \N$ ?
+\begin{enumerate}
+\item $P_0$ et 
+$\forall n\in\N, P_n \Rightarrow 
+(P_{2n}\wedge P_{2n+1})$;
+\item $P_0$, $P_1$ et 
+$\forall n\geq 1, P_n \Rightarrow 
+(P_{2n}\wedge P_{2n+1})$;
+\item $P_0$, $P_1$, $P_2$ et 
+$\forall n\geq 2, P_n \Rightarrow 
+(P_{2n}\wedge P_{2n+1})$;
+\item $P_0$, $P_1$ et 
+$\forall n\geq 1, P_n \Rightarrow 
+(P_{n-1}\wedge P_{n+1})$.
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7039, megy, 2016/11/20}
+
+\enonce[Conducteur d'un sous-monoïde]
+Soit $P_n$ une assertion dépendant de $n \in \N$ telle que:
+\begin{enumerate}
+\item $P_0$ est vraie;
+\item $\forall n \in \N, P_n \Rightarrow 
+(P_{n+3} \text{ et } P_{n+4})$.
+\end{enumerate}
+La propriété est-elle vraie pour tout $n \in \N$ ? Pour $n$ assez grand  ? (Et si oui à partir de quel rang ?) Pour quels entiers est-elle vraie ?
+
+Répondre aux deux premières questions en remplaçant dans l'énoncé les nombres $3$ et $4$ par des paramètres entiers positifs $a$ et $b$ quelconques.
+% si a et b sont premiers entre eux, le conducteur est (a-1)(b-1), voir un livre d'algèbre commutative, chapitre cloture intégrale ?
+\finenonce
+
+\indication
+Considérer le sous-ensemble (sous-monoïde) de $\N$ suivant :
+\[ \{3k+4l\mid k,l \in \N\}.\]
+Pour le cas général, considérer le pgcd de $a$ et $b$.
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7040, megy, 2016/11/20}
+
+\enonce[Nombres de Catalan]
+On définit une suite $(C_n)_{n\in\N}$ par $C_0=1$ et pour tout naturel $n$,  
+$C_{n+1} = \sum_{k=0}^{n}C_kC_{n-k}$.
+\begin{enumerate}
+\item Calculer les cinq premiers termes de la suite;
+\item Montrer par récurrence que pour tout $n\geq 0$,  $C_n \geq 2^{n-1}$;
+\item Montrer par récurrence forte que pour tout $n\geq 0$,  $C_n \geq 3^{n-2}$;
+\item Tenter de montrer par une récurrence similaire à la précédente que pour tout $n\geq 0$,  $C_n \geq 4^{n-2}$. À quel endroit ceci échoue-t-il ? Pourquoi est-il heureux que cela échoue ?
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7041, megy, 2016/11/20}
+
+\enonce 
+% récurrence forte
+Soit $x$ un réel tel que $x+\frac{1}{x}$ soit entier. Montrer que pour tout $n\in \N$, $x^n+\frac{1}{x^n}$ est entier.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7042, megy, 2016/11/20}
+
+\enonce 
+% valeurs particulières, conjecturer une formule,
+% récurrence double ou forte
+Soit $(u_n)_{n\in\N}$ la suite réelle définie par $u_0=2$, $u_1=3$, et pour tout $n\in\N$, $u_{n+2}=3u_{n+1}-2u_n$. Déterminer $u_n$ en fonction de $n$.
+\finenonce
+
+\indication
+Calculer les premiers termes de la suite.
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7043, megy, 2016/11/20}
+
+\enonce 
+% valeurs particulières, conjecturer une formule,
+% récurrence forte
+Soit $(u_n)_{n\in\N}$ la suite réelle définie par $u_0=1$ et pour tout $n\in\N$, $u_{n+1}=\sum_{k=0}^n u_k$. Déterminer $u_n$ en fonction de $n$.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7044, megy, 2016/11/20}
+
+\enonce
+Soit $n\in \N^*$. On trace $n$ cercles dans le plan. Montrer que l'on peut colorier chaque région du plan ainsi délimitée avec exactement deux couleurs, de manière à ce que deux régions séparées par un arc de cercle soient toujours de couleur différente.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7045, megy, 2016/11/20}
+
+\enonce 
+Soit $n$ un entier supérieur ou égal à $2$. On place $2n$ points dans l'espace, et on trace $n^2+1$ segments entre ces points. Montrer que l'on a tracé au moins un triangle.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7046, megy, 2016/11/20}
+
+\enonce 
+% Un peu difficile. Récurrence forte !!!!!
+Déterminer les valeurs de $n$ pour lesquelles le nombre
+\[ u_n := 1+\frac12 + \frac 13 + ... + \frac1n\]
+est entier.
+\finenonce
+
+\indication
+Montrer que pour $n>1$, le réel $u_n$ s'écrit comme le quotient d'un entier impair par un entier pair. Pour $n$ pair, exprimer $u_{n+1}$ en fonction de $u_n$. Pour $n$ impair, utiliser le fait que
+\[ u_{n+1} := \left(1+\frac13 + \frac 15 + ... + \frac1n \right) + 
+\left(\frac12 + \frac 14 + ... + \frac{1}{n+1}\right).\]
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7186, megy, 2019/07/17}
+
+\enonce
+Soit $E$ un ensemble et  $\mathcal O$ une partie de $\mathcal P(E)$. On dit que $\mathcal O$ est une \emph{topologie sur $E$} si les conditions suivantes sont vérifiées
+\begin{itemize}
+\item $\mathcal O$ est stable par intersection finie, autrement dit : pour tout $n\in \N^*$ et toute famille $U_1, \cdots U_n$ d'éléments de $\mathcal O$, on a $\bigcap_{i=1}^n U_i\in \mathcal O$.
+\item $\mathcal O$ est stable par union quelconque, autrement dit : pour tout ensemble $I$ et toute famille $(U_i)_{i\in I}$ d'éléments de $\mathcal O$, $\bigcup_{i\in I}U_i \in \mathcal O$.
+\item Les parties $\emptyset$ et $E$ sont des éléments de $\mathcal O$.
+\end{itemize}
+\begin{enumerate}
+\item Montrer que $\mathcal O_1=\{\emptyset, E\}$ et $\mathcal O_2=\mathcal P(E)$ sont des topologies sur $E$.
+\item Montrer que 
+\[ \mathcal O_3 = \left\{U\in \mathcal P(E)\:\middle|\: U=\emptyset \text{ ou }{}^cU\text{ est fini}\right\}
+\]
+est une topologie sur $E$.
+\item Combien de topologies différentes y a-t-il si $E$ est l'ensemble vide ? S'il n'a qu'un seul élément ? Deux éléments ? Trois éléments ?
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7187, megy, 2019/07/17}
+\enonce
+Dans l'ensemble $\R$, il existe une notion de \emph{partie bornée} : c'est une partie qui est incluse dans un segment du type $[-M,M]$, pour un certain $M$. Cet exercice montre comment généraliser cette notion de \emph{partie bornée} à un ensemble quelconque.
+
+Soit $E$ un ensemble et  $\mathcal B$ une partie de $\mathcal P(E)$. On dit que $\mathcal B$ est une \emph{bornologie sur $E$} si les conditions suivantes sont vérifiées
+\begin{itemize}
+\item Si $A\in \mathcal B$ et $B\subseteq A$, alors $B\in \mathcal B$.
+\item Si $A\in \mathcal B$ et $B \in \mathcal B$, alors $A\cup B\in \mathcal B$.
+\item Pour tout $x\in E$, on a  $\{x\} \in \mathcal B$.
+\end{itemize}
+Les éléments de $\mathcal B$ sont dits \emph{$\mathcal B$-bornés}, ou simplement \emph{bornés} s'il n'y a pas d'ambiguïté sur la bornologie utilisée.
+
+Dans la suite, on fixe un ensemble $E$.
+\begin{enumerate}
+\item Montrer que $\mathcal B_1=\{\emptyset, E\}$ est une bornologie de $E$. On l'appelle la \emph{bornologie triviale (ou : grossière)}.
+\item Montrer que l'ensemble $\mathcal B_2$ des parties finies de $E$ est une bornologie de $E$. On l'appelle la \emph{bornologie discrète}.
+\item Combien de bornologies différentes y a-t-il si $E$ est vide ? S'il contient (exactement) un élément ? Deux ? Trois ?
+\item On suppose maintenant que $E=\R$. Soit $\mathcal B_3$ l'ensemble des parties $A\subseteq \R$ bornées au sens classique, autrement dit 
+\[ A\in \mathcal B_3 \iff \exists M\in \R, \forall a\in A, |a|\leq M\]
+Montrer que $\mathcal B_3$ est une bornologie. On l'appelle la \emph{bornologie usuelle sur $\R$}, et lorsqu'on parle de bornés de $\R$, il est implicite qu'on se réfère à cette bornologie (et non aux deux premières par exemple).
+\end{enumerate}
+\finenonce
+\noindication
+\nocorrection
+\finexercice
+\exercice{7188, megy, 2019/07/17}
+
+\enonce
+Soit $E$ un ensemble et  $\mathcal A$ une partie de $\mathcal P(E)$. On dit que $\mathcal A$ est une \emph{algèbre de parties $E$} si les conditions suivantes sont vérifiées:
+\begin{itemize}
+\item $\mathcal A$ n'est pas vide.
+\item Si $X\in \mathcal A$, alors $E\setminus X$ aussi.
+\item $\mathcal A$ est stable par union finie, autrement dit : pour tout $n\in \N^*$ et toute famille $U_1, \cdots U_n$ d'éléments de $\mathcal A$, on a $\bigcup_{i=1}^n U_i\in \mathcal A$.
+\end{itemize}
+\begin{enumerate}
+\item Montrer que $\mathcal P(E)$ est une algèbre de parties de $E$.
+\item Montrer  qu'une algèbre de parties de $E$ est stable par intersection finie.
+\item Combien d'algèbres de parties y a-t-il si $E$ a (exactement) un, deux, ou trois éléments ?
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7189, megy, 2019/07/23}
+
+\enonce
+
+Soit $E$ l'ensemble des droites du plan. Le parallélisme et l'orthogonalité sont-elles des relations réflexives, symétriques, antisymétriques, transitives ?
+
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7190, megy, 2019/07/23}
+
+\enonce
+
+Soit $E$ un ensemble fini, de cardinal $n$. Combien de relations binaires y a-t-il sur $E$ ? De relations symétriques ? Réflexives ?
+
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7191, megy, 2019/07/23}
+
+\enonce
+
+Soit $\leq$ une relation d'ordre sur un ensemble $E$, et $<$ la relation d'ordre strict associée, c'est-à-dire par définition : $x<y \iff x\leq y \text{ et } x\neq y$. Est-ce que le contraire de $x\leq y$ est $y<x$ ?
+% non. C'est vrai si l'ordre est total
+
+\finenonce
+
+\indication
+
+Regarder par exemple la divisibilité sur $\N$.
+
+\finindication
+
+\correction
+
+Le contraire de $2|n$ n'est pas que $n$ divise strictement $2$.
+
+\fincorrection
+
+\finexercice
+\exercice{7192, megy, 2019/07/23}
+
+\enonce
+
+Soit $E$ un ensemble fini et $f : E\to E$ une involution, c'est-à-dire une application vérifiant $f\circ f=\operatorname{Id}$. Montrer que si $f$ n'a pas de points fixes, alors $|E|$ est pair. Plus généralement, montrer que la parité de $|E|$ est celle du nombre de points fixes de $f$.
+
+\finenonce
+
+\indication
+
+Considérer une certaine relation d'équivalence sur $E$ et écrire que $E$ est réunion disjointe des classes d'équivalence.
+
+\finindication
+
+\nocorrection
+
+\finexercice
+\exercice{7193, megy, 2019/07/23}
+
+\enonce
+
+Soit $\mathcal R$ la relation d'équivalence la plus fine sur $\{0,1,2\}$ vérifiant $0\mathcal R 1$. Décrire le graphe de $\mathcal R$ (donner tous ses éléments).
+
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7194, megy, 2019/07/23}
+
+\enonce
+(Coordonnées polaires) 
+Soit $\sim$ la relation d'équivalence la plus fine sur $\R_+\times [-\pi,\pi]$ vérifiant les conditions: 
+\[
+\begin{cases}
+\forall \theta,\theta'\in [-\pi,\pi], (0,\theta)\sim (0,\theta')\\
+\forall r\in \R_+^*, (r,-\pi)\sim (r,\pi)
+\end{cases}
+\]
+Décrire le graphe de $\sim$, ainsi que ses classes d'équivalence.
+
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7195, megy, 2019/07/23}
+
+\enonce
+Soit $l>0$ un réel et $X=[0,l]\times [-1,1]$, et $\sim$ la relation d'équivalence la plus fine sur $X$ telle que $(0,y)\sim(l,-y)$ pour tout $y\in [-1,1]$.  Décrire le graphe et les classes d'équivalence de la relation. 
+
+
+Note : l'ensemble quotient $\mathcal M = X/\sim$ est donc l'ensemble obtenu en recollant le rectangle $X=[0,l]\times [-1,1]$ le long de deux bords opposés, en suivant une orientation opposée. On l'appelle le \emph{ruban de Möbius} (de longueur $l$).
+
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7196, megy, 2019/07/23}
+
+\enonce
+Soient $\mathcal R$ et $\mathcal S$ des relations binaires sur $E$. On dit que $\mathcal R$ est plus fine que $\mathcal S$, ou encore que c'est est un raffinement, si $\forall x, y\in E, x\mathcal R y \implies x\mathcal S y$.  De façon équivalente, $\mathcal R$ est plus fine que $\mathcal S$ si on a l'inclusion de graphes $\Gamma_{\mathcal R} \subseteq \Gamma_{\mathcal S}$.
+\begin{enumerate}
+\item Montrer que \og être plus fine que \fg{} est une relation d'ordre sur l'ensemble des relations binaires sur $E$.
+\item Soient $\mathcal R$ et $\mathcal S$ des relations binaires sur $E$. Montrer qu'il existe une relation binaire sur $E$ qui raffine à la fois $\mathcal R$ et $\mathcal S$, et  qu'il existe aussi une relation binaire sur $E$ simultanément moins fine que $\mathcal R$ et $\mathcal S$.
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7197, megy, 2019/07/23}
+
+\enonce
+Soit $f : \R\to \mathbb U, t\mapsto e^{it}$, et soit $\mathcal R$ la relation d'équivalence sur $\R$ définie par $x\mathcal R y \iff x\equiv y \pmod{2\pi}$. On note $\R/2\pi\Z$ l'ensemble quotient $\R/\mathcal R$. Montrer que l'application $f$ descend au quotient en une application $[f] :\R/2\pi\Z \to \mathbb U$ qui est une bijection.
+
+\finenonce
+
+\noindication
+
+\correction
+
+L'application $f$ est constante sur les classes d'équivalence de $\mathcal R$, donc par définition, elle descend au quotient en une application $[f] : \R/2\pi\Z \to \mathbb U$, qui vérifie  $f= [f]\circ p$. Comme $f$ est surjective, $[f]$ aussi. Montrons l'injectivité.
+
+Soient $\alpha$ et $\beta$ dans $\R/2\pi\Z$ tels que $[f](\alpha) = [f](\beta)$. Si $x$ et $y$ sont des représentants de $\alpha$ et $\beta$, on a donc $f(x)=f(y)$, c'est-à-dire $e^{ix}=e^{iy}$, d'où par le cours sur l'exponentielle complexe, $x\equiv y \pmod{2\pi}$, d'où $[x]=[y]$, ou encore $\alpha=\beta$.
+
+\fincorrection
+
+\finexercice
+\exercice{7198, megy, 2019/07/23}
+
+\enonce
+(Produit de deux relations) 
+Soient $\mathcal R$ et $\mathcal S$ deux relations sur $E$. Leur \emph{produit}, noté $\mathcal R \mathcal S$, est la relation binaire définie par:
+\[ \forall x,y\in E, x \mathcal R \mathcal S y 
+\iff \exists a\in E, \: (x \mathcal R a \text{ et } a \mathcal S y)
+\]
+\begin{enumerate}
+\item Prouver par un exemple qu'en général, les relations $\mathcal R \mathcal S$ et $\mathcal S \mathcal R$ sont distinctes.
+\item Montrer que le produit de relations est néanmoins associatif, autrement dit si $\mathcal R$, $\mathcal S$ et $\mathcal T$ sont trois relations, on a 
+\[ (\mathcal R \mathcal S) \mathcal T = \mathcal R (\mathcal S \mathcal T)\]
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7199, megy, 2019/07/23}
+
+\enonce
+(Clôture transitive. Cet exercice utilise la notion de produit de relations)
+Soit $\mathcal R$ une relation sur $E$. Pour $n\in \N$ et $\mathcal R$ est une relation sur $E$, on définit alors par récurrence la relation $\mathcal R^n$ (en définissant $\mathcal R^0$ comme l'égalité, puis $\mathcal R^{n+1} = \mathcal R \mathcal R^n$).
+
+Montrer que toutes les relations suivantes sont égales:
+\begin{enumerate}
+\item $\bigvee_{n\geq 0} \mathcal R^n$;
+\item la relation dont le graphe est $\bigcup_{n\geq 0} \Gamma_{\mathcal R^{n}}$;
+\item la relation dont le graphe est l'intersection de tous les graphes de relations transitives qui contiennent $\Gamma_{\mathcal R}$.
+\item la plus fine relation  parmi toutes les relations transitives moins fines que $\mathcal R$.
+\end{enumerate}
+
+Cette relation binaire (qui est donc transitive) est appelée \emph{clôture transitive} de $\mathcal R$.
+Montrer que si $\mathcal R$ est symétrique (resp. réflexive), sa clôture transitive l'est également.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7200, megy, 2019/07/23}
+
+\enonce
+Soit $E$ l'ensemble des couples de la forme $(I,f)$, où $I$ est un intervalle de $\R$ et $f$ est une fonction de $I$ dans $\R$.
+
+La relation $\preceq$ sur $E$ est définie par 
+\[ (I,f)~\preceq~(J,g) ~\iff~ (I\subseteq J \text{ et } f=g|_I).\]
+Montrer qu'il s'agit d'une relation d'ordre.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7201, megy, 2019/07/23}
+
+\enonce
+Soit $E=\R^\R$ l'ensemble des fonctions de $\R$ dans $\R$ et $f, g\in E$. On dit que $f$ et $g$ ont \og même germe en zéro\fg{} et on note $f \underset{0}{=} g$ si:
+\[  \exists \epsilon>0, f|_{]-\epsilon,\epsilon[} = g|_{]-\epsilon,\epsilon[} \]
+\begin{enumerate}
+\item Montrer que $\underset{0}{=}$ est une relation d'équivalence sur $E$.
+\item Montrer  que si $f \underset{0}{=} g$ alors $f(0)=g(0)$, mais que la réciproque est fausse.
+\item Montrer également que pour tout $a\in \R^*$, il existe deux fonctions $f$ et $g$ avec $f \underset{0}{=} g$ et $f(a)\neq g(a)$.
+\end{enumerate}
+
+La classe d'équivalence d'une fonction $f$ pour cette relation d'équivalence s'appelle le \emph{germe de $f$ en zéro}.
+
+Attention, cette relation d'équivalence n'est \textbf{pas} \og l'équivalence en zéro\fg{} qui sera par la suite introduite dans le cours d'analyse.
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7202, megy, 2019/07/23}
+
+\enonce
+Soit $f : E\to F$, soit $\equiv_f$ la relation d'équivalence sur $E$ dont les classes d'équivalence sont les fibres de $f$, et soit $Q = E/\equiv_f$ l'ensemble quotient. 
+
+\begin{enumerate}
+\item Montrer que $f$ passe au quotient en une application $\bar f : Q\to F$ qui est injective.
+\item Montrer qu'une relation d'équivalence $\mathcal R$ sur $E$ est plus fine que $\equiv_f$ si et seulement si $f$ passe au quotient par $\mathcal R$.
+\item En déduire quelles sont les relations d'équivalence les plus et moins fines telles que $f$ passe au quotient par $\mathcal R$.
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7203, megy, 2019/07/23}
+
+\enonce
+(Coégalisateur) 
+Soient $A$ et $B$ deux ensembles et $f$ et $g$ deux applications entre $A$ et $B$. On définit sur $B$ la relation binaire suivante : $\mathcal R$ est la relation d'équivalence la plus fine telle que $\forall a\in A, f(a)\mathcal R g(a)$. Le \emph{coégalisateur de $f$ et $g$} est par définition l'ensemble quotient $C = B/\mathcal R$. On note $\pi : B \to C$ la surjection canonique sur le quotient. On a alors $\pi\circ f = \pi \circ g$.
+
+Montrer que $C$ et $\pi$ vérifient la propriété suivante (dite \emph{propriété universelle du coégalisateur}):
+
+
+Pour tout ensemble $X$ et application $\phi : B \to X$ vérifiant $\phi\circ f = \phi\circ g$,  il existe une unique application $h : C\to X$ telle que $\phi = h \circ \pi $.
+
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7204, megy, 2019/07/23}
+
+\enonce
+(Somme amalgammée d'ensembles. Cet exercice utilise la notion de coégalisateur.) 
+Soient $A$,  $B$ et $C$  des ensembles et $f :  C\to A$, $g : C\to B$ des applications.
+
+Soit $A\coprod B$ l'union disjointe de $A$ et $B$ et $i_A$ et $i_B$ les injections canoniques de $A$ et $B$ dans $A\coprod B$.
+
+Les deux applications $i_A \circ f$ et $i_B \circ g$ vont toutes deux de $C$ dans $A\coprod B$.  Leur coégalisateur est appelé \emph{la somme amalgamée de $A$ et $B$ sous $C$}, est noté $A\coprod_C B$. La surjection canonique  $A\coprod B \to A\coprod_C B$ est notée $\pi$ et on note $j_A = \pi \circ i_A$ et $j_B = \pi \circ i_B$.
+
+Montrer que $A\coprod_C B$ vérifie la propriété universelle suivante:
+
+Pour tout ensemble  $D$ muni d'applications $\phi : A\to D$ et $\psi : B\to D$, il existe une unique application $h : A\coprod_C B \to D$ telle que $\phi = h\circ j_A$ et $\psi = h\circ j_B$.
+
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7205, megy, 2019/07/23}
+
+\enonce
+(Écrasement d'une partie d'un ensemble) 
+Soit $X$ un ensemble. Pour tout sous-ensemble $A\subseteq X$, on définit la relation binaire $\sim_A$ sur $X$ comme suit:
+\[ \forall (x,y)\in X^2, \: x\sim_A y \iff \left(x=y \text{ ou } \left(x\in A\text{ et } y\in A\right)\right).\]
+\begin{enumerate}
+\item Montrer que c'est une relation d'équivalence sur $X$. Quelles sont ses classes d'équivalence ?
+\item Soit $f$ une fonction de $X$ dans un ensemble $E$, constante sur $A$. Montrer qu'elle descend au quotient en une application $[f] : X/\sim_A \to E$.
+\item Montrer que pour tout ensemble $E$, l'application 
+\[
+\phi : \left\{f\in \mathcal F(X,E),\:\middle| \: f\text{ est constante sur } A\right\} \to \mathcal F(X/\sim_A, E),
+\]
+qui à $f$ associe $[f]$ est surjective.
+\item Identifier, parmi les relations d'équivalence étudiées dans le cours et les exercices du chapitre, celles qui sont des cas particuliers d'écrasements de parties.
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7206, megy, 2019/07/23}
+
+\enonce
+(Cône sur un ensemble) 
+Soit $X$ un ensemble et $Y = X\times [0,1]$. Soit $\mathcal R$ la relation d'équivalence la plus fine  sur $Y$ telle que $\forall x,x'\in X, (x,0)\mathcal R (x',0)$.
+\begin{enumerate}
+\item Montrer que $(x,t)\mathcal R (x',t') \iff \left(t=t'=0)\text{ ou } (x,t)=(x',t')\right)$.
+\item Le cône sur $X$, noté $\operatorname{Cone}(X)$, est par définition $Y/\mathcal R$. Le nom de \og cône\fg{} peut s'expliquer à l'aide de l'exemple suivant. Définir une bijection entre $\operatorname{Cone}(\mathbb S^1)$ et l'ensemble
+\[ \left\{(x,y,z)\in \R^3\:\middle|\: z^2=x^2+y^2, \text{ et } 0\leq z \leq 1\right\}\]
+(qui est un vrai cône au sens usuel: faire un dessin). 
+\end{enumerate}
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7207, megy, 2019/07/23}
+
+\enonce
+(Suspension d'un ensemble)
+Soit $X$ un ensemble. Sur l'ensemble $X\times [-1,1]$, on considère la relation d'équivalence la plus fine vérifiant:
+\[ \begin{cases}
+\forall x,x'\in X, (x,-1)\mathcal R (x',-1)\\
+\forall x,x'\in X, (x,1)\mathcal R (x',1)
+\end{cases}
+\] 
+\begin{enumerate}
+\item Montrer que 
+\[ (x,t)\mathcal R (x',t') \iff \big( t=t'=-1 \text{ ou } t=t'=1\text{ ou } (x,t)= (x',t')\big)\] L'ensemble quotient est appelé \emph{suspension de $X$}, et est noté $S(X)$.
+\item Soit $X=\{-1,1\}$. Montrer que l'application $f : X\times[-1,1] \to \R^2, \: (x,t) \mapsto (t,x\sqrt{1-t^2})$ est à valeurs dans le cercle unité du plan, noté $\mathbb S^1$, et passe au quotient en application injective de $S(X)$ vers $\R^2$ dont l'image est $\mathbb S^1$. Ceci formalise la phrase \og la suspension de deux points est un cercle.\fg
+\end{enumerate}
+
+(Note : plus généralement, on peut montrer que pour tout $n\in\N$, la suspension de la sphère $\mathbb S^n$ est en bijection naturelle avec la sphère $\mathbb S^{n+1}$. Cet exercice traite le cas $n=0$.
+)
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+\exercice{7208, megy, 2019/07/23}
+
+\enonce
+(Union/disjonction et intersection/conjonction de deux relations)
+Soient $\mathcal R$ et $\mathcal S$ deux relations sur $E$. On définit la disjonction (ou union), notée $\mathcal R \vee \mathcal S$, par : 
+\[ x (\mathcal R \vee \mathcal S) y \iff (x \mathcal R y\text{ ou } x \mathcal S y)\]
+De façon équivalente, le graphe de $\mathcal R \vee \mathcal S$ est l'union des graphes de $\mathcal R$ et de $\mathcal S$. De même, on définit la conjonction (ou intersection) $\mathcal R \wedge \mathcal S$ comme la relation dont le graphe est l'intersection des deux graphes de $\mathcal R$ et $\mathcal S$, c'est-à-dire 
+\[ x (\mathcal R \wedge \mathcal S) y \iff (x \mathcal R y\text{ et } x \mathcal S y).\]
+
+Si $\mathcal R$ et $\mathcal S$ sont des relations d'équivalence, montrer que $\mathcal R \wedge \mathcal S$ est une relation d'équivalence, mais pas forcément $\mathcal R \vee \mathcal S$.
+
+(Note : on peut définir la conjonction ou la disjonction d'un nombre quelconque de relations, à l'aide de l'union ou de l'intersection des graphes associés.)
+\finenonce
+
+\noindication
+
+\nocorrection
+
+\finexercice
+
+\end{document}
+
+

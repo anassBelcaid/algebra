@@ -1,0 +1,278 @@
+% Cardinal {{{ %
+%{{{ Définition cardinal
+\begin{frame}[<+->]
+  \frametitle{Ensembles finis}
+  \begin{block}{Cardinal}
+    Un ensemble $E$ est \textbf{\alert{fini}} si il existe une bijection entre
+    $E$ et l'ensemble $\{1,2,\ldots, n\}$.\\[4pt]
+
+    Dans ce cas l'entier $n$ s'appelle \alert{\textbf{cardinal}} de $E$ et il est
+    noté $\Card E$ ou $\vert E\vert$.
+  \end{block}
+  
+  Voici quelque exemples:
+  \begin{enumerate}
+    \item $E = \{\text{Rouge}, \text{Bleu}, \text{Vert}\}$ est de $\Card
+      E=3$.\\[4pt]
+    \item $\N$ n'est pas un ensemble fini.\\[4pt]
+    \item Le cardinal de $\emptyset$ est $0$.\\[4pt]
+  \end{enumerate}
+\end{frame}
+%}}}
+% Propriétées  {{{ %
+\begin{frame}[<+->]
+  \frametitle{Propriétés Cardinal}
+ \begin{block}{Propriétés Cardinal}
+   \begin{itemize}
+     \item Si $B\subset A$ et $A$ est \textbf{fini}. Alors $B$ est aussi fini et 
+       \begin{equation}
+         \Card B \leq \Card A
+       \end{equation}
+      \begin{equation}
+        \Card (A-B) =\Card A - \Card B
+      \end{equation}
+      Ainsi si $\Card A = \Card B  \implies A = B$\\[8pt]
+    \item Pour deux ensembles $A$ et $B$ \textbf{\alert{disjoints}}:
+      \begin{equation}
+        \Card(A\cup B) = \Card A + \Card B
+      \end{equation}
+  \end{itemize} 
+ \end{block} 
+\end{frame}
+% }}} Propriétées  %
+% Cardinal Union {{{ %
+\begin{frame}[t]
+  \frametitle{Cardinal union}
+ \begin{block}{Cardinal Union}
+      Pour deux ensembles quelconques
+      \begin{equation}
+        \Card(A\cup B) = \Card A + \Card B - \Card(A\cap B)
+      \end{equation}
+ \end{block} 
+ \vspace*{1cm}
+\begin{center}
+ \begin{tikzpicture}[scale=0.7, transform shape]
+   \node[ellipse,draw=sexyRed, minimum width=3cm, minimum height=4cm, thick,
+   rotate=45, label=left:$E$] at (0,0) (E){};
+   \node[xshift=1.5cm, ellipse,draw=Apricot, minimum width=3cm, minimum
+   height=3cm, thick, label=right:$F$] at (0,0) (E){};
+   \node[point, xshift=-0.5cm] (A) at (0,0){};
+   \node[point, xshift=-0.5cm] (A) at (0,-1.2){};
+   \node[point, xshift=-0.5cm] (A) at (-1,1.0){};
+   \node[point, xshift=-0.5cm] (A) at (0,1){};
+   \node[point, xshift=-0.5cm] (A) at (1,0.8){};
+   \node[point, xshift=-0.5cm] (A) at (1,0){};
+   \node[point, xshift=-0.5cm] (A) at (1.2,0.5){};
+   \node[point, xshift=-0.5cm] (A) at (2,1){};
+   \node[point, xshift=-0.5cm] (A) at (3,0){};
+ \end{tikzpicture}
+ \end{center}
+ \begin{itemize}
+   \item \textbf{\alert{Preuve:}} Utiliser la décomposition:
+     \begin{equation*}
+       A\cup B = A \cup \left(B - \left(A\cap B\right)\right)
+     \end{equation*}
+ \end{itemize}
+\end{frame}
+% }}} Cardinal Union %
+% }}} Cardinal %
+% Relation avec l'injectivité {{{ %
+
+% Relation Injectivité {{{ %
+\begin{frame}[t]
+  \frametitle{Relation avec Injectivité, Surjectivité}
+ \begin{block}{Proposition}
+   Soit $E$ et $F$ deux ensembles finis et $f:E\rightarrow F$ une application.
+   Alors:
+
+   \begin{enumerate}
+     \item Si $f$ est \alert{injective} alors $\Card E \leq \Card F$.\\[8pt]
+     \item Si $f$ est \alert{surjective} alors $\Card E \geq \Card F$.\\[8pt]
+     \item Si $f$ est \alert{bijective} alors $\Card E = \Card F$.\\[8pt]
+   \end{enumerate}
+ \end{block} 
+ \pause
+ \begin{block}{Démonstration}
+   \begin{itemize}
+     \scriptsize
+     \item Supposons que $f$ est injective. Notons $F^{'}=f(E)\subset F$ l'image directe
+       de $E$. Ainsi  chaque élément de $F^{'}$ admet un antécédent unique
+       dans $E$. On conclut que $\Card F^{'} = \Card E \leq \Card F$.
+     \item Supposons que $f$ est surjective, Ainsi tous les éléments de $F$
+       admet au moins un antécédent, On conclut alors que $\Card E \geq \Card
+       F$.
+   \end{itemize} 
+ \end{block}
+\end{frame}
+% }}} Relation Injectivité %
+
+% Equivalence {{{ %
+\begin{frame}[t]
+  \frametitle{ Egalité cardinal}
+ \begin{block}{Proposition}
+  Soit $E$ et $F$ deux ensembles et $f:E\rightarrow F$ une application. Si 
+  \begin{equation}
+    \Card E = \Card F
+  \end{equation}
+  les trois propriétés suivantes sont équivalentes:
+  \begin{enumerate}
+    \item $f$ est injective.\\[8pt]
+    \item $f$ est surjective.\\[8pt]
+    \item $f$ est bijective.\\[8pt]
+  \end{enumerate}
+ \end{block} 
+ \begin{itemize}
+   \item \alert{\textbf{Indice:}} Prouver que $(1)\implies (2)\implies
+     (3)\implies (1) $
+ \end{itemize}
+\end{frame}
+% }}}  Equivalence %
+
+% }}} Relation avec l'injectivité %
+% Nombre d'applications {{{ %
+% Nombre d'applications {{{ %
+\begin{frame}[t]
+  \frametitle{Nombre d'applications}
+ \begin{block}{Proposition}
+   Soit $E$ et $F$ tel que $\Card E = n$ et $\Card F=p$.\\[8pt]
+
+   Alors le nombre d'applications \emph{différentes} entre $E$ et $F$ est
+   $\mathbf{p^n}$
+ \end{block} 
+ \begin{itemize}
+   \item \textbf{\alert{Indice Preuve:}} On fixe l'ensemble $F$ et on démontre
+     par récurrence sur le cardinal de $E$.
+ \end{itemize}
+ \begin{block}{Exemple}
+   \begin{itemize}
+     \item Donner le nombre d'application entre $\{0,1,3\}$ et $\{0,1,2\}$.
+     \item \textbf{Codage binaire}: Combien de nombre entiers peut on
+       \textbf{\alert{coder}} sur $8$ bits. 
+   \end{itemize}
+ \end{block}
+\end{frame}
+
+\begin{frame}[<+->]
+  \frametitle{Nombre d'injections}
+ 
+  \begin{block}{Nombre d'injections}
+   Soit $E$ et $F$ tel que $\Card E= n$ et $\Card F=p$. Alors le nombre
+   \textbf{d'injections} est donné par:
+
+   \begin{equation*}
+     p\times (p-1) \times (p-2)\times \ldots \times\left(p-(n-1)\right)
+   \end{equation*}
+  \end{block}
+
+  \begin{itemize}
+    \item \alert{\textbf{Indice Preuve:}} Fixer l'ensemble $F$ et considérer une
+      récurrence sur $E$.
+  \end{itemize}
+  \pause
+  \begin{block}{Bijections}
+   Le nombre de bijections entre deux ensembles de même cardinal est $n$ :
+
+   \begin{equation*}
+     n!
+   \end{equation*}
+  \end{block}
+\end{frame}
+% }}} Nombre d'applications %
+% Nombre sous ensembles {{{ %
+
+\begin{frame}[t]
+  \frametitle{Nombre sous ensembles}
+ \begin{block}{Nombre sous ensemble}
+   Soit $E$ un ensemble fini tel que $\Card E = n$. 
+   Le nombre de sous ensembles de $E$  est donné par:
+   \begin{equation}
+     \Card \mathcal{P}(E) = 2^n
+   \end{equation}
+ \end{block} 
+ \pause
+ \begin{block}{Exemple}
+   Énumérer les éléments de $\mathcal{P}\big( \{1,2,3,4,5\}\big)$ selon leur
+   cardinal.
+ \end{block}
+ \begin{itemize}
+   \item \textbf{\alert{Indice preuve:}}: Utiliser une récurrence sur le
+     cardinal de $E$.
+ \end{itemize}
+\end{frame}
+
+% }}} Nombre sous ensembles %
+% Coefficients de Binome {{{ %
+
+% Coefficients de Binome {{{ %
+\begin{frame}[t]
+  \frametitle{Coefficients de Binôme}
+  \begin{block}{Définition}
+  Le nombre de parties contenant $\mathbf{k}$ éléments d'un ensemble de cardinal
+  $n$ est noté $\mathbf{\binom{n}{k}}$ ou $C^{n}_{k}$.
+  \end{block}
+  \pause
+  \begin{block}{Corrolaire}
+    \begin{itemize}
+      \item $\binom{n}{0} = 1$\\[8pt]\pause
+      \item $\binom{n}{n} = 1$\\[8pt]\pause
+      \item $\binom{n}{1} = n$\\[8pt]\pause
+      \item $\binom{n}{k} = \binom{n}{n-k}$\\[8pt]\pause
+      \item $\binom{n}{0}+\binom{n}{1}+\binom{n}{2}+\ldots \binom{n}{n}=2^n$.\pause
+    \end{itemize}
+  \end{block}
+\end{frame}
+% }}} Coefficients de Binome %
+
+% Propriétées Binom {{{ %
+\begin{frame}[<+->]
+  \frametitle{Propriétées Coefficiens Binôme}
+ \begin{block}{Proposition}
+
+  \begin{equation}
+    \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1} \quad (0< k < n)
+  \end{equation}
+ \end{block} 
+
+ \begin{itemize}
+ \item \textbf{\alert{Indice preuve}}: Pour un un ensemble $E$ de cardinal
+     $n$. Considérer un élément $x\in E$, Diviser les parties de taille $k$ en
+     ceux qui contiennent $x$ et ce ceux qui ne le contiennent pas. 
+ \end{itemize}
+\end{frame}
+% }}} Propriétées Binom %
+
+% Proposition 2 {{{ %
+\begin{frame}[<+->]
+  \frametitle{Expression Coefficient Newton}
+\begin{block}{Proposition}
+  \begin{equation}
+    \binom{n}{k} =  \dfrac{n!}{k!(n-k)!}
+  \end{equation}
+\end{block}
+\pause
+
+\begin{itemize}
+  \item \alert{\textbf{Indice Preuve:}} Utiliser une récurrence sur $n$
+    et la proposition précédante du cours.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[<+->]
+  \frametitle{Mini exercices}
+ \begin{enumerate}
+   \small
+   \item Donner le nombre d'injections entre un ensemble de cardina
+     $\mathbf{n}$ et un autre de cardinal $n+1$.\\[8pt]
+   \item Calculer le nombre main  de taille $5$ cartes d'un jeu de $32$
+     cartes.\\[8pt]
+   \item Calculer le nombre de listes de taille $3$ qu'on peut construire
+     avec des chiffres ($<10$). Par exemple $(1,2,3)$ et $(2,2,3)$ mais
+     pas $(10,2,3)$.\\[8pt]
+ \end{enumerate} 
+
+\end{frame}
+% }}} Proposition 2 %
+% }}} Coefficients de Binome %
+% Formule de Newton {{{ %
+% }}} Formule de Newton %
+

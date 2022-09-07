@@ -1,0 +1,186 @@
+\documentclass[10pt, a4paper, twocolumn]{homework}
+\usepackage[inline]{enumitem}
+
+% Link of the exercices
+% http://www.bibmath.net/ressources/index.php?action=affiche&quoi=bde/algebre/groupe&type=fexo
+\title{Groupes}
+\date{08 novembre 2020}
+\author{A.Belcaid}
+
+
+
+\begin{document}
+\maketitle
+
+% Groupes {{{ %
+% vérification simple {{{ %
+\exercice{2}
+
+Pour chaque cas, vérifier si l'ensemble avec la loi proposée est un
+\textbf{groupe}:
+
+\begin{enumerate}
+  \item $G$ est l'ensemble des applications de $\Rr\longrightarrow\Rr$ définie
+    par $f(x) = ax + b$ où $a\in \Rr^{*}$ et $b\in \Rr$, muni de la composition.
+
+  \item $G$ est l'ensemble des fonctions croissantes muni de l'addition.
+  \item $G = \{f_1, f_2, f_3, f_4\}$ muni de la composition.
+    où:\\
+    \begin{itemize*}
+      \item $f_1 = x$\hspace*{8pt}
+      \item $f_2 = -x$\hspace*{8pt}
+      \item $f_3 = \dfrac{1}{x}$\hspace*{8pt}
+      \item $f_4 = -\dfrac{1}{x}$
+    \end{itemize*}
+\end{enumerate}
+% }}}  vérification simple %
+% Vérification simple {{{ %
+\exercice{2}
+Pour les deux cas suivants, démontrer que $G$ est un groupe puis vérifier s'il
+est \textbf{abélien}.
+
+\begin{enumerate}
+  \item $x * y = \dfrac{x+y}{1 + xy}$ sur $G= ]-1,1[$.\\[2pt]
+  \item $(x_1,y_1)*(x_2,y_2) = (x_1+x_2\;,\; y_1e^{x_2} + y_2e^{x_1})$ sur
+    $\Rr^2$.\\[8pt] 
+\end{enumerate}
+% }}} Vérification simple %
+% Element son propre inverse {{{ %
+\exercice{2}
+
+Soit $G$ un groupe \textbf{fini} d'élément neutre $e$.\\
+\begin{enumerate}
+  \item 
+Montrer que si cardinal de $G$ est pair, alors il existe $x\in G$ tel que:
+$$x\neq
+e\;\;\text{et}\;\; x^{-1} = x$$
+\end{enumerate}
+% }}} Element son propre inverse %
+% Tout élément est régulier {{{ %
+\exercice{3}
+
+Soit $G$ un ensemble \textbf{fini} muni d'une loi de composition interne $*$
+associative. On dit qu'un élément $a$ est \textbf{régulier} si les deux
+conditions suivantes sont vérifiées:
+\begin{itemize}
+  \item $a * x = a * y \implies x = y$
+  \item $x *a  = y * a \implies x = y$
+\end{itemize}
+On suppose que tous les éléments de $G$ sont réguliers, et on fixe $a\in G$.
+
+\begin{enumerate}
+  \item Démontrer qu'il existe $e\in G$ tel que $a*e = a$.\\[2pt]
+  \item Démontrer que, pour tout $x\in G$, on a $e*x = x$.\\[2pt]
+  \item Démontrer que, pour tout $x\in G$, on a $x*e = x$.\\[2pt]
+  \item Démontrer que $\left(G, *\right)$ est un groupe.
+  \item Le résultat subsiste-t-il si $G$ n'est fini?
+\end{enumerate}
+% }}} Tout élément est régulier %
+
+
+
+% }}} Groupes %
+% Détermination simple {{{ %
+\exercice{1}
+Pour chaque cas,  déterminer si la partie $H$ est un sous groupe de $G$.
+
+\begin{enumerate}
+  \item $G = \left(\Zz,+\right)$ et $H =\{2k\;|\; k\in \Zz\}$.
+  \item $G = \left(\Zz,+\right)$ et $H =\{2k+1\;|\; k\in \Zz\}$.
+  \item $G = \left(\Rr^{*},+\right)$ et $H =]-1,\infty[$.
+  \item $G = \left(\Rr^{*},\times\right)$ et $H =\Qq^*$.
+  \item $G = \left(\Rr^{*},\times\right)$ et $H \{a + b\sqrt{2}\;|\; a, b\in
+    \Qq, (a,b)\neq (0,0)\}$.
+\end{enumerate}
+% }}} Détermination simple %
+% Sous groupes usuels {{{ %
+\exercice{2}
+Soit $\left(G,.\right)$ un groupe. Démontrer que les parties suivantes sont des
+sous-groupes de $G$
+
+\begin{enumerate}
+  \item $C(G) = \{x\in G\;|\; \forall y \in G\;,\; x.y = y.x\} $, $C(G)$
+    s'appelle le \textbf{centre}  de $G$.
+  \item $aHa^{-1} = \left\{a h a^{-1}\;, h\in H\right\}$ où $a\in G$ et $H$ est
+    un sous groupe.
+  \item On suppose que $G$ est abélien. On dit que $x$ est un élément  de
+    \textbf{torsion} de $G$ s'il existe $n\in \Nn$ tel que $x^n=e$.
+
+    \begin{itemize}
+      \item Démontrer que l'ensemble de torsion forme un sous groupe.
+    \end{itemize}
+\end{enumerate}
+% }}} Sous groupes usuels %
+% Union de sous groupes {{{ %
+\exercice{2}
+Soit $G$ un groupe et $H$ et $K$ deux sous groupes de $G$. Démontrer que $H\cup
+K$ est un sous groupe de $G$ si et seulement si $H\subset K$ ou $K\subset H$.
+% }}} Union de sous groupes %
+% Sous groupe d'une courbe {{{ %
+\exercice{2}
+Montrer que $H = \left\{x+ \sqrt{3}y\;|\; x\in\Nn, y\in\Zz\;,\; x^2 -3y^2=1
+\right\}$ est un sous groupe de $\left(\Rr_+^{*},\times)\right)$.
+% }}} Sous groupe d'une courbe %
+% Produit de sous groupes {{{ %
+\exercice{2}
+Soit $\left(G, .\right)$ un groupe fini et $A,B$ deux sous groupes de $G$. On
+note
+\begin{equation*}
+  AB = \{a.b\;|\; a\in A, b\in B\}.
+\end{equation*}
+
+\begin{enumerate}
+  \item Montrer  que $AB$ est un sous groupe de $G$ si et seulement si $AB =
+    BA$.
+\end{enumerate}
+% }}} Produit de sous groupes %
+% Sous Groupes {{{ %
+% }}} Sous Groupes %
+% Morphisme de Groupes {{{ %
+% Vérification simple {{{ %
+\exercice{1}
+Les applications $\phi\;:\; G\longrightarrow H$ définies ci-dessous sont elles
+des morphisme de groupes?
+
+\begin{enumerate}
+  \item $G = \left(\Rr^{*},\times\right)$, $H = \left(\Rr^{*},\times)\right),\;
+    \phi(x) = \vert x\vert$.
+  \item $G = \left(\Rr^{*},\times\right)$, $H = \left(\Rr^{*},\times)\right),\;
+    \phi(x) = 2x$.
+\end{enumerate}
+% }}} Vérification simple %
+
+% Morphisme dans Z {{{ %
+\exercice{3}
+
+Soit $f$ un morphisme de $ G = \left(\Zz, +\right)$ dans lui même.
+\begin{enumerate}
+  \item Démontrer que $\forall n \in \Nn*$, on $f(n)= nf(1)$.
+  \item Endéduire que $\forall n\leq 0$ on a aussi $f(n) = nf(1)$. 
+  \item Caractériser les morphismes \textbf{surjectifs} de $G$ vers $G$.
+  \item Caractériser les morphismes \textbf{injectifs} de $G$ vers $G$.
+\end{enumerate}
+% }}} Morphisme dans Z %
+
+% }}} Morphisme de Groupes %
+% % Sours groupe de Z {{{ %
+% Equivalence division {{{ %
+\exercice{1}
+
+Montrer qu'il est équivalent dans $\mathbb{Z}$ de dire $m$ divise~$n$, ou
+$n\mathbb{Z}\subset m\mathbb{Z}$.
+% }}} Equivalence division %
+% Intersection de deux sous groupes  {{{ %
+\exercice{1}
+
+\begin{itemize}
+ \item Montrer que l'intersection de deux sous-groupes de $\mathbb{Z}$ est un
+sous-groupe de $\mathbb{Z}$. 
+\item Caractériser le sous-groupe  $a \mathbb{Z}\cap b \mathbb{Z}$.
+\item Caractériser les sous-groupes suivants~: 
+$$2\mathbb{Z}\cap 3\mathbb{Z}\;; \quad 5 \mathbb{Z}\cap 13\mathbb{Z}\;; 
+    \quad 5 \mathbb{Z}\cap 25\mathbb{Z}.$$
+\end{itemize}
+% }}} Fold description %
+% % }}} Sours groupe de Z %
+\end{document}

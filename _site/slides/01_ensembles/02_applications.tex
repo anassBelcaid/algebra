@@ -1,0 +1,67 @@
+\documentclass[usenames,dvipsnames]{beamer}
+\usetheme{ensam}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{acronym}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{calc, shapes, fit}
+\usepackage{amsmath}
+\usepackage{algorithmic}
+\usepackage{mynotations}
+\usepackage{algorithm}
+\usepackage{eqparbox}
+\usepackage[font=scriptsize]{caption}
+\usetikzlibrary{bayesnet,positioning,calc}
+
+\tikzstyle{obs} = [latent,fill=lightBlue]
+
+\tikzstyle{default}=[draw=sexyRed,thick,rounded corners,text width=0.5in,font=\scriptsize,align=center]
+\usepgfplotslibrary{colorbrewer}
+\definecolor{ForestGreen}{RGB}{34,139,34}
+\newcommand{\comment}[1]{\textcolor{ForestGreen}{#1}}
+%algorithmic comment
+\renewcommand\algorithmiccomment[1]{%
+  \hfill\comment{\#\scriptsize\eqparbox{COMMENT}{#1}}%
+}
+\title{Applications}
+\author{\underline{A.Belcaid}}
+\institute{\small Université Euromed de Fès} 
+
+%tikz bayesian theme
+\usetikzlibrary{bayesnet,positioning,calc}
+\tikzstyle{obs} = [latent,fill=lightBlue]
+\tikzstyle{default}=[draw=sexyRed,thick,rounded corners,text width=0.5in,font=\scriptsize,align=center]
+\DeclareMathOperator{\argmin}{argmin}
+
+\pgfplotsset{every tick label/.append style={font=\tiny}}
+
+
+
+
+
+% add bibliography
+
+\begin{document}
+\maketitle
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+%{{{ Introduction 
+\input{./02_01_definitions.tex}
+%}}}
+% Image directe, Image réciproque {{{ %
+\input{./02_02_image_directe.tex}
+
+% }}} Image directe, Image réciproque %
+% Antécedants {{{ %
+% }}} Antécedants %
+%}}}
+% Injection / Surjection / Bijection {{{ %
+\input{./02_03_bijections.tex}
+% }}} Injection / Surjection / Bijection %
+% Ensemble finies {{{ %
+\input{./02_04_ensemble_finies.tex}
+% }}} Ensemble finies %
+\end{document}

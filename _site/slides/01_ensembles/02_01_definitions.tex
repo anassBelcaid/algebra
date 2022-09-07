@@ -1,0 +1,123 @@
+
+% Définition {{{ %
+\begin{frame}[<+->]
+  \frametitle{Définition}
+  \small
+  \begin{block}{Définition}
+    One appelle une \textbf{\alert{application}} $f: E\rightarrow F$ entre deux ensembles $E$ et
+    $F$, une correspondance qui associe a \textbf{\structure{tout}} élément
+    $ x \in E$ un élément \textbf{\alert{unique}} $y\in F$   noté $f(x)$
+  \end{block}
+ \begin{center}
+ \begin{tikzpicture}[scale=1, transform shape]
+   \node[ellipse, minimum width=1.5cm, minimum height=2.5cm, draw=sexyRed!80,
+     thick, label=left:$E$] at(0,0)  {};
+   \node[ellipse, minimum width=1.5cm, minimum height=2.5cm, draw=Apricot,
+     thick, label=right:$F$] at(3,0)  {};
+   \node[point, fill=sexyRed!80, label=left:$x$] (A) at (0.2,0.5){};
+   \node[point, fill=sexyRed!80] (B) at (0.1,0.0){};
+   \node[point, fill=sexyRed!80] (C) at (-0.15,-0.4){};
+
+   \node[point, fill=Apricot,xshift=3cm, label=above right:$f(x)$] (fA) at (0.2,0.5){};
+   \node[point, fill=Apricot,xshift=3cm] (fB) at (0.1,0.0){};
+   \node[point, fill=Apricot,xshift=3cm] (fC) at (0.15,-0.6){};
+
+   \path[->,>=stealth, thick] (A) edge[bend left=45] (fA);
+   \path[->,>=stealth, thick] (B) edge[bend left=35] (fB);
+   \path[->,>=stealth, thick] (C) edge[bend right=35] (fB);
+ \end{tikzpicture}
+ \end{center}
+ \pause
+
+ \begin{itemize}
+   \item $E$: \textbf{Ensemble de départ}.
+   \item $F$: \textbf{Ensemble d'arrivée}.
+ \end{itemize}
+\end{frame}
+
+
+\begin{frame}[<+->]
+  \frametitle{Application sur $\mathbb{R}$}
+  \begin{itemize}
+    \item Si $E$ et $F$ sont des \textbf{sous ensembles}  de $\R$. On peut
+      représenter $f : \R\rightarrow\R$ par son \alert{\textbf{graphe}}:
+      \begin{equation}
+        \Gamma_f = \left\{ \big(x,f(x)\big)\in E\times F\;|\; x\in E \right\}
+      \end{equation}
+  \end{itemize} 
+\pause
+
+\begin{center}
+\begin{tikzpicture}[yscale=0.8, transform shape]
+  \draw[ ->, >=stealth ] (-2,0)--(5,0);
+  \draw[ ->, >=stealth ] (0,-1)--(0,4);
+  \node at (5,-0.2) {$x$};
+  \node at (-0.2,5) {$y$};
+  \draw[very thick, Apricot] (-1,0.5) ..controls (1.5, 2) and (2,.9).. (4.5, 1.5);
+  \node[point, fill=sexyRed!80, label=below:$x$]  (X) at (1,0){};
+  \node[point, fill=sexyRed!80, label=left:$y$]  (Y) at (0,1.3){};
+  \node[point, fill=sexyRed!80,label=above:$f(x)$]  (A) at (1,1.3){};
+  \node[label=above:$\Gamma_f$]  at (3,1.1){};
+  \path[draw] (X)--(A)--(Y);
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Égalité et Composition}
+ \begin{block}{Égalité}
+   Deux applications $f$ et $g: E\rightarrow F$ sont dites \textbf{\alert{égales}} $f=g$ si:
+   \begin{equation*}
+     \forall x \in E\quad f(x) = g(x)
+   \end{equation*}
+ \end{block} 
+ \pause
+
+ \begin{block}{Composition}
+   Soit les deux applications $f: E\rightarrow F$ et $g:F\rightarrow G$. On
+   définit alors la \textbf{\alert{composée}}:
+   \begin{equation*}
+     \left( g\circ f\right)(x) = g\left( f(x)\right)
+   \end{equation*}
+ \end{block}
+ \pause
+ \begin{center}
+ \begin{tikzpicture}[scale=1,>=stealth]
+   \node[] (E) at (0,0) {$E$};  
+   \node[] (F) at (3,0) {$F$};  
+   \node[] (G) at (6,0) {$G$};  
+   \path[->, draw] (E)--(F);
+   \path[->, draw] (F)--(G);
+
+   \path[thick,->,>=stealth,draw, Apricot] (E)edge[bend left=35]node[pos=0.5, label=above:$f$]{}(F);
+   \path[thick,->,>=stealth,draw,Apricot] (F)edge[bend left=35]node[pos=0.5, label=above:$g$]{}(G);
+
+   \path[thick,->,>=stealth,draw,sexyRed] (E)edge[bend right=25]node[pos=0.5,
+     label=below:$g\circ f$]{}(G);
+ \end{tikzpicture}
+ \end{center}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Identité}
+  \small
+ \begin{block}{Identité}
+   Une application particulière est l'application \textbf{\textbf{identité}}:
+   \begin{eqnarray*}
+     \text{id}_E &:& E\rightarrow E\\
+                && x \rightarrow x
+   \end{eqnarray*}
+ \end{block} 
+ \pause
+
+ \begin{block}{Mini Exercice}
+   Soit $f: ]0,+\infty[\rightarrow ]0,+\infty[$ tel que $f(x)=\dfrac{1}{x}$, et
+   $g: ]0,+\infty[\rightarrow \R$  tel que $g(x) = \dfrac{x-1}{x+1}$.
+   \begin{itemize}
+     \item Donner $f\circ\text{id}$, $\text{id}\circ g$, $g\circ f$ et $f\circ
+       g$.
+   \end{itemize}
+ \end{block}
+\end{frame}
+% }}} Définition %

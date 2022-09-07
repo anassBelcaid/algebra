@@ -1,0 +1,539 @@
+\documentclass{beamer}
+\usetheme{ensam}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage{acronym}
+\usepackage{mynotations}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+\usetikzlibrary{calc}
+\usepackage{amsmath}
+\usepackage {algorithmic}
+\usepackage{algorithm}
+\usepackage{eqparbox}
+\usepackage[font=scriptsize]{caption}
+\usetikzlibrary{bayesnet,positioning,calc}
+\tikzstyle{obs} = [latent,fill=lightBlue]
+\tikzstyle{default}=[draw=sexyRed,thick,rounded corners,text width=0.5in,font=\scriptsize,align=center]
+\usepgfplotslibrary{colorbrewer}
+\definecolor{ForestGreen}{RGB}{34,139,34}
+\newcommand{\comment}[1]{\textcolor{ForestGreen}{#1}}
+%algorithmic comment
+\renewcommand\algorithmiccomment[1]{%
+  \hfill\comment{\#\scriptsize\eqparbox{COMMENT}{#1}}%
+}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\title{Groupes}
+\author{\underline{A.Belcaid}}
+\institute{\small Université Euro Méditerranéenne de Fès} 
+
+
+% Customzation {{{ %
+% }}} Customzation %
+
+%tikz bayesian theme
+\usetikzlibrary{bayesnet,positioning,calc}
+\tikzstyle{obs} = [latent,fill=lightBlue]
+\tikzstyle{default}=[draw=sexyRed,thick,rounded corners,text width=0.5in,font=\scriptsize,align=center]
+\DeclareMathOperator{\argmin}{argmin}
+
+\pgfplotsset{every tick label/.append style={font=\tiny}}
+
+
+
+
+
+% add bibliography
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+% Définition {{{ %
+% Définition {{{ %
+\begin{frame}[<+->]
+  \frametitle{Définition}
+ \begin{block}{Groupe}
+   \small
+   Un \textbf{\alert{groupe}}  $\left(G, *\right)$ est un ensemble $G$ muni
+   d'une \textbf{opération} $\mathbf{*}$( dite \structure{\textbf{loi de
+   composition}}) vérifiant les propriétés suivantes:
+   \begin{enumerate}
+     \item \alert{\textbf{Loi Interne}}:  $\forall x,y \in G,\quad x*y\in G$.\\[8pt]
+     \item \alert{\textbf{Associativité}}: $\forall x, y,z \in G \quad (x*y)*z =
+       x*(y*z)$.\\[8pt]
+     \item \alert{\textbf{Elément neutre}}: $\exists e\in G\;\text{tel que}
+       \forall x \in G\quad x*e = e*x = x$\\[8pt]
+
+     \item \alert{\textbf{Elément inverse}}: $
+       \forall x \in G\;\; \exists x^{'}\in G\;\; \text{tel que} x*x^{'} = x^{'}*x = e$\\[8pt]
+   \end{enumerate}
+ \end{block} 
+ Si on plus, l'opération $*$ vérifie:
+ \begin{equation}
+   \forall x, y\in G\quad x*y = y*x
+ \end{equation}
+ On dit que le groupe $G$ est \textbf{\alert{abélien}} (\textbf{commutatif}).
+\end{frame}
+
+
+\begin{frame}[<+->]
+  \frametitle{Unicité}
+ \begin{block}{Unicité Elément neutre}
+   L'élément neutre est \textbf{\alert{unique}}.\\[8pt]
+   \scriptsize
+   Supposons qu'on possède deux éléments uniques $e_1$ et $e_2$ dans $(G, *)$.
+
+   \begin{equation}
+     \left\{\begin{array}{lll}
+         e_1\;*\; e_2 &=& e_1\\[4pt]
+         e_1\;*\; e_2 &=& e_2\\
+       \end{array}
+     \right.
+   \end{equation}
+ \end{block} 
+
+ \begin{block}{Unicité Inverse}
+   De même, on prouve que l'\textbf{\structure{inverse}} d'un élément $x$ est
+   \textbf{\alert{unique}}.
+   \scriptsize
+
+   Supposons que pour un $x\in G$, on possède deux inverses $x_1$ et $x_2$.
+   alors on peut évaluer l'expression:
+
+   \begin{equation}
+     x_1\;*x\;*x_2 = \left\{ \begin{array}{lllll}
+         \left(x_1\;*x\right)\;* x_2 & = & e \;* x_2 & =& x_2\\[4pt]
+         x_1\;*\left(x\;* x_2\right) & = & x_1 \;* e & =& x_1\\
+       \end{array}
+     \right.
+   \end{equation}
+ \end{block}
+\end{frame}
+% }}} Définition %
+% Exemples {{{ %
+
+% Exemples simples {{{ %
+\begin{frame}[t]
+  \frametitle{Exemples classiques}
+ \begin{block}{Mini Exercices}
+   \begin{enumerate}
+     \item 
+   Vérifier que les ensembles muni des opérations suivantes sont des
+   \textbf{groupes}:
+
+   \begin{enumerate}
+     \item $\left(\mathbb{Q}, \times\right)$\\[6pt]
+     \item $\left(\mathbb{Z}, +\right)$ \\[6pt]
+   \end{enumerate}
+  Justifier pourquoi les ensembles suivants ne sont pas des groupes:
+  \begin{enumerate}
+    \item $\left(\mathbb{Z}, \times\right)$\\[6pt]
+    \item $\left(\mathbb{N}, +\right)$
+  \end{enumerate}
+   \end{enumerate}
+
+
+ \end{block} 
+\end{frame}
+% }}} Exemples simples %
+
+
+% }}} Exemples %
+% Puissances {{{ %
+\begin{frame}[<+->]
+  \frametitle{Puissance}
+  \begin{block}{Puissance}
+    Pour un groupe $\left(G,*\right)$ et un élément $x\in G$, on peut définir
+    l'opération $ x\;*\; x$ par $\mathbf{\alert{x^2}}$. Plus généralement:
+    \begin{equation}
+      x^n  = \left\{
+        \begin{array}{lll}
+          e & \text{si}& n=0\\[6pt]
+          \underbrace{x*x\ldots*x}_{n \text{ fois}}& \text{pour}& n>0
+        \end{array}
+      \right.
+    \end{equation}
+    On possède alors les propriétés suivantes:
+    \begin{enumerate}
+      \item $ x^m\;*\; x^n = x^{n+m}$\\[4pt]
+      \item $ \left(x^m\right)^n = x^{nm}$\\[4pt]
+      \item $\left(x\;*\;y\right)^{-1} = \mathbf{\alert{y^{-1}\;*\;
+        x^{-1}}}$\\[4pt]
+      \item \textbf{\alert{Si G est abélien}}, $(x*y)^n = x^n\;*\; y^n$
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[t]
+  \frametitle{Mini exercice}
+ \begin{block}{Mini Exercice}
+   \small
+   \begin{enumerate}
+     \item Soit $f_{a,b}: \mathbb{R}\rightarrow \mathbb{R}$ l'application
+       définie par: $x\rightarrow ax+b$.\\
+       Montrer que le groupe:
+       \begin{equation}
+         \Big(\mathcal{F}=\{f_{a,b}\;|\; a\in\mathbb{R}^{*}, b\in\mathbb{R}\},
+         \circ\Big)
+       \end{equation}
+       est un groupe non commutatif.
+      \item Soit $G = ]-1, 1[$, Pour $x,y \in G$ on définit:
+        \begin{equation}
+          x*y = \dfrac{x+y}{1 + xy}
+        \end{equation}
+        Montrer que $\left(G, *\right)$ forme un groupe.
+   \end{enumerate}
+ \end{block} 
+\end{frame}
+% }}} Puissances %
+% Exemple des matrices {{{ %
+% }}} Exemple des matrices %
+% }}} Définition %
+% Sous-groupes {{{ %
+% Définition {{{ %
+
+\begin{frame}[t]
+  \frametitle{2- Sous Groupes}
+  \begin{itemize}
+    \scriptsize
+    \item Souvent on travaille avec des ensembles $G$ qui sont des parties des
+      groupes classiques comme $\left(\mathbb{R}, \times\right)$. Il existe
+      alors une méthode \alert{\textbf{plus simple}} pour démontrer que $G$ est un groupe.
+  \end{itemize}
+\pause
+  \begin{block}{Sous groupe}
+    \small
+    Soit $\left(G,\; *\right)$ un groupe. Une \textbf{partie}
+    $\mathbf{H}\subset G$ est un \textbf{\alert{sous groupe}} de $G$
+    si:
+
+    \centering
+    \begin{itemize}
+      \item $\mathbf{e} \in H$\\[8pt]
+      \item $\forall x, y \in H,\quad x\;*\;y \in H$\\[8pt]
+      \item $\forall x\in H,\quad x^{-1}\in H$.
+    \end{itemize}
+
+  \end{block}
+  \pause
+  \begin{block}{Remarque}
+   Une méthode plus simple pour prouver que $H$ est un \textbf{sous groupe} est:
+   \begin{itemize}
+     \item $H \neq \emptyset$
+     \item $\forall x, y \in H\quad x\;*y^{-1} \in H$.
+   \end{itemize}
+  \end{block}
+\end{frame}
+% }}} Définition %
+% Exemples {{{ %
+\begin{frame}[<+->]
+  \frametitle{2-2 Exemples}
+ \begin{block}{Exemples}
+   \begin{itemize}
+     \item $\mathbf{\left(\mathbb{R}^{*}_+, \times\right)}$ est un \textbf{sous groupe}  de
+       $\left(\mathbb{R}^{*}, \times\right)$
+       \begin{itemize}
+         \scriptsize
+         \item $1 \in \mathbb{R}_+^{*}$\\[4pt]
+         \item $\forall x,y \in \mathbb{R}^{*}_+\quad x\times y \in
+           \mathbb{R}^{*}_+.$
+         \item $\forall x \in \mathbb{R}_+^{*}\quad \dfrac{1}{x} \in
+           \mathbb{R}^{*}_+$ \\[8pt]
+       \end{itemize}
+     \item $\mathbf{\left(\mathbb{Z}, +\right)}$ est un sous groupe de
+       $\left(\mathbb{R}, +\right)$.
+     \item Soit l'ensemble $\mathbb{U} = \left\{z\in\mathbb{C}\;|\; \vert z\vert
+       = 1\right\}$\\[8pt]
+       \begin{itemize}
+         \item Sachant que $\left(\mathbb{C},\times \right)$ est un groupe,
+           prouvez que $\alert{\mathbb{U}}$ muni de $\times$ est aussi un
+           groupe.
+       \end{itemize}
+   \end{itemize} 
+ \end{block} 
+
+   \begin{figure}[htpb]
+   \begin{center}
+   \begin{tikzpicture}[scale=0.4,>=stealth]
+     \draw[->, thick] (-3, 0)--(3,0);
+     \draw[->, thick] (0, -3)--(0,3);
+     \draw[sexyRed, thick] (0,0) circle[radius=1cm];
+     \node at (1.2, 0.4) {\scriptsize $\mathbb{U}$};
+   \end{tikzpicture}
+   \end{center}
+   \end{figure}
+\end{frame}
+% }}} Exemples %
+% Sous groupes de Z {{{ %
+
+\begin{frame}[t]
+  \frametitle{Sous groupes de $\mathbb{Z}$}
+ \begin{block}{Théorème}
+   Les \textbf{seuls} \alert{sous groupes} de $\mathbb{Z}$, sont les
+   $\mathbf{n\mathbb{Z}}$ pour $n\in\mathbb{N}$.
+   \begin{equation}
+     n\mathbb{Z} = \left\{k.n \;|\; k\in \mathbb{Z}\right\}
+   \end{equation}
+ \end{block} 
+ \begin{itemize}
+   \item Lister les éléments de $3\mathbb{Z}$.\\[8pt]
+   \item Donner une démonstration de ce théorème. 
+ \end{itemize}
+\end{frame}
+% }}} Sous groupes de Z %
+% Mini exercices {{{ %
+\begin{frame}[t]
+  \frametitle{Mini exercices}
+ \begin{block}{Mini Exercices}
+   \begin{enumerate}
+     \item Montrer que $\left\{2^n\;|\; n\in \mathbb{Z}\right\}$ est un sous
+       groupe de $\left(\mathbb{R}^{*}, \times\right)$\\[8pt]
+     \item Montrer que si $H$ et $H^{'}$ sont deux sous groupes de $\left(G,
+       *\right)$, alors $\alert{H\cap H^{'}}$ est aussi un sous groupe.\\[8pt]
+     \item Montrer que $\alert{5\mathbb{Z}\cup 8\mathbb{Z}}$ n'est pas un sous
+       groupe. 
+   \end{enumerate}
+ \end{block} 
+\end{frame}
+% }}} Mini exercices %
+% }}} Sous-groupes %
+% Morphisme de groupes {{{ %
+% Définition {{{ %
+\begin{frame}[t]
+  \frametitle{2.3 Morphisme de groupes}
+\begin{block}{Morphisme}
+  \small
+  Soit $\Group{G}{*}$ et $\Group{G^{'}}{\diamond}$ deux \textbf{groupes}. Une
+  application $f\;:\; G\Longrightarrow G^{'}$ est un \textbf{\alert{morphisme de
+  groupes}} si:
+  \begin{equation}
+    \forall x, y \in G \quad   f(x\; *\;y) = f(x)\diamond f(y)
+  \end{equation}
+\end{block}  
+\pause
+
+Les deux exemples classiques que vous connaissez sont:
+
+\begin{itemize}
+  \small
+  \item $G = (\Rr, +)$ et $ G^{'}=\left(\Rr^{*}_+, \times\right)$. Le morphisme
+    classique qui transforme l'\textbf{addition} en \textbf{multiplication}
+    est la fonction \textbf{\alert{exponentielle}} \pause
+    \begin{equation}
+      \forall x, y \in \Rr\quad \exp(x \structure{+} y)= \exp(x)\alert{\times} \exp(y)
+    \end{equation}
+  \item Inversement, la fonction \textbf{\alert{logarithme}}  est un morphisme
+    de groupe entre $G^{'}$ et $G$.
+
+    \begin{equation}
+      \log(x\structure{\times} y) =  \log(x) \alert{+} \log(y)
+    \end{equation}
+\end{itemize}
+\end{frame}
+% }}} Définition %
+% Propriétées {{{ %
+%{{{Inverse et élement neutre
+\begin{frame}[t]
+  \frametitle{Propriétés(1)}
+ \begin{block}{Proposition}
+   \small
+   Soit $f\;:\; G\Longrightarrow G^{'}$ un morphisme de groupe. On note $e_{G}$
+   ($e_{G^{'}}$) l'élément neutre de $G$($G^{'}$). Alors:
+
+   \begin{itemize}
+     \item \begin{equation}
+         f(e_{G}) = e_{G^{'}}
+     \end{equation}
+   \item 
+     \begin{equation}
+       \forall x \in G\quad  f(x^{-1}) = \left(f\left(x\right)\right)^{-1}
+     \end{equation}
+   \end{itemize}
+ \end{block} 
+
+ \begin{itemize}
+   \item Pour l'exemple de logarithme, on sait déjà que:
+     \begin{equation}
+       \log(\structure{1}) = \alert{0}
+     \end{equation}
+   \item Donner une \alert{\textbf{preuve}} des deux équations.
+ \end{itemize}
+\end{frame}
+%}}}
+% Composition et inverse {{{ %
+\begin{frame}[t]
+  \frametitle{Propriétés (2) }
+  \begin{itemize}
+    \small
+  \item Soient deux morphismes $f:\;G\Longrightarrow G^{'}$ et $g:\;G^{'}\Longrightarrow G^{''}$
+    \begin{block}{Composée}
+         La composée \alert{$\mathbf{g\circ f}$ est un morphisme} de groupe entre $G$ et
+   $G^{''}$.\\[8pt]
+    \end{block}
+    \pause
+    \item 
+      \begin{block}{Inverse}
+   Si l'application est \textbf{\alert{bijective}}. Alors $\mathbf{f^{-1}}$ est aussi un morphisme de
+   groupe entre $G^{'}$ et $G$.\\[8pt]
+    \end{block}
+
+   Dans ce cas, on dit que:
+   \begin{itemize}
+     \item $f$ est un \textbf{\alert{isomorphisme}}.\\[8pt]
+     \item Les deux groupes $G$ et $G^{'}$ sont \textbf{\alert{isomorphes}}
+   \end{itemize}
+ \end{itemize}
+\end{frame}
+% }}} Composition et inverse %
+
+% }}} Propriétées %
+% Noyaux et image {{{ %
+% Noyau {{{ %
+\begin{frame}[t]
+  \frametitle{Noyau et Image}
+  \begin{itemize}
+    \small
+    \item Si $f: G\longrightarrow G^{'}$ est un morphisme de groupe. Alors on
+      identifie deux \textbf{sous groupes} importants:
+
+      \begin{block}{Noyau}
+        \small
+        Le \textbf{\alert{noyaux}} (\emph{kernel}) de $f$ est
+        \begin{equation}
+          \text{\textbf{Kern}}\;f = \left\{ x\in G\;|\; f(x) = e_{G^{'}}\right\}
+          = f^{-1}\left(\left\{ e_{G^{'}}\right\}\right)
+        \end{equation}
+      \end{block}
+      \pause
+      \vspace*{1cm}
+      \begin{block}{Image}
+        \small L'\alert{\textbf{image}} de $f$ est:
+        \begin{equation}
+          \text{\textbf{Img}}\;f = \left\{ f(x)\;|\; x\in G\right\}\subset G^{'}
+        \end{equation}
+      \end{block}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Propriétés}
+ Voici quelque propriétés du noyau et l'image de $f$:.
+
+   \small
+   \begin{block}{Propriétés}
+ \begin{enumerate}
+ \item $\text{\textbf{Kern}}\;f$ est un \textbf{sous groupe}  de $G$.\\[8pt]
+ \item $\text{\textbf{Img}}\; f$ est un \textbf{sous groupe}  de $G^{'}$.\\[8pt]
+ \item $f$ est \alert{\textbf{injectif}} si et seulement si $\text{\textbf{Kern}}\;f =
+   \left\{e_G\right\}$\\[8pt]
+
+ \item $f$ est \alert{\textbf{surjectif}} si et seulement si $\text{\textbf{Img}}\;f
+   =G^{'}$\\[8pt]
+ \end{enumerate}
+ \end{block}
+ \begin{itemize}
+   \item Preuve:
+ \end{itemize}
+\end{frame}
+% }}} Noyau %
+
+\begin{frame}[t]
+  \frametitle{Mini Exercices}
+ \begin{block}{Mini Exercices}
+   \small
+   \begin{enumerate}
+     \small
+     \item Soit $f\;:\; \left(\Zz, +\right)\longrightarrow \left(\Qq^{*},
+       \times\right)$ définie par $f(n)= 2^n$.
+       \begin{itemize}
+         \item Montrer que $f$ est un morphisme de groupe.\\[4pt]
+         \item $f$ est elle \textbf{injective}, \textbf{surjective}?
+       \end{itemize}
+       \small
+     \item Soit $\left(G, *\right)$ un groupe et $f\;:\; G\longrightarrow G$
+       l'application définie par $f(x) = x^2$.
+       \begin{itemize}
+         \small
+         \item Montrer que si $\left(G,*\right)$ est \textbf{commutatif}, alors
+           $f$ est un morphisme de groupe.\\[4pt]
+         \item Montrer la réciproque.
+       \end{itemize}
+       \small
+     \item Montrer qu'il n'existe pas de morphisme $f:(\Zz, +)\longrightarrow
+       (\Zz, +)$ tel que:
+       \begin{equation*}
+         f(2) = 3
+       \end{equation*}
+   \end{enumerate}
+ \end{block} 
+\end{frame}
+% }}} Noyaux et image %
+% }}} Morphisme de groupes %
+% Groupe Z / nZ {{{ %
+% Ensemble Z/nZ {{{ %
+\begin{frame}[t]
+  \frametitle{Groupe $\Zz/ n\Zz$ }
+  \begin{itemize}
+    \small
+    \item Pour un $n\geq 1$, on rappelle que:
+      \begin{equation*}
+        \Zz/ n\Zz = \left\{ \overline{0}, \overline{1}, \overline{2}, \ldots, \overline{n-1}\right\}
+      \end{equation*}
+    où $\overline{p}$ désigne la classe \alert{\textbf{d'équivalence}} de $p$
+    modulo $n$.
+  \item Sur cet ensemble, on peut définir l'opérateur d'\alert{\textbf{addition}} entre les
+    classes par:
+
+    \begin{equation}
+      \overline{p} + \overline{q} = \overline{p + q}
+    \end{equation}
+
+    On prouve que:
+
+    \begin{block}{Groupe}
+      $\left(\Zz/n\Zz, +\right)$ est un groupe commutatif.
+    \end{block}
+  \end{itemize} 
+\end{frame}
+% }}} Ensemble Z/nZ %
+% Groupe cyclique de cardinal fini {{{ %
+
+\begin{frame}[t]
+  \frametitle{Groupe cyclique de cardinal fini}
+ \begin{block}{Définition}
+   \small
+   Un groupe $\left(G, *\right)$ est dit \textbf{\alert{cyclique}} si
+
+   \begin{equation*}
+     \exists! a \in G\quad \forall x \in G, \exists k\in \Zz \text{ tel que } x =
+     a^n
+   \end{equation*}
+ou que le groupe $G$ est engendré par l'élément $a$.
+ \end{block} 
+
+ \begin{block}{Exemple}
+   \small
+   Le groupe $\left(\Zz/n\Zz, +\right)$ est un groupe \textbf{cyclique} engendré
+   par l'élément $a = \overline{1}$.\\
+
+   On peut prouver que $\forall k \in \Zz/n\Zz$ on a:
+   \begin{equation*}
+     k = \underComment{\overline{1} + \overline{1} + \ldots, \overline{1}}{$k$ fois}
+   \end{equation*}
+ \end{block}
+ \begin{block}{Théorème}
+   \small
+   Soit $\left(G,*\right)$ un groupe de cardinal fini $n$. Alors $G$ est
+  \textbf{\alert{isomorphe}}  à $\Zz/n\Zz$.
+ \end{block}
+\end{frame}
+% }}} Groupe cyclique de cardinal fini %
+% }}} Groupe Z / nZ %
+
+
+\end{document}

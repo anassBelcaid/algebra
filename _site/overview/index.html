@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-language" content="en">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Algebra 101 | Course Overview.</title>
+  <meta name="description" content="The first course on the prep oratory cycle in the **EIDIA** school. The objective is to introduce the basic of sets, relations and applications. The second part of the focuses on **linear** spaces and applications.
+">
+
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/overview/">
+
+  
+  <!-- Load Latex JS -->
+  <script src="https://cdn.jsdelivr.net/npm/latex.js@0.11.1/dist/latex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/latex.js@0.11.1/dist/latex.component.js"></script>
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <span class="site-title">
+      <a class="page-link" href="http://localhost:4000/">Algebra 101</a>
+    </span>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <a class="page-link" href="/logistics/">Logistics</a>
+        <a class="page-link" href="/lectures/">Lectures</a>
+        <a class="page-link" href="/calendar/">Calendar</a>
+        <a class="page-link" href="/homework/">Homework</a>
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Course Overview.</h1>
+    <p class="post-meta">September 13, 2021</p>
+  </header>
+
+  <article class="post-content">
+    <ul id="markdown-toc">
+  <li><a href="#overview-of-the-course" id="markdown-toc-overview-of-the-course">Overview of the course.</a>    <ul>
+      <li><a href="#what-you-should-learn" id="markdown-toc-what-you-should-learn">What you should learn</a></li>
+      <li><a href="#final-projects" id="markdown-toc-final-projects">Final projects</a></li>
+    </ul>
+  </li>
+  <li><a href="#first-projects" id="markdown-toc-first-projects">First projects</a>    <ul>
+      <li><a href="#qt-version" id="markdown-toc-qt-version">Qt version</a></li>
+      <li><a href="#empty-gui" id="markdown-toc-empty-gui">Empty GUI</a></li>
+    </ul>
+  </li>
+  <li><a href="#qt-high-level-classes" id="markdown-toc-qt-high-level-classes">Qt High level classes</a>    <ul>
+      <li><a href="#strings" id="markdown-toc-strings">Strings</a></li>
+      <li><a href="#containers" id="markdown-toc-containers">Containers</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview-of-the-course">Overview of the course.</h2>
+
+<p>The goal of this course is to help you write <strong>multi-platform</strong> GUI
+applications. They could be executed in any platform and even ported to embedded
+systems like <strong>Rasberry</strong> or <strong>Arduino</strong>.</p>
+
+<p>We will use the <a href="https://www.qt.io/">Qt</a> library which is written in <strong>C++</strong>.
+Qt <d-cite key="Qtabout"></d-cite> is a <strong>widget toolkit</strong> for creating
+<strong>graphical user interface</strong> that run on various software and hardware platform
+such as <strong>Linux</strong>, <strong>Window</strong>, <strong>MacOS</strong>,  <strong>Android</strong> or <strong>Embeded systems</strong>
+with little to <em>no change</em>.</p>
+
+<div class="center">
+  <img src="http://localhost:4000/assets/img/lecture1/Qt_logo_2016.svg.png" />
+</div>
+
+<div class="center">
+  <img src="http://localhost:4000/assets/img/lecture1/qt_multiplatform.jpg" width="300" />
+  <div class="figcaption">
+   Create fluid user interfaces with QML and boost your performance using C++.  The choice is yours. You can even use Python and other community backed language bindings. Qt supports most operating systems and enables you to scale your applications down to target microcontrollers running on bare metal or up to high-end computers
+  </div>
+</div>
+
+<p>Qt is not a programming language on its own. It’s a framework written on
+<strong>C++</strong>. A preprocessor <a href="https://doc.qt.io/qt-5/moc.html">MOC (Meta-Object Compiler)</a> is used to extend the C++ language with features like <a href="http://doc.qt.io/qt-5/signalsandslots.html">signals and slots</a>. Before the compilation step, the MOC parses the source files written in Qt-extended C++ and generates standard compliant C++ sources from them. Thus the framework itself and applications/libraries using it can be compiled by any standard compliant C++ compiler like Clang, GCC, ICC, MinGW and MSVC.</p>
+
+<h3 id="what-you-should-learn">What you should learn</h3>
+<p>The goal of this course it to teach you the <strong>basics</strong> of creating GUI
+applications using the C++14 standard. Since Qt make a heavy use of C++ concept,
+we will focus in the first part to  recover some
+of advanced <strong>OOP</strong> concepts like:</p>
+
+<ul>
+  <li>Inheritance.</li>
+  <li>Polymorphism and Abstraction.</li>
+  <li>Templates and const correctness.</li>
+</ul>
+
+<p>Once we master those concept, we will move to create our fist applications. We
+will start by a simple <strong>dialogs</strong> using inheritance and meta-programming concept
+of signals and slots.</p>
+
+<div class="center">
+  <img src="http://localhost:4000/assets/img/lecture1/extension_left.png" />
+</div>
+
+<div class="center">
+  <img src="http://localhost:4000/assets/img/lecture1/extension_right.png" />
+
+  <div class="figcaption">
+   Dynamic dialogs.
+</div>
+</div>
+
+<p>We will dive deeper into the set of <strong>Qt Widgets</strong> and get used to most used
+ones. As a homework, you’ll write a <strong>chronometer</strong> diaglog that show either a
+running or elapsed time.</p>
+
+<div class="center">
+  <img src=" http://localhost:4000/assets/img/lecture1/chronometer_application.png" />
+  <div class="figcaption">
+   A chronometer example in Qt. The dialog launches a timer and each lap, it
+   register the time elapsed.
+  </div>
+</div>
+
+<p>Finally, we will present all the essential components for a <strong>Qt Application</strong>
+with a status bar, and tool bar and a main widget. In order to master those
+concept, you’ll write your own basic <strong>Text Editor</strong> with some basic
+functionalities such as <em>sort</em> or <em>search</em>.</p>
+<div class="center">
+  <img src=" http://localhost:4000/assets/img/lecture1/main_application.png" />
+  <div class="figcaption">
+   Example of a simple text editor with a tool and status bar.
+  </div>
+</div>
+
+<h3 id="final-projects">Final projects</h3>
+
+<p>As a final project, you can choose between the two following projects.</p>
+
+<ol>
+  <li>A car <strong>dashboard</strong></li>
+</ol>
+
+<div class="center">
+  <img src=" http://localhost:4000/assets/img/lecture1/dash_board.png" width="600" />
+  <div class="figcaption">
+  Project 1: Car Dashboard
+  </div>
+</div>
+
+<ol>
+  <li>The <strong>2048</strong> Game:</li>
+</ol>
+
+<div class="center">
+  <img src=" http://localhost:4000/assets/img/lecture1/game_2048.png" width="600" />
+  <div class="figcaption">
+  Project 2: The 2048 Game.
+  </div>
+</div>
+
+<h2 id="first-projects">First projects</h2>
+
+<p>In this section, we will show some basic functionalities of the <strong>Qt</strong> library
+and some of its <strong>containers</strong> replacements.</p>
+
+<h3 id="qt-version">Qt version</h3>
+
+<p>In this simple <code class="language-plaintext highlighter-rouge">hello world</code> like program, we will write a simple program to
+print the <strong>QT</strong> version of your installation. We also show how to compile this
+program using either the raw linking abilities of your compiler or (much easier)
+uusing the <code class="language-plaintext highlighter-rouge">qmake</code> tool to generate the compiling commands for you.</p>
+
+<ul>
+  <li>First, we will create a simple program <code class="language-plaintext highlighter-rouge">version.cpp</code> with the following
+ content:</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;QtCore&gt;    // Core function for Qt
+#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">//printing Qt version</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Your Qt version is : "</span> <span class="o">&lt;&lt;</span> <span class="n">qVersion</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>In order to compile to program, we could <strong>manually</strong> link the Qt libraries
+ using</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g++ <span class="nt">-o</span> version version.cpp <span class="nt">-I</span>/usr/include/x86_64-linux-gnu/qt5/QtCore <span class="se">\</span>
+  <span class="nt">-I</span>/usr/include/x86_64-linux-gnu/qt5 <span class="nt">-L</span>/usr/lib/qt5 <span class="nt">-lQt5Core</span> <span class="nt">-fPIC</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>the <code class="language-plaintext highlighter-rouge">-I/path/</code> is used to show the compiler the path of a given library and
+added to the linker.</p>
+
+<ul>
+  <li>A much better and <strong>easer</strong> way, is to use build process. Qt comes with its
+own building process called <a href="https://doc.qt.io/qt-5/qmake-manual.html">qmake</a>.
+It automates the generation of Makefiles so that only a few lines of
+informatioon are needed to create each Makefile.</li>
+</ul>
+
+<p>Hence, in order to compile this program, we could write:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qmake <span class="nt">-project</span>   <span class="c"># command to generate a project config file</span>
+</code></pre></div></div>
+
+<p>This will generate a <code class="language-plaintext highlighter-rouge">version.pro</code> that contain the <strong>meta information</strong> about
+your project. Once this file is generated, we can create a <strong>Makefile</strong> to
+compile the program using:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qmake   <span class="c"># Generate the Makefile in order to compile the program</span>
+</code></pre></div></div>
+
+<p>Once the <strong>Makefile</strong> is generate, we can compile the program by simply calling
+the make command</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make   <span class="c"># compile the program version.cpp </span>
+</code></pre></div></div>
+
+<h3 id="empty-gui">Empty GUI</h3>
+
+<p>In order to show options  and manipulations of the <strong>qmake</strong> file, we will
+create an empy Qt application (with no widgets).</p>
+
+<p>So we will start by writing the main program (don’t worry if you don’t
+understand its components, we will come back and explain each one of them).</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;QApplication&gt;
+#include &lt;QWidget&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="c1">//Creating the main application</span>
+    <span class="n">QApplication</span> <span class="n">app</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+    <span class="c1">//Creating a simple widget</span>
+    <span class="n">QWidget</span> <span class="n">window</span><span class="p">;</span>
+    <span class="n">window</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+    <span class="n">window</span><span class="p">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s">"Empty application"</span><span class="p">);</span>
+    <span class="n">window</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+    
+    <span class="c1">// Entering the infinite loop</span>
+    <span class="k">return</span> <span class="n">app</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We generate the qmake project file by <code class="language-plaintext highlighter-rouge">qmake -project</code>. But for this program, we
+need to instruct Qt to include the <strong>widgets</strong> components.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>######################################################################
+# Automatically generated by qmake (3.1) Sun Sep 5 09:40:11 2021
+######################################################################
+
+TEMPLATE = app
+TARGET = empty
+INCLUDEPATH += .
+
+DEFINES += QT_DEPRECATED_WARNINGS
+
+
+# Input
+SOURCES += empty.cpp
+
+# Adding the widgets components
+QT += widgets
+</code></pre></div></div>
+
+<p>You can then configure the program by <code class="language-plaintext highlighter-rouge">make</code>:</p>
+
+<h2 id="qt-high-level-classes">Qt High level classes</h2>
+
+<p><strong>QT</strong> provides  <em>high level</em> replacement for the classical containers like
+arrays, string and lists. In this seciton, we show some advanced for these
+classes.</p>
+
+<h3 id="strings">Strings</h3>
+
+<p>QT5 has a <code class="language-plaintext highlighter-rouge">QString</code> class for working  with strings. It is very powerful and has
+several methods. A <code class="language-plaintext highlighter-rouge">QSTring</code> is a collectin of <code class="language-plaintext highlighter-rouge">QChar</code>.</p>
+
+<p>In this example, we illustrate the following methods:</p>
+
+<ol>
+  <li>append and prepend.</li>
+  <li>toUpper and toLower.</li>
+  <li>build String.</li>
+  <li>Splitting.</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">QString</code> can add content to an string by the two methods <strong>append</strong> and
+ <strong>prepend</strong>. Also, unlike the <em>STL</em> library strings, we can convert the whole
+ string into lower or upper state by a single call.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;QTextStream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+
+    <span class="c1">//QTestStream to print string (plays the role of cout)</span>
+    <span class="n">QTextStream</span> <span class="n">out</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+
+    <span class="c1">//initiating a Qt String using uniform initializer</span>
+    <span class="n">QString</span> <span class="n">simple</span> <span class="p">{</span> <span class="s">"random"</span> <span class="p">};</span>
+
+    <span class="c1">//printing the string</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">simple</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+    <span class="c1">//adding at the end</span>
+    <span class="n">simple</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">" Walk!"</span><span class="p">);</span>
+
+    <span class="c1">//adding at the beginning</span>
+    <span class="n">simple</span><span class="p">.</span><span class="n">prepend</span><span class="p">(</span><span class="s">"The use of "</span><span class="p">);</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">simple</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+    <span class="c1">//converting to lower and uppper</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">simple</span><span class="p">.</span><span class="n">toLower</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">simple</span><span class="p">.</span><span class="n">toUpper</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Another cool feature of <code class="language-plaintext highlighter-rouge">QSTring</code> is the ability to build string in <strong>C like</strong>
+<code class="language-plaintext highlighter-rouge">printf</code> format. Each string could  contains a set of <strong>placeholder</strong> that could
+be replaced using the <code class="language-plaintext highlighter-rouge">arg</code> method.</p>
+
+<p>To illustrate this concept, we will create a <em>template</em> to print server login
+information. The message will contain the <strong>user name</strong> and <strong>number of logs</strong>.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;QTextStream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="n">QTextStream</span> <span class="n">out</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>      <span class="c1">// stream to print information</span>
+
+
+    <span class="c1">//Creating the template</span>
+    <span class="n">QString</span> <span class="n">message</span><span class="p">{</span> <span class="s">"User %1 tried to log %2 times"</span> <span class="p">};</span>
+
+
+    <span class="c1">//printing information with user (EUMF, 43)</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">message</span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">"EUMF"</span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+    <span class="c1">// other instance</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">message</span><span class="p">.</span><span class="n">arg</span><span class="p">(</span><span class="s">"EIDIA"</span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Another advanced method in this class is the the <code class="language-plaintext highlighter-rouge">split</code> methods which gives the
+user a fast way to decompose the string into a set of <strong>token</strong> based on a
+separator.</p>
+
+<p>In the following example, we will decompose a message either by using the
+<strong>space</strong> or the <strong>comma</strong> separator.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;QTextStream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="c1">//Creating the main application</span>
+    <span class="n">QTextStream</span> <span class="n">out</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+
+
+    <span class="c1">//complicated string</span>
+    <span class="n">QString</span> <span class="n">message</span><span class="p">{</span> <span class="s">"token1 token2, token3 token4, token5 token6"</span><span class="p">};</span>
+
+
+    <span class="c1">//spliting the message using the default space splitter</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">token</span> <span class="o">:</span> <span class="n">message</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">QChar</span><span class="p">(</span><span class="sc">' '</span><span class="p">)))</span>
+        <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">token</span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span><span class="p">;</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+    <span class="c1">//spliting by a custom separator</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">token</span> <span class="o">:</span> <span class="n">message</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">QChar</span><span class="p">(</span><span class="sc">','</span><span class="p">)))</span>
+        <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">token</span> <span class="o">&lt;&lt;</span> <span class="s">"  "</span><span class="p">;</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>The method <code class="language-plaintext highlighter-rouge">split</code> return a QStringList, which is a the <strong>list</strong>  implementation in
+the Qt library.</p>
+</blockquote>
+
+<p>For a set of extensive methods, we encourage to the reader to check the
+documentation page <a href="https://doc.qt.io/qt-5/qstring.html">QtString</a></p>
+
+<h3 id="containers">Containers</h3>
+
+<p>Qt offers a set of containers like:</p>
+
+<ul>
+  <li>QVector</li>
+  <li>QList</li>
+  <li>QStringList</li>
+  <li>QSet</li>
+  <li>QHashMap</li>
+</ul>
+
+<p>given the fact, that our knowledge of containers is reduced to vectors and
+lists, we will present the implementation of Qt of these two classes.</p>
+
+<p>In the first example, we present the class <code class="language-plaintext highlighter-rouge">QVector</code>. It has the same <strong>API</strong> as
+the STL container and can easily be cast to a standard vector.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;QTextStream&gt;
+#include &lt;QVector&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="c1">//Creating the main application</span>
+    <span class="n">QTextStream</span> <span class="n">out</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+
+
+    <span class="c1">//Creating a vector using uniform initialisation</span>
+    <span class="n">QVector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+
+
+    <span class="c1">//printing the elements of the vectors</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">value</span><span class="o">:</span> <span class="n">nums</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+
+    <span class="c1">//first and last value</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="s">"first value : "</span> <span class="o">&lt;&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">first</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" Last value : "</span> <span class="o">&lt;&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">last</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+
+    <span class="c1">//filling change all the values to 1</span>
+    <span class="n">QVector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums2</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+    <span class="n">nums2</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">//appending the nums2 to num1 using operator overloading</span>
+    <span class="n">nums</span> <span class="o">+=</span> <span class="n">nums2</span><span class="p">;</span>
+
+    <span class="c1">//We can also switch to STL vectors at any time</span>
+    <span class="k">auto</span> <span class="n">num3</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">toStdVector</span><span class="p">();</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the second example, we use introduce the <code class="language-plaintext highlighter-rouge">QList</code> container and shows how it
+ is easy to incorporates the STL algorithm library with this container.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;QTextStream&gt;
+#include &lt;QList&gt;
+#include &lt;QList&gt;
+#include &lt;algorithm&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="c1">//out stream</span>
+    <span class="n">QTextStream</span> <span class="n">out</span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span>
+
+    <span class="c1">//Creating doubly linked list</span>
+    <span class="n">QList</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+
+    <span class="c1">//printing the list</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="s">"before sorting : "</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">value</span><span class="o">:</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+    <span class="c1">//linear search</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="s">"Index of 3 is "</span> <span class="o">&lt;&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+    <span class="c1">//We could work with nums as an STL container</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="s">"After sorting : "</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">value</span><span class="o">:</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+
+    <span class="c1">//Binary search  for 4</span>
+    <span class="k">auto</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">value</span><span class="p">);</span>
+    <span class="n">out</span> <span class="o">&lt;&lt;</span> <span class="s">"The value "</span> <span class="o">&lt;&lt;</span> <span class="n">value</span> <span class="o">&lt;&lt;</span> <span class="s">" is in index : "</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">it</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+  </article>
+
+  
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Structural Algebra.</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">A.belcaid</li><li><a class="u-email" href="mailto:anass.belcaid@gmail.com">anass.belcaid@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/anassBelcaid" target="_blank"><i class="fab fa-github"></i> <span class="username">anassBelcaid</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>&copy; Copyright 2022 Euromed University. <br />
+        Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.1/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.1/katex.min.js"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+<!-- Load Anchor JS -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.2/anchor.min.js"></script>
+<script>
+  anchors.options.visible = 'hover';
+  anchors.add('article h2, article h3, article h4, article h5, article h6');
+</script>
+
+
+
+<!-- Adjust LaTeX JS -->
+<script src="/assets/js/latex.js"></script>
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/academicons.min.css">
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+
+</html>

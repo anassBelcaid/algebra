@@ -1,0 +1,85 @@
+* Vectorial spaces
+** DONE Need for the matrix course
+   - [X] Verify with Houda
+
+** DONE Minimal conditions
+   - [X] Sum over internal
+   - [X] /Neutral element/
+   - [X] Inverse
+   - [X] Associative 1
+   - [X] Internal law 2
+   - [X] Neutral Element 2
+   - [X] Associative
+
+*** Examples
+    - [ ] homogenous plan $$ax + by + cz = 0$$
+    - [ ] fonctions spaces
+
+** DONE Subspace
+*** DONE Definition
+    - [X] Axioms
+
+*** DONE Cool examples
+    - [X] $$ x + y = 2$$
+    - [X] $$ x= 0 ou y= 0$$
+    - [X] $$ x\leq 1 and y\leq 1$$ *Counter Example*
+
+** DONE Span ( Linear combination)
+*** DONE Definition
+   - [X] Definition
+   - [X] Examples
+
+*** DONE Subspace Caracterisation
+    - [X] Main theorem
+
+*** DONE Subspaces Intersection
+    - [X] Main result
+
+*** DONE Subspace Sum
+    - [X] Main result (sum is a subspace)
+    - [X] Minimal Subspace containing (E and F)
+    - [X] Suplimentary subpaces (Direct Sum)
+
+*** DONE Span
+    - [X] Span of vectors is subspace
+    - [X] Minimial Subspace containing set of vectors
+    - [X] Simple Examples
+
+** DONE Linear Applications
+*** DONE Examples
+    - [X] Opposed
+    - [X] Reflexion to the main diagonal
+    - [X] Scaling
+    - [X] Projection
+
+
+*** DONE Caracteristion
+    - [X] Main Theorem
+
+*** DONE Image
+    - [X] Image is a subspace
+
+*** TODO Kernel
+    - [X] Kernel is a subspace
+
+** TODO Finite Dimension
+
+*** DONE Finite set
+      * [X] Definition
+      * [X] Examples
+      * [X] Second definition
+*** DONE Generator set
+      * [X] Definition
+      * [X] Examples
+      * [X] Link between two sets
+*** DONE Basis
+    - [X] Definition
+    - [X] Coordinates
+    - [X] Examples
+    - [X] Fondamental incomplete basis
+*** TODO Dimension
+    - [X] Defintion
+    - [X] sharing the same dimension
+    - [X] Examples
+    - [X] Complement
+    - [ ] Susspace Dimension

@@ -1,0 +1,200 @@
+\documentclass[10pt, a4paper, twocolumn]{homework}
+\usepackage[inline]{enumitem}
+
+% Link of the exercices
+% http://www.bibmath.net/ressources/index.php?action=affiche&quoi=bde/algebre/groupe&type=fexo
+\title{Polynômes}
+\date{08 novembre 2020}
+\author{A.Belcaid}
+
+
+
+\begin{document}
+\maketitle
+
+
+% Division Euclidienne {{{ %
+% Calcul {{{ %
+\exercice{1}
+Pour les trois cas listés, calculer la division euclidienne de $P$ par
+$Q$.
+
+\begin{enumerate}
+  \item $P=X^4 + 5X^3 + 12X^2 + 19X - 7$ et $Q=X^2 + 3X-1$.
+  \item $P=X^4-4X^3-9X^2+27X+38$ et $Q=X^2-X-7$.
+  \item $P=X^5-X^2+2$ et $Q = X^2 +1$.
+\end{enumerate}
+
+% }}} Calcul %
+% Division produit {{{ %
+\exercice{2}
+
+Soit $P\in \Rr[X]$, $a,b\in \Rr$, $a\neq b$. Sachant que le reste de la
+division euclidienne de $P$ par $(X-a)$ vaut $1$ et que celui de $P$ par
+$(X-b)$ vaut $-1$.
+
+\begin{enumerate}
+  \item Évaluer l'image $P(a)$ et $P(b)$?
+  \item On note $R\in \Rr[X]$ le reste de la division euclidienne de $P$ par
+    $(X-a)(X-b)$. Quel  sera le degré de $R$?
+  \item En déduire l'expression de $R$.
+\end{enumerate}
+
+% }}} Division produit %
+% Détérmination d'un ensemble polynôme {{{ %
+\exercice{2}
+On se propose de déterminer l'ensemble
+
+\begin{equation*}
+  E = \left\{P\in \Rr[X]\;\; P(X^2)=(X^3+1)P(X)\right\} 
+\end{equation*}
+
+\begin{enumerate}
+  \item Démontrer que le polynôme nul ainsi\\  que le polynôme $X^3-1$ sont
+    dans $E$.\\[4pt]
+  \item Soit $P\in E$, non nul.
+    \begin{enumerate}
+      \small
+    \item Démontrer que $P(1)=0$ puis que $P^{'}(0)=P^{''}(0)=0$.
+    \item En effectuant la division euclidienne de $P$ par
+      $X^3-1$, démontrer qu'il existe $\lambda\in \Rr$ tel que
+      $$
+      P(X) = \lambda (X^3-1)
+      $$
+    \end{enumerate}
+  \item En déduire l'ensemble $E$.
+\end{enumerate}
+% }}} Détérmination d'un ensemble polynôme %
+% }}} Division Euclidienne %
+% Calcul PGCD {{{ %
+% Exercice simple de calcul PGCD {{{ %
+\exercice{1}
+
+Pour chaque cas, déterminer le \textbf{PGCD} entre $P$ et $Q$.
+
+\begin{enumerate}
+  \item $P=X^4-3X^3 + X^2 + 4$ et $Q=X^3-3X^2+3X-2$.
+  \item $P=X^5-X^4+2X^3-2X^2+2X-1$ et $Q=X^5-X^4+2X^2-2X+1$.
+  \item $P=X^n -1$ et $Q=(X-1)^n$.
+\end{enumerate}
+% }}} Exercice simple de calcul PGCD %
+% Equation de Bézout {{{ %
+\exercice{1}
+Trouver deux polynômes $U$ et $V$ de $\Rr[X]$ tel que 
+$$
+AU + BV = 1
+$$
+
+où $A = X^7-X-1$ et $B=X^5-1$.
+% }}} Equation de Bézout %
+% Facteur commun {{{ %
+\exercice{1}
+Soient $P$ et $Q$ des polynômes de $\Cc[X]$ non constants. Montrer  que
+l'équivalence entre:
+
+\begin{enumerate}
+  \item $P$ et $Q$ ont un facteur commun.
+  \item il existe $A,B\in \Cc[X]$, $A\neq0$, $B\neq 0$, tel que
+    $$
+    AP = BQ
+    $$
+  et $\text{deg}(A)< \text{deg}(Q),\quad \text{deg}(B)<\text{deg}(P)$ 
+\end{enumerate}
+% }}} Facteur commun %  
+% }}} Calcul PGCD %
+% Racines {{{ %
+% Ordre de multiplicité {{{ %
+\exercice{1}
+Quel est pour $n\geq 1$ l'ordre de multiplicité de $2$ du polynôme:
+
+$$
+P_n(X)= n X^{n+2}-(4n+1)X^{n+1}+4(n+1)X^n-4X^{n-1}
+$$
+% }}} Ordre de multiplicité %
+% Racine sur Q {{{ %
+\exercice{2}
+Soit $P(X)=a_nX^n+\ldots+a_0$ un polynôme dans $\Zz[X]$. On suppose aussi
+que $P$ admet une racine rationnelle $r=\frac{p}{q}$ tel que $p\wedge q
+=1$.
+\begin{enumerate}
+  \item Développer que la forme $P(r)=0$.
+  \item Démontrer que $p\;|\; a_0$.
+  \item Prouver que $q\;|\; a_n$
+  \item En déduire que $P=X^5 - X^2+1$ n'admet pas de racines dans
+    $\Qq$.
+\end{enumerate}
+% }}} Racine sur Q %
+% }}} Racines %
+% Réductibilité {{{ %
+% Définition simple réductible {{{ %
+\exercice{1}
+
+\begin{enumerate}
+  \item Le polynôme $P(X) = X^4 + X^2 + 1$ est il irréductible  dans $\Rr[X]$?
+dans $\Cc[X]$?
+\item La relation $P\mathcal{R} Q \iff P\; \text{divise}\; Q$  est-elle une
+    relation d'ordre?
+\end{enumerate}
+% }}} Définition simple réductible %
+% Décomposition simple {{{ %
+\exercice{1}
+Pour chaque polynôme, donner la décomposition en facteurs irréductibles dans
+$\Rr[X]$
+
+\begin{enumerate}
+  \item $P_1(X) = X^4 + 1$
+  \item $P_2(X) = X^8 - 1$
+  \item $P_3(X) = \left(X^2 - X+1\right)^2+1$
+\end{enumerate}
+% }}} Décomposition simple %
+% Décomposition simple {{{ %
+\exercice{2}
+Soit $P$ le polynôme définit par:
+
+$$
+P(X) = 2X^4 + X^2 -3
+$$
+\begin{enumerate}
+  \item 
+Décomposer $P$ en facteurs irréductibles dans $\Rr[X]$.
+\end{enumerate}
+% }}} Décomposition simple %
+% Décomposition compliquée {{{1 %
+\exercice{3}
+Soit le polynôme $P(X) = X^4-6X^3+9X^2+9$.
+
+\begin{enumerate}
+  \item Décomposer $X^4-6X^3+9X^2$ en produit de facteurs irréductibles dans
+    $\Rr[X]$.
+  \item En déduire une décomposition de $P$ dans $\Rr[X]$.
+
+  \item Même question pour $\Cc[X]$.
+\end{enumerate}
+% }}} Réductibilité %
+% Décomposition  {{{ %
+\exercice{3}
+On considère les deux polynômes suivants:
+
+\begin{itemize}
+  \item $P(X) = X^3 - 9X^2 + 26X -24$
+  \item $Q(X) = X^3 - 7X^2 + 7X + 15$.
+\end{itemize}
+\begin{enumerate}
+  \item Sachant que $P$ et $Q$ admettent une racine \textbf{commune} $a$,
+    Quelle est la relation entre $(X-a)$ et $\text{pgcd}(P,Q)$?
+  \item En appliquant l'algorithme d'Euclide, montrer  que le \textbf{pgcd} de $P$
+    et $Q$ est $X-3$?
+  
+
+  \item Calculer le polynôme $P_1$ tel que
+    $$ P = (X-3)P_1$$
+
+  \item Même question pour $Q_1$ tel que:
+
+    $$Q = (X-3)Q_1$$.
+
+  \item En déduire une décomposition en facteurs\\ irréductibles dans
+    $\Rr[X]$ de $P$ et $Q$.
+\end{enumerate}
+% }}} Décomposition  %
+\end{document}
