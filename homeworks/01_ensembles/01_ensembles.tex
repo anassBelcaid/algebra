@@ -9,23 +9,22 @@
 
 % Ensembles {{{ %
 %{{{ empty set 
-\exercice
+\exercice{1}
 Montrer que $\emptyset \subset X$, pour tout ensemble $X$.
 %}}}
 %{{{ Simple proprieties
-\exercice
-  Soit $A,B, \in \mathcal{P}(E)$,  montrer par contraposition les assertions suivantes, $E$ \'etant
-un ensemble:
+\exercice{1}
+  Soit $E$ un ensemble donné et soient $A,B \in \mathcal{P}(E)$,  montrer par contraposition les assertions suivantes:
 \begin{enumerate}
 \item $(A\cap B=A\cup B)\Rightarrow A=B$,
 \item $ (A\cap B=A\cap C \text{ et } A\cup B=A\cup C)\implies B=C$.
 \end{enumerate}
 %}}}
-% Fold description {{{ %
-\exercice
-Soient $E$ et $F$ deux ensembles, $f:E\rightarrow F$.\\
+%% Fold description {{{ %
+\exercice{2}
+Soient $E$ et $F$ deux ensembles et $f:E\rightarrow F$ une application de $E$ vers $F$.\\
 
-D\'emontrer que:
+Démontrer que:
 
 \begin{itemize}
   \item $\forall A,B \in \mathcal{P}(E) \quad (A\subset B)\Rightarrow (f(A)\subset f(B))$
@@ -37,40 +36,32 @@ D\'emontrer que:
 
 % }}} Fold description %
 %%{{{ Propriétés
-%\exercice
-%Soient $E$ un ensemble et $A, B, C$ trois parties de $E$ telles que
-%\begin{enumerate}
-%  \item $A \cup B = A \cup C$
-%  \item $A \cap B = A \cap C$
-%\end{enumerate}
-%Montrer que $B = C$.
-%%}}}
-% Propriétes {{{ %
-\exercice
-Soient $E$ un ensemble et $A, B, C$ trois parties de $E$.\\
+\exercice{2}
+Soit $E$ un ensemble et $A, B, C$ trois parties de $E$ telles que
+\begin{enumerate}
+  \item $A \cup B = A \cup C$
+  \item $A \cap B = A \cap C$
+\end{enumerate}
+Montrer que $B = C$.
+%%%}}}
+%% Propriétes {{{ %
+\exercice{2}
+Soit $E$ un ensemble et $A, B, C$ trois parties de $E$.\\
 Montrer que
 $$ (A \cup B) \cap (B \cup C) \cap (C \cup A) =
 (A \cap B) \cup (B \cap C) \cup (C \cap A)$$
-% }}} Propriétes %
-%{{{ ensemble parties
-\exercice
+%% }}} Propriétes %
+%%{{{ ensemble parties
+\exercice{2}
 Est-il vrai que:
 
 \begin{enumerate}
   \item $\mathcal{P} (A \cap B) = \mathcal{P} (A) \cap \mathcal{P} (B)$ ?
   \item  $\mathcal{P} (A \cup B) = \mathcal{P} (A) \cup \mathcal{P} (B)$ ?
 \end{enumerate}
-%}}}
-%{{{ Propriétes Inclusion
-
-
-\exercice
- Démontrer les relations suivantes~:
-$$ A \cup(B \cap C) = (A \cup B) \cap(A \cup C)$$
- $$A \cap(B \cup C) = (A \cap B) \cup(A \cap C).$$
-%}}}
-%{{{ Propriétés Inclusion
-\exercice
+%%}}}
+%%{{{ Propriétés Inclusion
+\exercice{2}
 Montrer que si $F$ et $G$ sont des sous-ensembles de $E$~:
 \begin{enumerate}
   \item $(F \subset G \iff F \cup G = G )$
@@ -81,17 +72,37 @@ En déduire que~:
   \item $ (F \subset G \iff F \cap G = F)$
   \item $(F \subset G \iff F \cap\complement G = \emptyset).$ 
 \end{enumerate}
-%}}}
-%{{{ Produit cartésien
-\exercice
+%%}}}
+%%{{{ Produit cartésien
+\exercice{1}
  Soit $A= \{a_1, a_2, a_3, a_4\}$ et $B= \{b_1, b_2, b_3, b_4 ,b_5\}$.
  \begin{itemize}
    \item Écrire le produit cartésien $A \times B$.
    \item Quel est le nombre de parties de $A \times B$~?
  \end{itemize}
-% }}} Ensembles %
- %{{{ Différence symétrique
- \exercice
+%% }}} Ensembles %
+
+% %{{{ Fonction indicatrice
+\exercice{2}
+Soit $A\subset E$, on appelle fonction caractéristique de~$A$
+l'application~$f$ de~$E$ dans l'ensemble à deux éléments $\{0, 1\}$, telle
+que~:
+$$f(x)=\begin{cases}
+0&  \text{ si } x\notin A \cr 1& \text{ si } x \in A \cr
+\end{cases}$$
+Soient $A$ et $B$ deux parties de $E$, $f$ et $g$ leurs fonctions
+caractéristiques.\\
+Montrer que les fonctions suivantes sont les fonctions
+caractéristiques d'ensembles que l'on déterminera~:
+\begin{enumerate}
+\item $1-f$.
+\item $fg$.
+\item $f+g-fg$.
+\item $f + g - 2fg$
+\end{enumerate}
+%}}}
+% %{{{ Différence symétrique
+ \exercice{3}
 Soit un ensemble $E$ et deux parties $A$ et $B$ de~$E$. 
 \begin{enumerate}
 \item Démontrer que $A \triangle B = (A \setminus B) \cup(B \setminus A)$.
@@ -105,48 +116,29 @@ de~$E$ et une seule telle que $$A \triangle A' = A' \triangle A = X$$.
 \textit{ \textbf{Indice:}  \scriptsize Il pourra être commode 
 d'utiliser la notion de fonction caractéristique.}
 \end{enumerate}
-%}}}
-%{{{ Equation ensembliste
-\exercice
+%%}}}
+%%{{{ Equation ensembliste
+\exercice{2}
 Soient $A, B \subset E$.\\
 R\'esoudre les \'equations \`a l'inconnue $X \subset E$
 \begin{enumerate}
 \item $A \cup X = B$.
 \item $A \cap X = B$.
 \end{enumerate}
-%}}}
-%}}}
-% Applications {{{ %
- %{{{ Fonction indicatrice
- \exercice
-Soit $A\subset E$, on appelle fonction caractéristique de~$A$
-l'application~$f$ de~$E$ dans l'ensemble à deux éléments $\{0, 1\}$, telle
-que~:
-$$f(x)=\begin{cases}
-0&  \text{ si } x\notin A \cr 1& \text{ si } x \in A \cr
-\end{cases}$$
-Soit $A$ et $B$ deux parties de $E$, $f$ et $g$ leurs fonctions
-caractéristiques.\\
-Montrer que les fonctions suivantes sont les fonctions
-caractéristiques d'ensembles que l'on déterminera~:
-\begin{enumerate}
-\item $1-f$.
-\item $fg$.
-\item $f+g-fg$.
-\item $f + g - 2fg$
-\end{enumerate}
-%}}}
+%%}}}
+%%}}}
+%% Applications {{{ %
 % Symetrie Composition {{{ %
-\exercice
+\exercice{2}
 Soient $f : \Rr \rightarrow \Rr$ et $g : \Rr \rightarrow \Rr$ telles que $f(x) =
 3x+1$ et $g(x)=x^2-1$.
 \begin{itemize}
   \item  A-t-on $f\circ g=g\circ f\;$?
 \end{itemize}
 
-% }}} Exercice %
-% image directe {{{ %
-\exercice
+%% }}} Exercice %
+%% image directe {{{ %
+\exercice{1}
 Soit l'application de $\mathbb{R}$ dans $\mathbb{R}$, 
 $f\colon x\mapsto x^2$.
 \begin{enumerate}
@@ -166,9 +158,9 @@ $f\colon x\mapsto x^2$.
     \item $f^{-1}(\mathopen]-\infty,2]\cap\nolinebreak{}[1,+\infty\mathclose[)$
   \end{itemize}
 \end{enumerate}
-% }}} image directe %
-%{{{ Coupe dans R2
-\exercice
+%% }}} image directe %
+%%{{{ Coupe dans R2
+\exercice{2}
 On définit les cinq ensembles suivants :
 \begin{eqnarray*}
 A_1 & = & \left\{(x,y)\in\mathbb{R}^2\,,\; x+y<1\right\}\\
@@ -180,12 +172,12 @@ A_5 & = & \left\{(x,y)\in\mathbb{R}^2\,,\; |x-y|<1\right\}\\
 
 \begin{enumerate}
 \item Représenter ces cinq ensembles.
-\item En déduire une démonstration géométrique de
+\item En déduire par une démonstration géométrique que
 $$(|x+y|<1\;\mbox{ et }\;|x-y|<1) \Leftrightarrow |x|+|y|<1.$$
 \end{enumerate}
-%}}}
-% Composée {{{ %
-\exercice 
+%%}}}
+%% Composée {{{ %
+\exercice{2}
 Soit $X$ un ensemble. Pour $f \in \mathcal{F} (X, X)$, on d\'efinit
 
 
@@ -204,32 +196,27 @@ Soit $X$ un ensemble. Pour $f \in \mathcal{F} (X, X)$, on d\'efinit
 \item Montrer que si $f$ est bijective alors $\forall n \in \Nn$: $$ (f^{-1})^n
  = (f^n)^{-1}$$
  \end{enumerate}
-% }}} Composée %
-% }}} Applications %
-% Injection et Bijection {{{ %
-%{{{ Exemple d'application injective et surjectives
-\exercice
-Donner des exemples d'applications de $\Rr$ dans $\Rr$ (puis de $\Rr^{2}$ dans $\Rr$)
- injective et non surjective, puis surjective et non injective.
-%}}}
+%% }}} Composée %
+%% }}} Applications %
+%% Injection et Bijection {{{ %
  %{{{ Injectivité
 %{{{ Déterminer injectivité
-\exercice
+ \exercice{2}
 Soit $f  : \Rr \rightarrow \Rr$ d\'efinie par $f(x) = x^3-x$.
 \begin{itemize}
   \item $f$ est-elle injective? surjective?
   \item D\'eterminer $f^{-1}([-1,1])$ et $f(\Rr_+)$.
 \end{itemize}
-%}}}
-% Detemriner Injectivité {{{ %
-\exercice
+%%}}}
+%% Detemriner Injectivité {{{ %
+\exercice{2}
 Les fonctions suivantes sont-elles injectives? surjectives? bijectives?
 $$ f : \Zz\rightarrow\Zz, \ n\mapsto 2n \quad ; \quad f : \Zz\rightarrow\Zz ,\ n\mapsto -n $$
 $$ f:\Rr\rightarrow\Rr ,\ x\mapsto x^2 \quad ; \quad f : \Rr\rightarrow\Rr_+ ,\ x\mapsto x^2 $$
 $$   f : \Cc\rightarrow\Cc ,\ z\mapsto z^2.$$
-% }}} Detemriner Injectivité %
-%{{{ Déterminer l'injectivité
-\exercice
+%% }}} Detemriner Injectivité %
+%%{{{ Déterminer l'injectivité
+\exercice{2}
 Les applications suivantes sont-elles injectives, surjectives, bijectives?
 \begin{enumerate}
 \item $f : {\Nn} \to {\Nn}, {n} \mapsto {n + 1}$
@@ -237,28 +224,28 @@ Les applications suivantes sont-elles injectives, surjectives, bijectives?
 \item $h : {\Rr^2} \to {\Rr^2}, {(x, y)}\mapsto{ (x + y, x-y)}$
 \item $k : {\Rr \setminus \left\{ 1\right\}} \to {\Rr}, {x}\mapsto{\frac{x + 1}{x - 1}}$
 \end{enumerate}
-%}}}
-%{{{ Déterminer injectivité
-\exercice
+%%}}}
+%%{{{ Déterminer injectivité
+\exercice{2}
 Soit $f  : \Rr \rightarrow \Rr$ d\'efinie par $f(x) = 2x/(1+x^2)$.
 \begin{enumerate}
     \item $f$ est-elle injective? surjective?
     \item Montrer que $f(\Rr)=[-1,1]$.
     \item Montrer que la restriction $g  : [-1,1] \rightarrow [-1,1]$  $g(x) = f(x)$
 est une bijection.
-    \item Retrouver ce r\'esultat en \'etudiant les variations de $f$.
+    \item (optionnelle) Retrouver ce r\'esultat en \'etudiant les variations de $f$.
 \end{enumerate}
-%}}}
-%{{{ Déterminer injectivité
-\exercice
+%%}}}
+%%{{{ Déterminer injectivité
+\exercice{2}
 On consid\`ere quatre ensembles $A,B,C$ et $D$ et des applications $f:A\rightarrow B$, $g:B\rightarrow
 C$, $h:C\rightarrow D$.\\
 Montrer que:
 $$g\circ f\text{ injective } \Rightarrow f\text{ injective,}$$
 $$g\circ f\text{ surjective } \Rightarrow g\text{ surjective.}$$
 %}}}
-%{{{ Propriété injectivité
-\exercice
+%%{{{ Propriété injectivité
+\exercice{2}
 Soit $f : X \rightarrow Y$. Montrer que
 \begin{enumerate}
 \item $\forall B \subset Y \, \, f (f^{-1} (B)) = B \cap f (X)$.
@@ -266,9 +253,9 @@ Soit $f : X \rightarrow Y$. Montrer que
 \item $f$ est injective $\iff \forall A \subset X \, \, f^{-1} (f(A)) = A $.
 \item $f$ est bijective $\iff \forall A \subset X \, \,f (\complement A) = \complement f (A).$
 \end{enumerate}
-%}}}
-%{{{ Propriété injectivité
-\exercice
+%%}}}
+%%{{{ Propriété injectivité
+\exercice{2}
 Soit $f : X \rightarrow Y$. Montrer que les trois propositions suivantes sont
 \'equivalentes:
 \begin{enumerate}
@@ -277,44 +264,45 @@ Soit $f : X \rightarrow Y$. Montrer que les trois propositions suivantes sont
 \item[iii. ]$\forall A, B \subset X \, \, A \cap B = \emptyset \implies
 f (A) \cap f (B) = \emptyset$.
 \end{enumerate}
-%}}}
-%{{{ Test injectivité
-\exercice
-Soit $f : X \rightarrow Y$.On note ${\hat{f}} : {\mathcal{P} (X)} \to {\mathcal{P} (Y)},
+%%}}}
+%%{{{ Test injectivité
+\exercice{3}
+Soit $f : X \rightarrow Y$. On note ${\hat{f}} : {\mathcal{P} (X)} \to {\mathcal{P} (Y)},
 {A} \mapsto {f (A)}$ et ${\tilde{f}} : {\mathcal{P} (Y)} \to {\mathcal{P} (X)},
 {B} \mapsto {f^{-1} (B)}$.\\
+
 Montrer que:
 \begin{enumerate}
 \item $f$ est injective $\iff \hat{f}$ est injective.
 \item $f$ est surjective $\iff \tilde{f}$ est injective.
 \end{enumerate}
-%}}}
-% }}} Injection et Bijection %
-%}}}
-% Ensemble finis {{{ %
-% }}} Ensemble finis %
-% Relation d'équivalence{{{ %
-% Relation 1 {{{ %
-\exercice
+%%}}}
+%% }}} Injection et Bijection %
+%%}}}
+%% Ensemble finis {{{ %
+%% }}} Ensemble finis %
+%% Relation d'équivalence{{{ %
+%% Relation 1 {{{ %
+\exercice{1}
 Soit $E=\Nn\times\Nn$, on d\'efinit $\mathcal{R}$ par:\\
 
-$$(a,b)\mathcal{R}(a',b')\Leftrightarrow a+b'=b+a'$$
+$$(a,b)\;\mathcal{R}\;(a',b')\iff a+b'=b+a'$$
 \begin{enumerate}
   \item Montrer que $\mathcal{R}$ est une relation d'équivalence.
 \end{enumerate}
-% }}} Relation 1 %
+%% }}} Relation 1 %
 
-%{{{ Relation 2
-\exercice
+%%{{{ Relation 2
+\exercice{1}
 Dans $\Rr^2$ on d\'efinit la relation $\mathcal{R}$ par :
-$$(x,y)\mathcal{R}(x',y')\Leftrightarrow y=y'.$$
+$$(x,y)\;\mathcal{R}\;(x',y')\iff y=y'.$$
 \begin{enumerate}
     \item Montrer que $\mathcal{R}$ est une relation d'\'equivalence.
     \item D\'eterminer la classe d'\'equivalence de $(x,y)\in \Rr^2$.
 \end{enumerate}
-%}}}
-% Relation 3 {{{ %
-\exercice
+%%}}}
+%% Relation 3 {{{ %
+\exercice{2}
 \begin{enumerate}
   \item
 Montrer que la relation $\mathcal{R}$ d\'{e}finie sur $\Rr$ par :
@@ -324,25 +312,25 @@ est une relation d'\'{e}quivalence.
 Pr\'{e}ciser, pour $x$ fix\'{e} dans $\Rr$, le nombre d'\'{e}l\'{e}ments de
 la classe de $x$ modulo $\mathcal{R}$.
 \end{enumerate}
-% }}} Relation 3 %
-% Relation 4 {{{ %
-\exercice
+%% }}} Relation 3 %
+%% Relation 4 {{{ %
+\exercice{2}
 \'Etudier les propri\'et\'es des relations suivantes. Dans le cas
 d'une relation d'\'equivalence, pr\'eciser les classes ; dans le cas
 d'une relation d'ordre, pr\'eciser si elle est totale, si l'ensemble admet
 un plus petit ou plus grand \'el\'ement.
 \begin{enumerate}
     \item Dans $\mathcal{P}(E)$:
-      $$A\mathcal{R}_1 B \iff A\subset B\quad$$
+      $$A\;\mathcal{R}_1\; B \iff A\subset B\quad$$
 
-    \item Dans $\mathcal{P}(E)$ $$A\mathcal{R}_2 B \iff A\cap
+    \item Dans $\mathcal{P}(E)$ $$A\;\mathcal{R}_2\; B \iff A\cap
       B=\emptyset$$
     \item Dans $\Zz$:
-$$ a\mathcal{R}_3 b \iff \exists n\in \Nn \ \,a-b=3n$$
+$$ a\;\mathcal{R}_3\; b \iff \exists n\in \Nn \ \,a-b=3n$$
 \end{enumerate}
-% }}} Relation 4 %
-% Relation d'ordre {{{ %
-\exercice
+%% }}} Relation 4 %
+%% Relation d'ordre {{{ %
+\exercice{2}
 Soit $ (E, \leq)$ un ensemble ordonn\'e.\\
 On d\'efinit sur $\mathcal{P} (E)\setminus\left\{ \emptyset \right\}$ la relation
 $\prec$ par 
@@ -351,34 +339,34 @@ $$X \prec Y \quad \text{ ssi } \quad (X = Y \ \text{ ou } \
 \begin{enumerate}
   \item  V\'erifier que c'est une relation d'ordre.
 \end{enumerate}
-% }}} Relation d'ordre %
-%%{{{ Relation et application
-%\exercice
+%% }}} Relation d'ordre %
+%%%{{{ Relation et application
+%%\exercice
 
-%Soit $E$ ordonn{\'e} tel que:
-%\begin{center}
-%  toute partie non vide et major{\'e}e\footnote{admet une borne sup{\'e}rieure.}
-%\end{center}
-%\begin{itemize}
-%  \item  Montrer que toute partie non vide et minor{\'e}e admet une borne inf{\'e}rieure.
-%\end{itemize}
-%%}}}
-% }}} Relation d'équivalence %
-%%{{{Challenge
-%\exercice
+%%Soit $E$ ordonn{\'e} tel que:
+%%\begin{center}
+%%  toute partie non vide et major{\'e}e\footnote{admet une borne sup{\'e}rieure.}
+%%\end{center}
+%%\begin{itemize}
+%%  \item  Montrer que toute partie non vide et minor{\'e}e admet une borne inf{\'e}rieure.
+%%\end{itemize}
+%%%}}}
+%% }}} Relation d'équivalence %
+%%%{{{Challenge
+%%\exercice
 
-%$A$ et $B$ sont des parties d'un ensemble $E$.\\
+%%$A$ et $B$ sont des parties d'un ensemble $E$.\\
 
-%Montrer que :
+%%Montrer que :
 
-%\begin{enumerate}
-%\item  $(A\Delta B=A\cap B)\Leftrightarrow(A=B=\varnothing)$.
-%\item  $(A\cup B)\cap(B\cup C)\cap(C\cup A)=(A\cap B)\cup(B\cap C)\cup(C\cap A)$.
-%\item  $A\Delta B=B\Delta A$.
-%\item  $(A\Delta B)\Delta C=A\Delta(B\Delta C)$.
-%\item  $A\Delta B=\varnothing\Leftrightarrow A=B$.
-%\item  $A\Delta C=B\Delta C\Leftrightarrow A=B$.
-%\end{enumerate}
+%%\begin{enumerate}
+%%\item  $(A\Delta B=A\cap B)\Leftrightarrow(A=B=\varnothing)$.
+%%\item  $(A\cup B)\cap(B\cup C)\cap(C\cup A)=(A\cap B)\cup(B\cap C)\cup(C\cap A)$.
+%%\item  $A\Delta B=B\Delta A$.
+%%\item  $(A\Delta B)\Delta C=A\Delta(B\Delta C)$.
+%%\item  $A\Delta B=\varnothing\Leftrightarrow A=B$.
+%%\item  $A\Delta C=B\Delta C\Leftrightarrow A=B$.
+%%\end{enumerate}
 
-%%}}}
+%%%}}}
 \end{document}
