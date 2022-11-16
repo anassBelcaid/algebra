@@ -1,0 +1,366 @@
+\documentclass{report}
+\usepackage{pgfplots}
+\usepackage{booktabs}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+
+\title{\Huge{Travaux dirigées}\\ Groupes}
+\author{\huge{A.Belcaid}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+% \newpage% or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+\pagebreak
+\newcommand{\Rr}{\mathbb{R}};
+
+\chapter{}
+
+% Exercice 1 {{{ %
+\section{Exercice 1}
+\qs{}
+{
+Pour chaque cas, vérifier si l'ensemble avec la loi proposée est un
+\textbf{groupe}:
+
+\begin{enumerate}
+  \item $G$ est l'ensemble des applications de $\Rr\longrightarrow\Rr$ définie
+    par $f(x) = ax + b$ où $a\in \Rr^{*}$ et $b\in \Rr$, muni de la composition.
+
+  \item $G$ est l'ensemble des fonctions croissantes muni de l'addition.
+  \item $G = \{f_1, f_2, f_3, f_4\}$ muni de la composition.
+    où:\\
+    \begin{itemize}
+      \item $f_1 = x$\hspace*{8pt}
+      \item $f_2 = -x$\hspace*{8pt}
+      \item $f_3 = \dfrac{1}{x}$\hspace*{8pt}
+      \item $f_4 = -\dfrac{1}{x}$
+    \end{itemize}
+\end{enumerate}
+}
+\begin{myproof}
+  Pour la première loi:
+  \begin{enumerate}
+    \item fonctions linéaires muni de la composition.
+      \begin{enumerate}
+        \item \textbf{Loi interne}: Pour deux fonctions $f_1:x \longrightarrow
+          a_1x + b_1$ et $f_2: x\longrightarrow a_2x+ b_2$
+          On as
+          $$
+          f_1\circ f_2(x) = f_1(f_2(x)) = f_1(a_2x + b_2) = a_1a_2 x + (a_1b_2 + b_1)
+          $$
+          qui est une fonction linéaire.
+
+        \item \textbf{Associativité}
+          Provient directement de l'associativité de la composition.
+
+        \item \textbf{Élément neutre}: Pour la fonction $id_{\Rr}$, on sait déjà
+          que  pour toute fonction on as :
+          $$
+          f \circ id_\Rr = id_\Rr \circ f = f 
+          $$
+          Comme $id_\Rr = 1x + 0$, c'est une application linéaire.
+        \item \textbf{Symétrique} Soit $a_1 \in \Rr^*$  et $b_1\in \Rr$, on calcule l'inverse
+          gauche de $f = a_1 x + b_1$
+          \begin{eqnarray*}
+            f\circ(g(x)) &=& x\\
+            a_1(a_2 x + b_2) + b_1 &=& x\\
+            a_1a_2 x + (a_1b_2 + b_1)&=& x
+        \end{eqnarray*}
+        Ainsi on obtient
+        $$
+        \begin{cases}
+          a_1a_2 &= 1 \\
+          a1b_2 + b_1 &= 0
+        \end{cases}
+        $$
+
+        $$
+        \begin{cases}
+          a_2&= \dfrac{1}{a_1} \\[8pt]
+          a_1b_2 + b_1 &= \dfrac{-b_1}{a_1}
+        \end{cases}
+        $$
+        Ainsi pour $g = \dfrac{1}{a_1} x - \dfrac{b_1}{a_1}$ on as $f\circ g =
+      \id$. On calcule la composition:
+      $$
+      g\circ f = \dfrac{1}{a_1}(a_1x + b_1) - \dfrac{-b_1}{a_1} = \text{id}
+      $$
+      Ainsi chaque élément admet un symétrique.
+      \end{enumerate}
+      \nt{On pouvait simplement démontrer que l'ensemble des linéaires est un
+      sous groupe des fonctions bijectives muni de la composition.}
+    \item 
+      Pour la composition l'élément neutre est $\text{id}$, cependant pour une
+      fonction $f\;x\longrightarrow \text{Cst}$. La fonction est croissante mais elle admet
+      pas un élément symétrique (fonction inverse). Car on ne peux trouver $g$ une
+      fonction tel que 
+      f(g(x)) = \text{id}.
+    \item 
+      \begin{enumerate}
+        \item \textbf{Loi interne}
+          Voici un tableau des compositions:
+          \begin{table}[h]
+         $$
+         \begin{array}{ccccc}
+            
+           \toprule
+           \circ & f_1 & f_2 & f_3 & f_4\\
+           \bottomrule
+           f_1 & f_1 & f_2 & f_3 & f_4  \\
+           f_2 & f_2 &  f_1  &  f_4    & f_3    \\ 
+           f_3 & f_3 &  f_4 & f_1 & f_2 \\
+           f_4 & f_4 &  f_3 & f_2 & f_1\\
+           \bottomrule
+         \end{array}
+         $$
+         \caption{Tableau des composition ou la première ligne correspond au
+         choix de la fonction $g$, la première colonne montre le choix de la
+       fonction $f$, et le reste contient le résultat de $f\circ g$. }
+       \end{table}
+       Ce qui prouve que la loi est interne.
+     \item \textbf{Association} Provient directement de l'association de la
+       composition.
+     \item \textbf{Élément neutre} $f_1 = \text{id}$ est dans le groupe.
+
+     \item \textbf{Élément symétrique}: 
+       Selon la table on as 
+       $$
+       \forall i\in [1,4]\quad f_i \circ f_i = \text{id}
+       $$
+       Ce qui prouve que chaque élément et son propre symétrique.
+      \end{enumerate}
+  \end{enumerate}
+  
+\end{myproof}
+
+% }}} Exercice 1 %
+% Exercice 2 {{{ %
+\section{Exercice 2}
+\qs{}
+{
+Pour les deux cas suivants, démontrer que $G$ est un groupe puis vérifier s'il
+est \textbf{abélien}.
+\begin{enumerate}
+  \item $x * y = \dfrac{x+y}{1 + xy}$ sur $G= ]-1,1[$.\\[2pt]
+  \item $(x_1,y_1)*(x_2,y_2) = (x_1+x_2\;,\; y_1e^{x_2} + y_2e^{x_1})$ sur
+    $\Rr^2$.\\[8pt] 
+\end{enumerate}
+}
+
+\begin{myproof}
+  Pour le premier cas:\\
+  \begin{enumerate}
+    \item $(G, *)$ est un groupe car:
+      \begin{enumerate}
+        \item \textbf{loi interne}: en effet, si $x, y\in G$, alors $x \star y \in G$.\\
+          Pour cela, etudions la fonction definie sur $[-1,1]$ par:
+          $$
+          f(t) = \dfrac{t + y}{1 + ty}
+          $$
+          Elle est derivable sur $[-1,1]$, et sa derivee verifie:
+          $$
+          f^{'}(t) = \dfrac{1- y^2}{(1 + ty)^2} > 0 \text{ sur } ]-1,1[.
+          $$
+          f est donc strictement croissante sur $]-1,1[$ et on a 
+          $$
+          f(-1) = x \star y = f(x) < f(1)
+          $$
+          Comme $f(-1) = -1$ et $f(1) = 1$, on obtient que 
+          $$
+          x \star y \in G.
+          $$
+        \item \textbf{Associative}: Pour tout $(x,y,z)\in G^3$.
+          \begin{eqnarray}
+            x\star\left(y \star z\right) &=& \dfrac{x + (x\star z)}{ 1 + x(y\star z)}\\
+                                         &=& \dfrac{x + \dfrac{x+z}{1 + yz}}{1 + x \dfrac{y + z}{1 + yz}}\\
+                                         &=& \dfrac{x + y + z + xyz}{ 1 + xy + xz + yz}
+          \end{eqnarray}
+          On calcule l'expression $\left(x \star y\right)\star z$ et on trouve le meme resulat.
+        \item \textbf{Element neutre}: On montre que $0$ est un element neutre:
+
+          $$
+          z \star 0  = 0 \star x = \dfrac{x + 0}{ 1 + 0} = x
+          $$
+          \item \textbf{inverse} 
+            $$
+            \forall x\in [-1,1] \quad -x \in [-1,1] \quad \text{ et } x \star (-x) = (-x)\star x = \dfrac{x - x}{ 1 - x^2} = 0
+            $$
+            De plus, le groupe est \textbf{abelien}.
+      \end{enumerate}
+    \item Il est clair que $\star$ est une loi de composition interne sur $\mathbb{R}^2$. De plus, 
+
+      \begin{enumerate}
+        \item Cette loi est associative:
+          \begin{eqnarray}
+            (x_1,y_1)\star \big(\left(x_2,y_2\right)\star \left(x_3, y_3\right)\big) &=& (x_1, y_1)\star \left(x_2 + x_3, y_2 e^{x_3} + y_3 e^{-x_2}\right)\\
+                                                                                     &=& (x_1, + x_2 + x_3, y_1e^{x_2+ x_3}+ y_2e^{x_3-x_1} + y_3e^{-x_1-x_2})
+          \end{eqnarray}
+          De meme  on trouve que
+          $$
+          \big((x_1,y_1)\star \left(x_2,y_2\right)\big) \star \left(x_3, y_3\right) = (x_1, + x_2 + x_3, y_1e^{x_2+ x_3}+ y_2e^{x_3-x_1} + y_3e^{-x_1-x_2})
+          $$
+        \item \textbf{Element neutre}, On a:
+          $$
+          (x,y) \star (0,0) = (x + 0, ye^0 + 0 e^{-x}) = (x,y)
+          $$
+          et 
+          $$
+          (0,0)\star (x,y) = (0 + x, 0e^x + ye^{-0}) = (x,y)
+          $$
+        \item \textbf{Element inverse} 
+          $$
+          (x,y) \star (-x, -y) = (x -x, ye^{-x}- ye^{-x}) = (0,0)
+          $$
+          $$
+          (-x,-y)\star (x,y) = (-x+x, -ye^{x} + ye^{x}) = (0,0)
+          $$
+
+        \nt{Le groupe n'est pas abelien car
+        $$
+        (1,0)\star (0,1) = (1,e^{-1}) 
+      $$
+    tandis que 
+  $$
+  (0,1) \star (1,0) = (1, e^1)
+$$}
+      \end{enumerate}
+  \end{enumerate}
+\end{myproof}
+
+% }}} Exercice 2 %
+% Exercice 3 {{{ %
+\section{Exercice 3}
+\qs{}
+{
+Soit $G$ un groupe \textbf{fini} d'élément neutre $e$.\\
+\begin{enumerate}
+  \item 
+Montrer que si cardinal de $G$ est pair, alors il existe $x\in G$ tel que:
+$$x\neq
+e\;\;\text{et}\;\; x^{-1} = x$$
+\end{enumerate}
+
+}
+
+\begin{myproof}
+  on definie la relation $\mathcal{R}$ definie sur $G$ par
+
+  $$
+  x \mathcal{R} y \iff x = y \quad \text {ou } x = y^{-1}
+  $$
+  On demontre facilement qu'il s'agit dune relation \textbf{d'equivalence}.
+  On suppose que 
+  $$
+  \not \exists x \ne e \quad \text{ tel que } x = x^{-1}.
+  $$
+  Ainsi les classes d'equivalences pour la relation $\mathcal{R}$ sont
+
+  $$
+  \begin{cases}
+    Cl(e) &= \{e\}\\
+    Cl(x) &= \{x, x^{-1}\} \quad  \text{ si } x\ne e
+  \end{cases}
+  $$
+
+  Selon le theoreme de partition  on 
+
+  $$
+  G = \bigcup_{x\in G} Cl(x_i) 
+  $$
+  On decompose les classes:
+
+  $$
+  G = \bigcup_{x\ne e} Cl(x_i) \cup \{e\}
+  $$
+  Puisque les classes sont \textbf{disjoins} on obtient alors que
+
+  $$
+  \text{Card}(G) = \sum_{x\ne e} \text{Card}Cl(x) + 1
+  $$
+
+  $$
+  \text{Card}(G) = 2k + 1
+  $$
+  ou $k$ est le nombre de classe.\footnote{
+    Le 2 vient du fact, que chaque classe contient seulement \textbf{deux} elements.
+  }
+  Ce qui est \textbf{absurde} car le cardinal de $G$ est pair.
+\end{myproof}
+
+% }}} Fold description %
+% Exercice 4 {{{ %
+\newpage
+\qs{}
+{
+Soit $G$ un ensemble \textbf{fini} muni d'une loi de composition interne $*$
+associative. On dit qu'un élément $a$ est \textbf{régulier} si les deux
+conditions suivantes sont vérifiées:
+\begin{itemize}
+  \item $a * x = a * y \implies x = y$
+  \item $x *a  = y * a \implies x = y$
+\end{itemize}
+On suppose que tous les éléments de $G$ sont réguliers, et on fixe $a\in G$.
+
+\begin{enumerate}
+  \item Démontrer qu'il existe $e\in G$ tel que $a*e = a$.\\[2pt]
+  \item Démontrer que, pour tout $x\in G$, on a $e*x = x$.\\[2pt]
+  \item Démontrer que, pour tout $x\in G$, on a $x*e = x$.\\[2pt]
+  \item Démontrer que $\left(G, *\right)$ est un groupe.
+  \item Le résultat subsiste-t-il si $G$ n'est fini?
+\end{enumerate}
+}
+\begin{myproof}
+  \begin{enumerate}
+    \item On considere l'application
+      $$
+      \begin{array}{lllll}
+        \phi & : & G & \longrightarrow & G\\
+             &   & x & \longrightarrow & a \star x
+      \end{array}
+      $$
+      Puisque $a$ est regulier ca prouve que cette aplicatin est \textbf{injective}. Puisque $G$ est fini et $\text{Card} G = \text{Card} G$. alors l'applicatin $phi$ est une \textbf{bijection}.
+      Ainsi $a$ admet un antecedant par $\phi$.
+      $$
+      \exists e \in G \quad a \star e = \phi(e) = a
+      $$
+    \item En utilisant l' associative de la loi interne:
+      $$
+      a \star e \star x = a \star x 
+      $$
+      et Puisque $a$ est regulier on obtient:
+      $$
+      e \star x = x
+      $$
+    \item On a:
+      $$
+      a \star e \star a = x \star a
+      $$
+      On utilise la question precedante et la regularite de $a$ on aura
+      $$
+      x \star e = x
+      $$
+    \item Il suffit desormais de montrer que tout element est inversible. Soit $b\in G$, Puisque l'application $x \rightarrow b \star x$  est bijective \footnote{en utilisant la meme procedure que la premiere question pour $a$} . alors $e$ admet un antecedant unique:
+      $$
+      \exists c \in G \quad b \star c = e
+      $$
+      
+      De plus on as:
+      $$
+      c \star b \star c = c \star e = c
+      $$
+      On deduit alors que $c$ est l'inverse de $b$.
+    \item Non, toute l'analyse utilise le fait que l'applicatin $\phi$ est bijective. Chose qui est correcte car le cardinal de $G$ est fini. Sinon elle est seulement \textbf{injective}. Comme contre exemple on prend, $(\mathbb{N}, +)$ qui verifie que tout elements est regulier. Mais c'est pas un groupe.
+  \end{enumerate}
+
+\end{myproof}
+% }}} Exercice 4 %
+
+\end{document}
