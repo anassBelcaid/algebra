@@ -19,7 +19,13 @@
 \pdfbookmark[section]{\contentsname}{toc}
 \tableofcontents
 \pagebreak
+\newcommand{\Nn}{\mathbb{N}}
 \newcommand{\Rr}{\mathbb{R}};
+\newcommand{\Zz}{\mathbb{Z}}
+\newcommand{\Qq}{\mathbb{Q}}
+
+
+
 
 \chapter{}
 
@@ -298,6 +304,7 @@ e\;\;\text{et}\;\; x^{-1} = x$$
 % }}} Fold description %
 % Exercice 4 {{{ %
 \newpage
+\section{Exercice 4}
 \qs{}
 {
 Soit $G$ un ensemble \textbf{fini} muni d'une loi de composition interne $*$
@@ -363,4 +370,252 @@ On suppose que tous les éléments de $G$ sont réguliers, et on fixe $a\in G$.
 \end{myproof}
 % }}} Exercice 4 %
 
+% {{{ Exercice 5
+\section{Exercice 5} % (fold)
+\qs{}
+{
+
+% Détermination simple {{{ %
+Pour chaque cas,  déterminer si la partie $H$ est un sous groupe de $G$.
+
+\begin{enumerate}
+  \item $G = \left(\Zz,+\right)$ et $H =\{2k\;|\; k\in \Zz\}$.
+  \item $G = \left(\Zz,+\right)$ et $H =\{2k+1\;|\; k\in \Zz\}$.
+  \item $G = \left(\Rr^{*},+\right)$ et $H =]-1,\infty[$.
+  \item $G = \left(\Rr^{*},\times\right)$ et $H =\Qq^*$.
+  \item $G = \left(\Rr^{*},\times\right)$ et $H \{a + b\sqrt{2}\;|\; a, b\in
+    \Qq, (a,b)\neq (0,0)\}$.
+\end{enumerate}
+}
+\begin{myproof}
+  \begin{enumerate}
+    \item $H$ est un sous-groupe de $G$. En effet:
+      \begin{itemize}
+        \item $0 \in H$.
+        \item si $x,y\in H$ alors $-x$ et $x+y$ sont aussi dans $H$.
+      \end{itemize}
+      Ainsi $H$ est un \textbf{sous groupe} de $G$.
+    \item $0 \not\in H$ et donc $H$ n'est pas un sous groupe.
+    \item $2 \in H$ et $-2\not\in H$: $H$ n'est pas un sous-groupe de $G$. 
+    \item $H$ est un sous groupe car:
+      \begin{enumerate}
+        \item $1 \in H$.
+        \item si $x = \dfrac{p_1}{q_1}$ et $y=\dfrac{p_2}{q_2}$ alors $x \times y = \dfrac{p_1p_2}{q_1q_2}\in H$.
+        \item Aussi on a $\dfrac{1}{x} = \dfrac{q_1}{p_1} \in H$.
+      \end{enumerate}
+      Ainsi $H$ est un sous groupe.
+    \item Il s'agit bien d'un sous groupe car:
+      \begin{enumerate}
+        \item $1 = 1 + 0\sqrt{2} \in H$
+        \item On prend $x = a + b\sqrt{2}$ et $y= c + d\sqrt{2}$ deux elements de $H$.
+          alors
+          $$xy = (ac + 2bd ) + (ad + bd)\sqrt{2}$$
+        \item Aussi on a:
+          $$
+          \dfrac{1}{x} = \dfrac{a}{a^2 - 2b^2} + \dfrac{-b}{a^2 - 2b^2}\sqrt{2}
+          $$
+          \nt{On remarque que l'on peut pas voir $ac + 2bd= 0$ et $ad + bd= 0$ sinon on aurait $xy= 0$}
+          Ainsi $H$ est un sous groupe de $G$.
+      \end{enumerate}
+
+  \end{enumerate}
+\end{myproof}
+
+% section section name (end)
+% }}}
+
+%{{{ Exercice 6
+\section{Execice 6}
+\qs{Centre et element de torsion}
+{
+
+Soit $\left(G,.\right)$ un groupe. Démontrer que les parties suivantes sont des
+sous-groupes de $G$
+
+\begin{enumerate}
+  \item $C(G) = \{x\in G\;|\; \forall y \in G\;,\; x.y = y.x\} $, $C(G)$
+    s'appelle le \textbf{centre}  de $G$.
+  \item $aHa^{-1} = \left\{a h a^{-1}\;, h\in H\right\}$ où $a\in G$ et $H$ est
+    un sous groupe.
+  \item On suppose que $G$ est abélien. On dit que $x$ est un élément  de
+    \textbf{torsion} de $G$ s'il existe $n\in \Nn$ tel que $x^n=e$.
+
+    \begin{itemize}
+      \item Démontrer que l'ensemble de torsion forme un sous groupe.
+    \end{itemize}
+\end{enumerate}
+}
+\begin{myproof}
+  Il suffit, pour chaque cas, d'appliquer le theoreme de caracterisation des sous-groupes. 
+  \begin{enumerate}
+    \item Pour les centres on a:
+      \begin{enumerate}
+        \item $e \in C(G)$ car 
+          $$
+          \forall y \in G \quad ey = ye =y
+          $$
+        \item Soient $x_1$ et $x_2 \in C(G)$, alors pour tout $y \in G$ on a:
+          $$
+          x_1x_2y = x_1(x_2y) = (x_1y)x_2 = yx_1x_2
+          $$
+        \item Soit $x\in C(G)$ alors on a:
+          $$
+          xy = yx \implies xyx^{-1} = yxx^{-1} = y \implies x^{-1}xyx^{-1} = x^{-1}y  \implies yx^{-1} = x^{-1} =y 
+          $$
+
+          Ainsi on deduit que $C(G)$ est sous groupe de $G$.
+      \end{enumerate}
+      \begin{enumerate}
+        \item  Puisque $H$ est un sous groupe, on a $e\in H$ ainsi 
+          $$
+          aea^{-1} = e \in aHa^{-1}
+          $$
+        \item Soient $x = ah_1a^{-1}$ et $y = a h_2 a^{-1}$ deux elements de $aHa^{-1}$ avec $h_1, h_2 \in H$.
+          $$
+          xy = ah_1a^{-1}ah_2 a^{-1} = a\underbrace{h_1h_2}_{\in H}a^{-1} \in aHa^{-1}
+          $$
+        \item Soit $x = aha^{-1}$ pour $y = ah^{-1}a^{-1}$ on a
+          $$
+          xy = aha^{-1}ah^{-1}a^{-1} = ahh^{-1}a^{-1} = aa^{-1} = e
+          $$
+        \nt{Puisque $H$ est un sous groupe, $h^{-1}$ existe et forcement dans $H$}
+      \end{enumerate}
+  \end{enumerate}
+\end{myproof}
+%}}}
+%{{{ Execice 7
+\section{Exercice 7} % (fold)
+\qs{Union de sous groupes}
+{
+Soit $G$ un groupe et $H$ et $K$ deux sous groupes de $G$. Démontrer que $H\cup
+K$ est un sous groupe de $G$ si et seulement si $H\subset K$ ou $K\subset H$.
+}
+\begin{myproof}
+On demontre les deux implications:
+
+\begin{enumerate}
+  \item Si $H \subset K$ alors $H\cup K = K$ qui est un sous-groupe de $G$.\\
+    De meme, si $K \subset H$, $H\cup K = H$ qui est un sous groupe de $G$.
+  \item Supposons maintenant que $H\cup K$ est un sous groupe de $G$ et ni $H \subset K$ ni $K \subset H$.\\
+    alors on peut trouver 
+    $$
+    \begin{cases}
+      x \in &H\backslash K\\
+      y \in &K\backslash H\\
+    \end{cases}
+    $$
+    Maintenant on utilise la fait que $H\cup K$ est un sous groupe, comme $x \in H \cup K$ et $y \in H \cup K$. on aura forcement que 
+    $$
+    xy \in H \cup K
+    $$
+    Sans perte de generalite \footnote{Dans le cas inverse $xy \in K$, on change $H$ par $K$ en gardant la meme demonstration}
+    on suppose que $xy \in H$. alors on aura que
+    $$
+    \underbrace{x^{-1}(xy)}_{ = y} \in H
+    $$
+    Ce qui constitue une contradtion car $y \not \in H$.
+
+\end{enumerate}
+\end{myproof}
+
+% section section name (end)
+
+
+%}}}
+
+%{{{ Exercice 8
+\section{Exercice 8}
+\qs{}{
+Montrer que $H = \left\{x+ \sqrt{3}y\;|\; x\in\Nn, y\in\Zz\;,\; x^2 -3y^2=1
+\right\}$ est un sous groupe de $\left(\Rr_+^{*},\times)\right)$.
+}
+\begin{myproof}
+  La premiere chose a remarquer est que $H \subset \Rr_+^{*}$. Car si $x + y\sqrt{3} \in H$ on as alors 
+  $$
+  x^2 - 3 y^2 > 0 
+  $$
+  puisque $x\in \Nn$ on a $x > \sqrt{3}\vert y\vert$ et donc $x + y \sqrt{3} > 0$.\\
+
+  on a aussi que $1 = 1 + 0\sqrt{3} \in H$. On montre maintenant la multiplication est une loi interne dans $H$. Soient alors $a = x + y\sqrt{3}$ et $b = u + v\sqrt{3}$ deux elements dans $H$. Alors:
+
+  $$
+  ( x + y\sqrt{3})(u + v\sqrt{3}) = (xu + 3yv) + \sqrt{3}( xv + yu)
+  $$
+
+  On remarque ensuite que:
+
+  \begin{eqnarray*}
+    (xu + 3yv)^2 - 3(xv + yu)^2 &=& x^2u^2 + 9y^2v^2 - 3xx^2v^2 - 3y^2u^2\\
+                                &=& x\left(u^2 -3v^2\right) + 3y^2(3v^2 - u^2)\\
+                                &=& x^2 - 3y^2\\
+                                &=& 1.
+  \end{eqnarray*}
+
+  Il nous reste a verifier que $xu + 3yv$  est un element de $\Nn$. Ceci provient du fait que $x \geq \sqrt{3}\vert y \vert $ et $u \geq \sqrt{3}\vert v \vert$.
+  Ainsi 
+  $$
+  ab \in H
+  $$
+
+  On demontre maitenant que l'inverse de chaque element est dans $H$.
+
+$$
+\dfrac{1}{a} = \dfrac{1}{x + y\sqrt{3}} = \dfrac{x - y\sqrt{3}}{x^2 - 3 y^2} = x - y\sqrt{3} \in H
+$$
+Ainsi H est bien un sous groupe de $(\Rr_+^{*}, \times)$.
+\end{myproof}
+%}}}
+
+%{{{
+\section{Exercice 9}
+\qs{Produit de deux sous groupes}
+{
+Soit $\left(G, .\right)$ un groupe fini et $A,B$ deux sous groupes de $G$. On
+note
+\begin{equation*}
+  AB = \{a.b\;|\; a\in A, b\in B\}.
+\end{equation*}
+
+\begin{enumerate}
+  \item Montrer  que $AB$ est un sous groupe de $G$ si et seulement si $AB =
+    BA$.
+\end{enumerate}
+}
+\begin{myproof}
+  Supposons d'abord que $AB = BA$. Alors $AB$ est un sous groupe de $G$ car:
+
+  \begin{enumerate}
+    \item $e \in AB$ car $e= ee$ avec $e \in A$ et $e \in B$.
+    \item $AB$ est stable par la loi interne. En effet soit $x=ab \in AB$ et $y = uv \in AB$ alors 
+      $$
+      xy = abuv
+      $$
+  On sait que $bu \in AB = BA$. ainsi on conclut qu'il existe $a_1 \in A$ et $b_1 \in B$ tel que
+  $$
+  bu = a_1 b_1
+  $$
+  on remplace $bu$ et on trouve que:
+  $$
+  xy = \underbrace{aa_1}_{\in A} \underbrace{b_1b}_{\in B}
+  $$
+  Ainsi $xy \in AB$.
+
+\item $AB$ est stable par passage a l'inverse:
+  $$
+  x = ab \in AB \implies x^{-1} = b^{-1}a^{-1} = a^{'}b^{'}\in AB.
+  $$
+  \end{enumerate}
+  Reciproquement, supposong que $AB$ est un sous groupe de $G$, et prouvons que $AB = BA$.\\
+
+  Soit d'abord $x = ab \in AB$. Alors $x^{-1} = b^{-1}a^{-1} \in AB$.
+
+  Puisque $AB = BA$. on alors l'existence de $a_1\in A$ et $b_1 \in B$ tel que 
+  $$
+  x^{-1} = a_1 b_1 \implies x = b^{-1} a_1{-1} \in BA
+  $$
+
+  On procede la meme facon pour l'autre inclusion.
+
+\end{myproof}
+%}}}
 \end{document}
