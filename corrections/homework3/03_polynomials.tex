@@ -1,0 +1,224 @@
+\documentclass{report}
+\usepackage{pgfplots}
+\usepackage{booktabs}
+\usepackage{polynom}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+
+\title{\Huge{Travaux dirigées}\\ Polynômes}
+\author{\huge{A.Belcaid}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+% \newpage% or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+\pagebreak
+\newcommand{\Rr}{\mathbb{R}};
+\chapter{}
+
+%{{{ Exercice 1
+\section{Exercice 1} % (fold)
+\label{sec:Exercice 1}
+\qs{Division Euclidienne}{
+Pour les trois cas listés, calculer la division euclidienne de $P$ par
+$Q$.
+
+\begin{enumerate}
+  \item $P=X^4 + 5X^3 + 12X^2 + 19X - 7$ et $Q=X^2 + 3X-1$.
+  \item $P=X^4-4X^3-9X^2+27X+38$ et $Q=X^2-X-7$.
+  \item $P=X^5-X^2+2$ et $Q = X^2 +1$.
+\end{enumerate}
+}
+
+\begin{myproof}
+
+\begin{enumerate}
+  \item Pour le premier cas on obtient:
+
+    $$
+    \polylongdiv[style=D]{X^4 + 5X^3 + 12X^2 + 19X - 7}{ X^2 + 3X-1}
+    $$
+
+  \item Pour le deuxième cas:
+    $$
+    \polylongdiv[style=D]{X^4-4X^3-9X^2+27X+38}{X^2-X-7}
+    $$
+
+  \item Finalement pour le troisième cas:
+
+    $$
+    \polylongdiv[style=D]{X^5-X^2+2}{X^2 +1}
+    $$
+\end{enumerate}
+
+\end{myproof}
+
+% section section name (end)
+%}}}
+
+%{{{ Exercice 2
+\section{Exercice 2} % (fold)
+\label{sec:Execice 2}
+\qs{Expression du reste}
+{
+
+Soit $P\in \Rr[X]$, $a,b\in \Rr$, $a\neq b$. Sachant que le reste de la
+division euclidienne de $P$ par $(X-a)$ vaut $1$ et que celui de $P$ par
+$(X-b)$ vaut $-1$.
+
+\begin{enumerate}
+  \item Évaluer l'image $P(a)$ et $P(b)$?
+  \item On note $R\in \Rr[X]$ le reste de la division euclidienne de $P$ par
+    $(X-a)(X-b)$. Quel  sera le degré de $R$?
+  \item En déduire l'expression de $R$.
+\end{enumerate}
+}
+
+\begin{myproof}
+  \begin{enumerate}
+    \item 
+  On sait que $$P(X)=(X-a)Q_1(x) + 1$$
+  Ceci implique que 
+  $$
+  P(a) = 1
+  $$
+
+  De meme on obtient que 
+  $$
+  P(b) = -1
+  $$
+\item Puisque le cardinal de $(X-a)(x-b)$ est $2$ le reste $R$ doit être au plus de cardinal $1$.
+
+  $$
+  P(X) = (X-a)(X-b)Q(x) + \alpha X  + \beta
+  $$
+
+  On evalue cette expression en $a$ et en $b$, on trouve le systeme:
+
+  $$
+  \begin{cases}
+    \alpha a + \beta &= 1\\
+    \alpha b + \beta &= -1\\
+  \end{cases}
+  $$
+  La résolution de système nous donne:
+  $$
+  \alpha = \dfrac{2}{a-b} \text{ et } \beta = \dfrac{-a-b}{a-b}
+  $$
+  
+  Le reste recherché est donc
+  $$
+  \dfrac{2}{a-b}X + \dfrac{-a-b}{a-b}
+  $$
+
+
+  \end{enumerate}
+\end{myproof}
+
+% section section name (end)
+%}}}
+
+%{{{ Exercice 3
+\newpage
+\section{Exercice 3} % (fold)
+\label{sec:Exercice 3}
+
+\qs{}
+{
+On se propose de déterminer l'ensemble
+
+\begin{equation*}
+  E = \left\{P\in \Rr[X]\;\; P(X^2)=(X^3+1)P(X)\right\} 
+\end{equation*}
+
+\begin{enumerate}
+  \item Démontrer que le polynôme nul ainsi\\  que le polynôme $X^3-1$ sont
+    dans $E$.\\[4pt]
+  \item Soit $P\in E$, non nul.
+    \begin{enumerate}
+      \small
+    \item Démontrer que $P(1)=0$ puis que $P^{'}(0)=P^{''}(0)=0$.
+    \item En effectuant la division euclidienne de $P$ par
+      $X^3-1$, démontrer qu'il existe $\lambda\in \Rr$ tel que
+      $$
+      P(X) = \lambda (X^3-1)
+      $$
+    \end{enumerate}
+  \item En déduire l'ensemble $E$.
+\end{enumerate}
+}
+\begin{myproof}
+  \begin{enumerate}
+    \item On demontre que le polynôme nul et $X^3-1$ sont dans $E$..
+      \begin{itemize}
+        \item On a 
+          $$ 0(X^2) = 0 = (X^3+1)0(X) $$ donc le polynome nul est dans $E$.
+        \item Soit $P_1 = X^3 - 1$, on as:
+          $$
+          P_1(X^2) = X^6 - 1
+          $$
+          et 
+          $$
+          (X^3+1)P_1(X) = (X^3+1)(X^3-1) = X^6 - 1
+          $$
+          Ainsi on as aussi que $P_1$ est dans $E$.
+      \end{itemize}
+    \item On considere alors $P\in E$. selon la definition on aura:
+      $$
+      P(1) = (1 + 1) P(1)
+      $$
+      ce qui implique que 
+      $$
+      P(1) = 0
+      $$
+      On dérive la relation de l'équation on obtient:
+
+      $$
+      2P^{'}(X^2) = 3X^2P(X) + (X^3+1)P^{'}(X)
+      $$
+      ce qui prouve que $P^{'}(0)= 0$.
+
+      On dérive on deuxième fois:
+
+      $$
+      4P^{''}(X^2) = 6XP(X) + 3X^2P^{''}(X) + 3X^2P^{'}(X) + (X^3+1)P^{''}(X)
+      $$
+
+      on injecte $0$ dans cette équation on trouve que:
+      $$
+      P^{''}(0) = 0
+      $$
+    \item Une analyse de dégrée de $P$ selon l'équation vérifiée implique que :
+      $$
+      2deg(P) = 3  + deg(P)
+      $$
+      Ce qui implique que 
+      $$
+      deg(P) = 3
+      $$
+      Ainsi l'expression de la division euclidienne d'un tel polynome par $X^3-1$ donnera :
+
+      $$
+      P = \lambda (X^3 - 1) + \beta\quad \lambda,\beta \in \Rr
+      $$
+
+      Sachant que $P(1) = 0$ on trouve forcement que $\beta =0$.
+      Ainsi
+
+      $$
+      P = \lambda (X^3-1)
+      $$
+
+  \end{enumerate}
+\end{myproof}
+% section section name (end)
+%}}}
+
+\end{document}
