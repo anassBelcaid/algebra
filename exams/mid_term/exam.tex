@@ -1,0 +1,100 @@
+\documentclass[palatino,code]{ensaexam}
+\usepackage{amsfonts}
+\usepackage[french]{babel}
+\begin{document}
+\ModuleName{Algèbre I}
+\ExamCode{Cycle Préparatoire}
+\ExamPeriod{Spring 2022}
+\TimeAllowed{90}
+\Logo{
+\begin{center}
+  \includegraphics[width=3cm, height=3cm]{ENSA-SAFI.png}
+\end{center}
+}
+\Instructions{
+  \begin{itemize}
+    \item Vous avez {\bf\TheTimeAllowed\; minutes}. 
+    \item Vérifier que vous disposez de toutes les pages. 
+    \item L'échange d'outils est strictement \textbf{interdit}.
+  \end{itemize}
+  
+}
+\MakeHeading
+ \pointsinrightmargin
+ \boxedpoints
+\vspace*{1cm}
+
+%% For questions use the command 
+%% \begin{questions} 
+%% \questoin[grade]
+%% \end{questions}
+
+
+
+ \begin{questions}
+
+   %{{{ Question 1
+  \titledquestion{Ensembles}
+  Soient $A$, $B$ et $C$ des sous-ensembles de $E$, montrer les affirmations suivantes:
+
+  \begin{parts}
+    \part[2] 
+    $$ A \cup B \cup C = (A\backslash B)\cup (B \backslash C)\cup (C \backslash A)\cup (A\cup B \cup C)
+    $$
+    \part[3] Si $A\cup B \subset A \cup C$ et $A\cap B \subset A\cap C$ alors $B \subset C$.\\
+    Que peut on dire sur l'implication inverse?
+  \end{parts}
+  \vspace*{0.5cm}
+  %}}}
+
+   %{{{ Question 2
+  \titledquestion{Applications}
+  Soit $E$ un ensemble et $\mathcal{P}(E)$  l'ensemble de ces parties. On considère l'application  $ f \; \mathcal{P}(E)\longrightarrow \mathbb{R}$ telle que pour toutes parties disjoints de $E$, on ait
+  $$
+  f(A \cup B ) = f(A) + f(B)
+  $$
+  \begin{parts}
+    \part[2] Démontrer que $f(\emptyset) = 0$
+    \part[3] Monter que pour toutes parties $A$ et $B$ de $E$ on  a:
+    $$
+    f(A\cup B ) - f(A\cap B) = f(A)  + f(B)
+    $$
+  \end{parts}
+  \vspace*{0.5cm}
+  %}}}
+
+   %{{{ Question 3
+  \titledquestion{Relations}
+  Soit $\mathcal{R}$ la relation définie sur $\mathbb{R}$ par:
+  $$
+  \forall x, y \in \mathbb{R}, \quad x \mathcal{R} y\; \iff x^4 - x^2 = y^4 - y^2
+  $$
+  \begin{parts}
+    \part[2] Démontrer qu'il s'agit d'une relation d'équivalence.
+    \part[2] Déterminer la classe d'équivalence de $0$ puis en déduire celle de $1$.
+    \part[2] Calculer la classe d'équivalence d'un élément quelconque $a\in \mathbb{R} $.
+  \end{parts}
+  \vspace*{0.5cm}
+  %}}}
+
+   %{{{ Question 4
+  \titledquestion{Groupes}
+  \begin{parts}
+    \part[2] On munit $\mathbb{R}$ de la loi de composition interne $*$ définie par:
+    $$
+    \forall x, y \in \mathbb{R}\quad x*y = xy + (x^2 -1)(y^2 -1)
+    $$
+    Montrer que $*$ est commutative, non associative, et que $1$ est un élément neutre.
+    \part[2] On munit $\mathbb{R}^{*+}$ de la loi de composition interne $*$ définie par:
+    $$
+    \forall x, y \in \mathbb{R}^{*+}\quad x*y = \sqrt{x^2 + y^2}
+    $$
+    Montrer que $*$ est commutative, associative, que $0$ est un élément neutre. Montrer qu'aucun élément de $\mathbb{R}^{*+}$ n'admet de symétrique pour $*$.
+\end{parts}
+  %}}}
+
+ \end{questions}
+ 
+ 
+\end{document}
+
