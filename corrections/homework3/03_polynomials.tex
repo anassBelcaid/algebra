@@ -221,4 +221,242 @@ On se propose de déterminer l'ensemble
 % section section name (end)
 %}}}
 
+%{{{ Exercice 4
+\section{Exercice 4} % (fold)
+\label{sec:Exercice 4}
+\qs{Calcul PGCD}{
+Pour chaque cas, déterminer le \textbf{PGCD} entre $P$ et $Q$.
+
+\begin{enumerate}
+  \item $P=X^4-3X^3 + X^2 + 4$ et $Q=X^3-3X^2+3X-2$.
+  \item $P=X^5-X^4+2X^3-2X^2+2X-1$ et $Q=X^5-X^4+2X^2-2X+1$.
+  \item $P=X^n -1$ et $Q=(X-1)^n$.
+\end{enumerate}
+}
+
+\begin{myproof}
+  pour chaque cas on as:
+  \begin{enumerate}
+    \item 
+      $$
+      \polylonggcd{X^4-3X^3 + X^2 + 4}{X^3-3X^2+3X-2}
+      $$
+      Ce qui donne que le PGCD est :
+
+      $$
+      X - 2
+      $$
+    \item 
+      $$
+      \polylonggcd{X^5-X^4+2X^3-2X^2+2X-1}{X^5-X^4+2X^2-2X+1}
+      $$
+      Ainsi le PGCD est
+      $$
+      X^2 - X + 1
+      $$
+    \item 
+
+      On as 
+      $$
+      (X^n - 1) = (X - 1)\sum_{i=0}^{n-1}X^i
+      $$
+      Ainsi le seul facteur commun entre ces deux polynomes est:
+
+      $$
+      (X - 1)
+      $$
+  \end{enumerate}
+
+\end{myproof}
+
+% section section name (end)
+%}}}
+
+%{{{ Exercice 5
+\qs{Formule de Bezout}{
+Trouver deux polynômes $U$ et $V$ de $\Rr[X]$ tel que 
+$$
+AU + BV = 1
+$$
+
+où $A = X^7-X-1$ et $B=X^5-1$.
+
+}
+\begin{myproof}
+  On utilise l'algorithme d'Euclide. On a
+
+  $$
+  \polylonggcd{X^7-X -1}{X^5-1}
+  $$
+  On remonte ensuite les calculs. On va partir plutot de 
+  $$
+  11 = -25(X^2 - X - 1) + (5X-7)(5X+2)
+  $$
+  Pour eviter de trainer des fractions. On trouve successivement:
+
+  \begin{eqnarray*}
+    11 &= & -25(X^2 - X - 1) + (5X - 7)\left((X^5-1) - (X^2-X-1)(X^3+X^2+2X+3)\right)\\[4pt]
+       & =& \left(-5X^4 + 2X^3 - 3X^2-X -4\right)\left(X^2-X-1\right) + \left(5X -7\right)\left(X^5-1\right)\\[4pt]
+       &=&(-5X^4 + 2X^3 - 3X^2 -X -4)(X^7-X-1) + (5X^6-2X^5+3X^4+X^3+4X^2+5X-7)(X^5-1)
+  \end{eqnarray*}
+  Finalement il suffit de diviser par $11$ pour trouver $U$ et $V$.
+\end{myproof}
+%}}}
+
+
+%{{{ Exercice 6
+\section{Exercice 6} % (fold)
+\label{sec:Exercice 6}
+
+% section section name (end)
+\qs{}
+{
+
+  Soient $P$ et $Q$ des polynômes de $\mathbb{C}[X]$ non constants. Montrer  que
+l'équivalence entre:
+
+\begin{enumerate}
+  \item $P$ et $Q$ ont un facteur commun.
+  \item il existe $A,B\in \mathbb{C}[X]$, $A\neq0$, $B\neq 0$, tel que
+    $$
+    AP = BQ
+    $$
+  et $\text{deg}(A)< \text{deg}(Q),\quad \text{deg}(B)<\text{deg}(P)$ 
+\end{enumerate}
+}
+
+\begin{myproof}
+  On commence par la premiere implication
+  \begin{enumerate}
+    \item On suppose que $P$ et $Q$ ont un facteur commun $D$. On factorise alors 
+      $$
+      \left\{\begin{array}{lll}
+          P&=&DB\\[4pt]
+          Q&=&DA
+        \end{array}
+      \right.
+      $$
+      Ce qui implique que:
+      $$
+      AP = ADB = BDA = BQ
+      $$
+    \item Pour la reciproque, On suppose que $P$ et $Q$ sont premiers entre eux
+      $$
+      P \wedge Q = 1 \quad \text{ et } AP = BQ
+      $$
+      alors 
+      $$
+      P | BQ
+      $$
+      et par le theoreme de Gauss on aura
+      $$
+      P | B
+      $$
+      Ce qui est absurde.
+  \end{enumerate}
+\end{myproof}
+%}}}
+
+%{{{ Exercice 7
+\section{Exercice 7} % (fold)
+\label{sec:Exercice 7}
+
+% section section name (end)
+\qs{Racines}
+{
+Quel est pour $n\geq 1$ l'ordre de multiplicité de $2$ du polynôme:
+
+$$
+P_n(X)= n X^{n+2}-(4n+1)X^{n+1}+4(n+1)X^n-4X^{n-1}
+$$
+}
+\begin{myproof}
+  On verifie d'abord que $P_n(2)= 0$ et donc $2$ est une racine de $P_n$.\\
+
+  On calcule maintenant la derivee 
+  $$
+  P^{'}_n(X) = n(n+2)X^{n+1} - (4n+1)(n+1)X^n + 4n(n+1)X^{n-1} - 4(n-1)X^{n-2}
+  $$
+  si $n=1$, le dernier terme est interprete comme le polynome nul. En particulier, on a:
+
+  \begin{eqnarray}
+    P^{'}_n(2)&=& n(n+2)2^{n+1} - (4n+1)(n+1)2^n + 4n(n+1)2^{n-1} -4(n-1)2^{n-2}\\[4pt]
+              &=& 2^{n-2}\left(8n(n+2) -4(4n+1)(n+1) + 8n(n+1) - 4(n-1)\right)\\[4pt]
+              &=&0
+  \end{eqnarray}
+  On derive une fois encore
+  $$
+  P^{''}_n(X) = n(n+1)(n+2)X^n -(4n+1)n(n+1)X^{n-1} + 4n(n+1)(n-1)X^{n-2} 4(n-1)(n-2)X^{n-3}
+  $$
+  d'ou l'on tire 
+  $$
+  P^{''}_n(2) = 2^{n-3}\left(8n(n+1)(n+2) - 4(4n+1)n(n+1)+ 8n(n+1)(n-1) -4(n-1)(n-2)\right)
+  $$
+  $$
+P^{''}_n(2) = 2^n(2n-1)
+  $$
+  Puisque $2n-1$ ne s'anulle pas quand n est un entier, on as 
+
+  $$
+  P_n(2) = P^{'}_n(2) = 0
+  $$
+  et 
+  $$
+  P^{''}_n(2) \ne 0.
+  $$
+
+  Aini $2$ est une racine de multiplicite $2$.
+\end{myproof}
+%}}}
+
+%{{{ 
+\newpage
+\section{Exercie 8} % (fold)
+\label{sec:Exercie 8}
+
+% section section name (end)
+\qs{}
+{
+  Soit $P(X)=a_nX^n+\ldots+a_0$ un polynôme dans $\mathbb{Z}[X]$. On suppose aussi
+que $P$ admet une racine rationnelle $r=\frac{p}{q}$ tel que $p\wedge q
+=1$.
+\begin{enumerate}
+  \item Développer que la forme $P(r)=0$.
+  \item Démontrer que $p\;|\; a_0$.
+  \item Prouver que $q\;|\; a_n$
+  \item En déduire que $P=X^5 - X^2+1$ n'admet pas de racines dans
+    $\mathbb{Q}$.
+\end{enumerate}
+}
+\begin{myproof}
+  \begin{enumerate}
+    \item 
+      \begin{eqnarray*}
+        P\left(\dfrac{p}{q}\right) &=& 0\\[4pt]
+        a_np^n + a_{n-1}p^{n-1}q+\ldots+a_1pq^{n-1} + a_0q^n&=& 0
+      \end{eqnarray*}
+      On commence par isoler $a_0q^n$ et on trouve que:
+      $$
+      p\left(a_n p^{n-1} + a_{n-1}p^{n-2}q + \ldots + a_1q^{n-1}\right) = -a_0q^n
+      $$
+      Puisque $p \wedge q = 1 $, on aura $p | a_0q^n$.\\
+
+      On isole aussi $a_np^n$, on trouve que:
+      $$
+      q\left(a_{n-1}p^{n-1} + \ldots+ a_0q^{n-1}\right) = -a_np^n
+      $$
+      De meme analyse, on conclut que 
+      $$
+      q | a_np^n \quad \text { puisque } p \wedge q = 1
+      $$
+      Par consequent, si le polynome $X^5 - X^2 +1$ admet une racine rationnelle $p/q$, alors $p|1$ et $q|1$. Ainsi
+      $$
+      \vert p \vert = 1 \quad \text{ et } \vert q \vert = 1
+      $$
+      Ainsi les seuls racines possibles sont $-1$ et $1$. Or, elles ne sont pas des racines de $P$ 
+      Ainsi $P$ n'admet pas de racines rationnelle.
+  \end{enumerate}
+\end{myproof}
+%}}}
+
 \end{document}
