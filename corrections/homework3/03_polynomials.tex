@@ -459,4 +459,239 @@ que $P$ admet une racine rationnelle $r=\frac{p}{q}$ tel que $p\wedge q
 \end{myproof}
 %}}}
 
+%{{{Exercice 9
+\section{Exercice 9}
+\newcommand{\Cc}{\mathbb{C}}
+% \newcommand{\Rr}{\mathbb{R}}
+\qs{}
+{
+\begin{enumerate}
+  \item Le polynôme $P(X) = X^4 + X^2 + 1$ est il irréductible  dans $\Rr[X]$?
+dans $\Cc[X]$?
+\item La relation $P\mathcal{R} Q \iff P\; \text{divise}\; Q$  est-elle une
+relation d'ordre?
+\end{enumerate}
+}
+\begin{myproof}
+  On sait que les seuls polynômes \textbf{irréductibles} dans $\Rr[X]$
+  \begin{itemize}
+    \item Les polynômes de degré 1.
+    \item Les polynômes de degré 2 avec un déterminant négatif.
+  \end{itemize}
+  et dans $\Cc[X]$ les polynômes de degré $1$.\\
+
+  Ainsi le polynôme $X^4 + X^2 + 1$ ni irréductible ni dans $\Rr[X]$ ni dans $\Cc[X]$.
+
+
+\end{myproof}
+%}}}
+
+%{{{
+\section{Exercice 10}
+\qs{}{
+
+Pour chaque polynôme, donner la décomposition en facteurs irréductibles dans
+$\Rr[X]$
+
+\begin{enumerate}
+  \item $P_1(X) = X^4 + 1$
+  \item $P_2(X) = X^8 - 1$
+  \item $P_3(X) = \left(X^2 - X+1\right)^2+1$
+\end{enumerate}
+
+}
+\begin{myproof}
+  Voici la décomposition  de chaque polynôme:
+
+  \begin{enumerate}
+    \item Pour le premier exemple, on résout  l'équation classique
+      $$
+      X^4 = -1
+      $$
+      Ça nous donne que 
+
+      $$
+      X^4 + 1 = (X-e^{\frac{i\pi}{4}})(X-e^{\frac{3i\pi}{4}})(X-e^{\frac{5i\pi}{4}})(X-e^{\frac{7i\pi}{4}})
+      $$
+
+      on regroupe les termes \textbf{conjugués} on trouve que
+
+      $$
+      X^4 + 1 =(X-e^{\frac{i\pi}{4}})(X-e^{\frac{7i\pi}{4}}) (X-e^{\frac{5i\pi}{4}})(X-e^{\frac{5i\pi}{4}})
+      $$ $$ X^4 + 1 = (X^2 - \sqrt{2}X + 1)(X^2 + \sqrt{2}X +1)
+      $$
+      Les deux sont de degré deux et de déterminant négatifs. Ainsi ils sont irréductibles dans $\Rr[X]$.
+    \item Pour le deuxième exemple on trouve que
+      \begin{eqnarray*}
+        X^8 - 1 &=& (X^4 - 1)(X^4 + 1 )\\
+         &=& (X^2 - 1)(X^2 + 1)(X^4 + 1)\\
+         &=& (X-1)(X+1)(X^2+1)(X^4 +1)
+    \end{eqnarray*}
+    Pour $X^4 + 1$ on utilise le même processus que la question $1$ et on trouve:
+    $$
+    X^8 - 1 = (X-1)(X+1)(X^2+1)(X^2 - \sqrt{2}X + 1)(X^2 + \sqrt{2}X +1)
+    $$
+  \item Pour le polynôme final
+    $$
+    (X^2 - X + 1)^2 + 1 = (X^2 - X + 1 -i)(X^2 - X + 1 + i)
+    $$
+    On factorise chaque polynôme de degré $2$ dans $\Cc$, on trouve que:
+
+    $$
+    (X^2 - X + 1)^2 + 1 = (X+i)(X-1-i)(X-i)(X-1+i)
+    $$
+    On regroupe les termes conjugués:
+
+    $$
+    (X^2 - X + 1)^2 + 1 = (X^2 + 1)(X^2-2X + 2)
+    $$
+  \end{enumerate}
+\end{myproof}
+%}}}
+
+%{{{ Exercice 11
+\section{Exercice 11} % (fold)
+\qs{}{
+
+
+Soit $P$ le polynôme définit par:
+
+$$
+P(X) = 2X^4 + X^2 -3
+$$
+\begin{enumerate}
+  \item 
+Décomposer $P$ en facteurs irréductibles dans $\Rr[X]$.
+\end{enumerate}
+
+}
+\begin{myproof}
+  Il s'agit d'un  polynôme spécial \textbf{bicarré} qui s'écrit sous la forme:
+
+  $$
+  P(X) = Q(X^2) \quad \text{ ou } Q(X) = X^2 + X - 3
+  $$
+
+  On commence alors par la décomposition de $Q$
+
+  $$
+  Q(X) = 2(X-1)(x + \frac{3}{2})
+  $$
+
+  On en déduit alors que 
+  $$
+  P(X) = 2(X^2- 1)(X^2 + \frac{3}{2}) = 2(X-1)(X+1)(X^2 + \frac{3}{2})
+  $$
+\end{myproof}
+% section section name (end)
+%}}}
+
+%{{{ Exercice 12
+\section{Exercice 12} % (fold)
+
+\qs{}
+{
+
+Soit le polynôme $P(X) = X^4-6X^3+9X^2+9$.
+
+\begin{enumerate}
+  \item Décomposer $X^4-6X^3+9X^2$ en produit de facteurs irréductibles dans
+    $\Rr[X]$.
+  \item En déduire une décomposition de $P$ dans $\Rr[X]$.
+
+  \item Même question pour $\Cc[X]$.
+\end{enumerate}
+
+}
+\begin{myproof}
+  \begin{enumerate}
+\item
+  On écrit simplement
+  $$
+  X^4 - 6X^3 + 9X^2 + 9 = X^2(X^2-6X+9) = X^2 (X-3)^2
+  $$
+
+\item L'astuce pour obtenir une identité remarquable est de considèrera que $9 = -(3i)^2$. Avec ceci on trouve que 
+
+  \begin{eqnarray*}
+    X^4-6X^3+9X^2 + 9 &=& \left(X(X-3)\right)^2 - (3i)^2\\
+                      &=& (X(X-3) - 3i)(X(X-3) + 3i)\\
+                      &=& (X^2 - 3X -3i)(X^2-3X+3i)
+  \end{eqnarray*}
+  Pour finalisme la décomposition il suffit de calculer le discriminant de chaque polynôme pour obtenir les racines.
+\item  Dans $\Cc[X]$ la décomposition s'écrit comme
+  $$
+  P(X) = (X-\alpha_1)(X-\alpha_2)(X - \beta_1)(X- \beta_2)
+  $$
+  Ou $\alpha_1, \alpha_2, \beta_1$ et $\beta_2$ sont les racines calculées dans la question précédente.
+\end{enumerate}
+\end{myproof}
+% section section name (end)
+
+%}}}
+%{{{ Exercice 13
+\qs{Factorisation simultanée}{
+
+On considère les deux polynômes suivants:
+
+\begin{itemize}
+  \item $P(X) = X^3 - 9X^2 + 26X -24$
+  \item $Q(X) = X^3 - 7X^2 + 7X + 15$.
+\end{itemize}
+\begin{enumerate}
+  \item Sachant que $P$ et $Q$ admettent une racine \textbf{commune} $a$,
+    Quelle est la relation entre $(X-a)$ et $\text{pgcd}(P,Q)$?
+  \item En appliquant l'algorithme d'Euclide, montrer  que le \textbf{pgcd} de $P$
+    et $Q$ est $X-3$?
+  
+
+  \item Calculer le polynôme $P_1$ tel que
+    $$ P = (X-3)P_1$$
+
+  \item Même question pour $Q_1$ tel que:
+
+    $$Q = (X-3)Q_1$$.
+
+  \item En déduire une décomposition en facteurs\\ irréductibles dans
+    $\Rr[X]$ de $P$ et $Q$.
+\end{enumerate}
+}
+\begin{myproof}
+
+  Si $a$ possède une racine commune  $a$, alors le polynome $(X-1)$ divise le \textbf{PGCD}(P, Q). Ainsi on calcul le pgcd de ces deux polynômes
+
+$$
+\polylonggcd{X^3 - 9X^2 + 26X  - 24}{X^3 - 7X^2 + 7X + 15}
+$$
+
+On trouve que le pgcd est $(X-3)$ Ainsi la valeur de $a=3$.\\
+
+Maintenant qu'on as une racine commune on peut diminuer le degré de $P$ et de $Q$ en réalisant la division euclidienne.
+
+$$
+\polylongdiv[style=D]{X^3 - 9X^2 + 26 X -24}{X-3}
+$$
+Ainsi on as:
+
+$$
+P = (X-3)(X^2-6X+8) = (X-3)(X-2)(X-4)
+$$
+
+On reprend le meme processus pour $Q$
+
+$$
+\polylongdiv[style=D]{X^3-7X^2 + 7X + 15}{X-3}
+$$
+
+Ainsi 
+
+$$
+Q(X) = (X-3)(X^2-6X+8) = (X-3)(X-3)(X-5)
+$$
+
+
+
+\end{myproof}
+
+%}}}
 \end{document}
